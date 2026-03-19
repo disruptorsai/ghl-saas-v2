@@ -42,8 +42,8 @@ export default function Support() {
       <div className="mx-auto w-full max-w-[800px] flex flex-col h-full">
         {/* Header */}
         <div className="px-6 pt-6 pb-4">
-          <h1 className="text-2xl font-bold tracking-tight">Support</h1>
-          <p className="text-sm text-muted-foreground mt-1">
+          <h1 className="text-2xl font-bold tracking-tight text-white">Support</h1>
+          <p className="text-sm text-gray-400 mt-1">
             Ask questions about your setup
           </p>
         </div>
@@ -56,14 +56,14 @@ export default function Support() {
 
           {isTyping && (
             <div className="flex items-center gap-3">
-              <div className="flex-shrink-0 w-8 h-8 rounded-full bg-primary flex items-center justify-center">
-                <span className="text-[10px] font-bold text-primary-foreground">AI</span>
+              <div className="flex-shrink-0 w-9 h-9 rounded-full bg-gradient-to-br from-amber-500 to-yellow-600 flex items-center justify-center shadow-lg shadow-amber-500/20">
+                <span className="text-[10px] font-bold text-black">AI</span>
               </div>
-              <div className="bg-card rounded-lg px-4 py-3 border-l-[3px] border-l-primary">
-                <div className="flex items-center gap-1">
-                  <span className="w-1.5 h-1.5 rounded-full bg-muted-foreground typing-dot" />
-                  <span className="w-1.5 h-1.5 rounded-full bg-muted-foreground typing-dot" />
-                  <span className="w-1.5 h-1.5 rounded-full bg-muted-foreground typing-dot" />
+              <div className="bg-[hsl(222,14%,13%)] rounded-xl px-4 py-3 border border-amber-500/20 border-l-[3px] border-l-amber-500">
+                <div className="flex items-center gap-1.5">
+                  <span className="w-2 h-2 rounded-full bg-amber-500 typing-dot" />
+                  <span className="w-2 h-2 rounded-full bg-amber-500 typing-dot" />
+                  <span className="w-2 h-2 rounded-full bg-amber-500 typing-dot" />
                 </div>
               </div>
             </div>

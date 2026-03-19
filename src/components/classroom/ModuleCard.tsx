@@ -43,11 +43,9 @@ export function ModuleCard({ module }: ModuleCardProps) {
       className="group block rounded-xl bg-card border border-border hover:border-primary/50 cursor-pointer overflow-hidden card-hover"
     >
       {/* Thumbnail */}
-      <div
-        className={`relative aspect-video bg-gradient-to-br ${module.thumbnail} flex items-center justify-center`}
-      >
-        <Icon className="h-12 w-12 text-white/80 drop-shadow-lg" />
-        <span className="absolute top-3 left-3 flex h-7 w-7 items-center justify-center rounded-full bg-black/50 text-xs font-bold text-white backdrop-blur-sm">
+      <div className="relative aspect-video bg-[hsl(222,14%,11%)] flex items-center justify-center">
+        <Icon className="h-12 w-12 icon-gold-shine" />
+        <span className="absolute top-3 left-3 flex h-7 w-7 items-center justify-center rounded-full bg-[#BF953F]/10 border border-[#BF953F]/30 text-xs font-bold text-[#BF953F]">
           {module.order}
         </span>
       </div>
