@@ -21,7 +21,7 @@ export function TopNav() {
       </NavLink>
 
       {/* Center: Nav Tabs */}
-      <div className="flex items-center gap-1">
+      <div className="flex items-center gap-1 overflow-x-auto scrollbar-none">
         {navItems.map(item => (
           <NavLink
             key={item.to}

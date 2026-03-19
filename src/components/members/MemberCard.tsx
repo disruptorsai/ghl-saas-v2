@@ -16,7 +16,7 @@ function getInitials(name: string): string {
 
 export default function MemberCard({ member }: { member: Member }) {
   return (
-    <div className="bg-card border border-border rounded-xl p-6 flex flex-col items-center text-center hover:border-gold/40 hover:shadow-lg hover:shadow-gold/5 transition-all duration-200">
+    <div className="bg-card border border-border rounded-xl p-6 flex flex-col items-center text-center hover:border-gold/40 card-hover">
       <div className="relative mb-3">
         <div className="w-12 h-12 rounded-full overflow-hidden bg-gold/20 flex items-center justify-center">
           <img

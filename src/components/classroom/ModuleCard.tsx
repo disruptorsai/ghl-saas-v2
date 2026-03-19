@@ -40,7 +40,7 @@ export function ModuleCard({ module }: ModuleCardProps) {
   return (
     <Link
       to={`/classroom/${module.id}`}
-      className="group block rounded-xl bg-card border border-border hover:border-primary/50 transition-colors cursor-pointer overflow-hidden"
+      className="group block rounded-xl bg-card border border-border hover:border-primary/50 cursor-pointer overflow-hidden card-hover"
     >
       {/* Thumbnail */}
       <div
@@ -63,7 +63,7 @@ export function ModuleCard({ module }: ModuleCardProps) {
         <div className="space-y-1.5">
           <div className="h-1.5 rounded-full bg-secondary overflow-hidden">
             <div
-              className="h-full rounded-full bg-primary transition-all duration-500 ease-out"
+              className="h-full rounded-full bg-primary progress-bar-fill"
               style={{ width: `${percentage}%` }}
             />
           </div>

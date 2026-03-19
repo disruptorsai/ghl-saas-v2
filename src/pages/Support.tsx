@@ -61,9 +61,9 @@ export default function Support() {
               </div>
               <div className="bg-card rounded-lg px-4 py-3 border-l-[3px] border-l-primary">
                 <div className="flex items-center gap-1">
-                  <span className="w-1.5 h-1.5 rounded-full bg-muted-foreground animate-bounce [animation-delay:0ms]" />
-                  <span className="w-1.5 h-1.5 rounded-full bg-muted-foreground animate-bounce [animation-delay:150ms]" />
-                  <span className="w-1.5 h-1.5 rounded-full bg-muted-foreground animate-bounce [animation-delay:300ms]" />
+                  <span className="w-1.5 h-1.5 rounded-full bg-muted-foreground typing-dot" />
+                  <span className="w-1.5 h-1.5 rounded-full bg-muted-foreground typing-dot" />
+                  <span className="w-1.5 h-1.5 rounded-full bg-muted-foreground typing-dot" />
                 </div>
               </div>
             </div>

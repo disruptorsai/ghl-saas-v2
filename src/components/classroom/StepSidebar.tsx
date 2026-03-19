@@ -7,14 +7,15 @@ import { cn } from '@/lib/utils'
 interface StepSidebarProps {
   module: Module
   currentStepId: string
+  onStepClick?: () => void
 }
 
-export function StepSidebar({ module, currentStepId }: StepSidebarProps) {
+export function StepSidebar({ module, currentStepId, onStepClick }: StepSidebarProps) {
   const { isStepCompleted, getModuleProgress } = useProgress()
   const { completed, total, percentage } = getModuleProgress(module.id)
 
   return (
-    <aside className="w-[280px] shrink-0 bg-card border-r border-border h-[calc(100vh-4rem)] sticky top-16 overflow-y-auto hidden md:block">
+    <aside className="w-[280px] shrink-0 bg-card border-r border-border h-[calc(100vh-4rem)] sticky top-16 overflow-y-auto">
       {/* Module title & progress */}
       <div className="p-4 border-b border-border space-y-3">
         <h2 className="font-bold text-foreground text-sm leading-snug">
@@ -23,7 +24,7 @@ export function StepSidebar({ module, currentStepId }: StepSidebarProps) {
         <div className="space-y-1.5">
           <div className="h-1 rounded-full bg-secondary overflow-hidden">
             <div
-              className="h-full rounded-full bg-primary transition-all duration-500 ease-out"
+              className="h-full rounded-full bg-primary progress-bar-fill"
               style={{ width: `${percentage}%` }}
             />
           </div>
@@ -44,6 +45,7 @@ export function StepSidebar({ module, currentStepId }: StepSidebarProps) {
               <li key={step.id}>
                 <NavLink
                   to={`/classroom/${module.id}/${step.id}`}
+                  onClick={onStepClick}
                   className={cn(
                     'flex items-center gap-3 px-4 py-2.5 text-sm transition-colors',
                     isActive

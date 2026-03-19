@@ -1,5 +1,6 @@
+import { useState } from 'react'
 import { useParams, Navigate, Link, useNavigate } from 'react-router-dom'
-import { ArrowLeft, ChevronLeft, ChevronRight } from 'lucide-react'
+import { ArrowLeft, ChevronLeft, ChevronRight, Menu } from 'lucide-react'
 import { modules } from '@/data/modules'
 import { StepSidebar } from '@/components/classroom/StepSidebar'
 import { VideoPlayer } from '@/components/classroom/VideoPlayer'
@@ -7,6 +8,7 @@ import { StepInstructions } from '@/components/classroom/StepInstructions'
 import { MarkComplete } from '@/components/classroom/MarkComplete'
 import { Button } from '@/components/ui/button'
 import { Textarea } from '@/components/ui/textarea'
+import { Sheet, SheetContent, SheetTitle } from '@/components/ui/sheet'
 
 export default function ModuleDetail() {
   const { moduleId, stepId } = useParams<{
@@ -14,6 +16,7 @@ export default function ModuleDetail() {
     stepId: string
   }>()
   const navigate = useNavigate()
+  const [sidebarOpen, setSidebarOpen] = useState(false)
 
   const module = modules.find((m) => m.id === moduleId)
 
@@ -67,20 +70,41 @@ export default function ModuleDetail() {
 
   return (
     <div className="flex min-h-[calc(100vh-4rem)]">
-      {/* Left sidebar */}
-      <StepSidebar module={module} currentStepId={stepId} />
+      {/* Desktop sidebar — always visible */}
+      <div className="hidden md:block">
+        <StepSidebar module={module} currentStepId={stepId} />
+      </div>
+
+      {/* Mobile sidebar — sheet overlay */}
+      <Sheet open={sidebarOpen} onOpenChange={setSidebarOpen}>
+        <SheetContent side="left" className="w-[280px] p-0 md:hidden" showCloseButton={false}>
+          <SheetTitle className="sr-only">Module Steps</SheetTitle>
+          <StepSidebar module={module} currentStepId={stepId} onStepClick={() => setSidebarOpen(false)} />
+        </SheetContent>
+      </Sheet>
 
       {/* Main content */}
       <main className="flex-1 overflow-y-auto">
-        <div className="max-w-3xl mx-auto px-6 py-8 space-y-6">
-          {/* Back link */}
-          <Link
-            to="/classroom"
-            className="inline-flex items-center gap-1.5 text-sm text-muted-foreground hover:text-foreground transition-colors"
-          >
-            <ArrowLeft className="h-3.5 w-3.5" />
-            Back to Classroom
-          </Link>
+        <div className="max-w-3xl mx-auto px-4 sm:px-6 py-8 space-y-6">
+          {/* Back link + mobile menu button */}
+          <div className="flex items-center gap-3">
+            <Button
+              variant="ghost"
+              size="icon"
+              className="md:hidden shrink-0"
+              onClick={() => setSidebarOpen(true)}
+            >
+              <Menu className="h-5 w-5" />
+              <span className="sr-only">Open module menu</span>
+            </Button>
+            <Link
+              to="/classroom"
+              className="inline-flex items-center gap-1.5 text-sm text-muted-foreground hover:text-foreground transition-colors"
+            >
+              <ArrowLeft className="h-3.5 w-3.5" />
+              Back to Classroom
+            </Link>
+          </div>
 
           {/* Step title */}
           <h1 className="text-2xl font-bold text-foreground">
