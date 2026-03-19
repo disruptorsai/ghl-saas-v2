@@ -6,13 +6,15 @@ import { Toaster } from 'sonner'
 
 const Classroom = lazy(() => import('./pages/Classroom'))
 const ModuleDetail = lazy(() => import('./pages/ModuleDetail'))
+const Support = lazy(() => import('./pages/Support'))
+const Members = lazy(() => import('./pages/Members'))
+const About = lazy(() => import('./pages/About'))
+const Admin = lazy(() => import('./pages/Admin'))
 
-// Placeholder pages (will be replaced in later tasks)
-function PlaceholderPage({ title }: { title: string }) {
+function PageLoader() {
   return (
     <div className="p-8">
-      <h1 className="text-2xl font-bold text-foreground">{title}</h1>
-      <p className="text-muted-foreground mt-2">Coming soon...</p>
+      <Skeleton className="h-8 w-48" />
     </div>
   )
 }
@@ -24,41 +26,14 @@ export default function App() {
       <Routes>
         <Route element={<CommunityLayout />}>
           <Route path="/" element={<Navigate to="/classroom" replace />} />
-          <Route path="/support" element={<PlaceholderPage title="Support" />} />
-          <Route
-            path="/classroom"
-            element={
-              <Suspense
-                fallback={
-                  <div className="p-8">
-                    <Skeleton className="h-8 w-48" />
-                  </div>
-                }
-              >
-                <Classroom />
-              </Suspense>
-            }
-          />
-          <Route
-            path="/classroom/:moduleId"
-            element={
-              <Suspense fallback={<div className="p-8"><Skeleton className="h-8 w-48" /></div>}>
-                <ModuleDetail />
-              </Suspense>
-            }
-          />
-          <Route
-            path="/classroom/:moduleId/:stepId"
-            element={
-              <Suspense fallback={<div className="p-8"><Skeleton className="h-8 w-48" /></div>}>
-                <ModuleDetail />
-              </Suspense>
-            }
-          />
-          <Route path="/members" element={<PlaceholderPage title="Members" />} />
-          <Route path="/about" element={<PlaceholderPage title="About" />} />
+          <Route path="/support" element={<Suspense fallback={<PageLoader />}><Support /></Suspense>} />
+          <Route path="/classroom" element={<Suspense fallback={<PageLoader />}><Classroom /></Suspense>} />
+          <Route path="/classroom/:moduleId" element={<Suspense fallback={<PageLoader />}><ModuleDetail /></Suspense>} />
+          <Route path="/classroom/:moduleId/:stepId" element={<Suspense fallback={<PageLoader />}><ModuleDetail /></Suspense>} />
+          <Route path="/members" element={<Suspense fallback={<PageLoader />}><Members /></Suspense>} />
+          <Route path="/about" element={<Suspense fallback={<PageLoader />}><About /></Suspense>} />
         </Route>
-        <Route path="/admin" element={<PlaceholderPage title="Admin Dashboard" />} />
+        <Route path="/admin" element={<Suspense fallback={<PageLoader />}><Admin /></Suspense>} />
       </Routes>
     </>
   )
