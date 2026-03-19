@@ -1,6 +1,11 @@
+import { lazy, Suspense } from 'react'
 import { Routes, Route, Navigate } from 'react-router-dom'
 import { CommunityLayout } from './components/layout/CommunityLayout'
+import { Skeleton } from '@/components/ui/skeleton'
 import { Toaster } from 'sonner'
+
+const Classroom = lazy(() => import('./pages/Classroom'))
+const ModuleDetail = lazy(() => import('./pages/ModuleDetail'))
 
 // Placeholder pages (will be replaced in later tasks)
 function PlaceholderPage({ title }: { title: string }) {
@@ -20,9 +25,36 @@ export default function App() {
         <Route element={<CommunityLayout />}>
           <Route path="/" element={<Navigate to="/classroom" replace />} />
           <Route path="/support" element={<PlaceholderPage title="Support" />} />
-          <Route path="/classroom" element={<PlaceholderPage title="Classroom" />} />
-          <Route path="/classroom/:moduleId" element={<PlaceholderPage title="Module" />} />
-          <Route path="/classroom/:moduleId/:stepId" element={<PlaceholderPage title="Step" />} />
+          <Route
+            path="/classroom"
+            element={
+              <Suspense
+                fallback={
+                  <div className="p-8">
+                    <Skeleton className="h-8 w-48" />
+                  </div>
+                }
+              >
+                <Classroom />
+              </Suspense>
+            }
+          />
+          <Route
+            path="/classroom/:moduleId"
+            element={
+              <Suspense fallback={<div className="p-8"><Skeleton className="h-8 w-48" /></div>}>
+                <ModuleDetail />
+              </Suspense>
+            }
+          />
+          <Route
+            path="/classroom/:moduleId/:stepId"
+            element={
+              <Suspense fallback={<div className="p-8"><Skeleton className="h-8 w-48" /></div>}>
+                <ModuleDetail />
+              </Suspense>
+            }
+          />
           <Route path="/members" element={<PlaceholderPage title="Members" />} />
           <Route path="/about" element={<PlaceholderPage title="About" />} />
         </Route>
