@@ -1,0 +1,58 @@
+import type { AdminClient } from './types'
+
+export const adminClients: AdminClient[] = [
+  {
+    id: '1',
+    name: 'Dr. Sarah Chen',
+    company: 'Bright Smile Dental',
+    progress: 75,
+    currentModule: 'Lead Follow-up',
+    lastActive: '2026-03-19',
+    daysSinceSignup: 12,
+  },
+  {
+    id: '2',
+    name: 'Mike Torres',
+    company: 'Torres Plumbing',
+    progress: 40,
+    currentModule: 'Database Reactivation',
+    lastActive: '2026-03-18',
+    daysSinceSignup: 8,
+  },
+  {
+    id: '3',
+    name: 'Lisa Nakamura',
+    company: 'Summit Accounting',
+    progress: 90,
+    currentModule: 'Website Chatbot',
+    lastActive: '2026-03-19',
+    daysSinceSignup: 21,
+  },
+  {
+    id: '4',
+    name: 'David Ramirez',
+    company: 'Pinnacle Real Estate',
+    progress: 55,
+    currentModule: 'Appointment Reminders',
+    lastActive: '2026-03-17',
+    daysSinceSignup: 15,
+  },
+  {
+    id: '5',
+    name: 'Maria Gonzalez',
+    company: 'Serenity Day Spa',
+    progress: 20,
+    currentModule: 'API Keys & Software Setup',
+    lastActive: '2026-03-19',
+    daysSinceSignup: 3,
+  },
+  {
+    id: '6',
+    name: 'Jake Sullivan',
+    company: 'Spark Electric',
+    progress: 100,
+    currentModule: 'Prompt Playground',
+    lastActive: '2026-03-16',
+    daysSinceSignup: 30,
+  },
+]

@@ -198,3 +198,29 @@
   background-color: rgba(212, 175, 55, 0.99);
   color: #000000;
 }
+
+/* Skool-specific styles */
+.nav-tab-active {
+  position: relative;
+}
+
+.nav-tab-active::after {
+  content: '';
+  position: absolute;
+  bottom: -1px;
+  left: 8px;
+  right: 8px;
+  height: 2px;
+  background: linear-gradient(110deg, #BF953F 0%, #FCF6BA 50%, #BF953F 100%);
+  border-radius: 1px;
+}
+
+/* Smooth page transitions */
+main {
+  animation: fadeIn 0.2s ease-out;
+}
+
+@keyframes fadeIn {
+  from { opacity: 0; transform: translateY(4px); }
+  to { opacity: 1; transform: translateY(0); }
+}
