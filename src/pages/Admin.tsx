@@ -30,7 +30,7 @@ export default function Admin() {
         {/* Stats row */}
         <div className="grid grid-cols-1 gap-4 sm:grid-cols-3">
           {/* Total Clients */}
-          <div className="bg-card border border-border rounded-xl p-6 flex items-center gap-4">
+          <div className="bg-card border border-border border-t-2 border-t-blue-500 rounded-xl p-5 flex items-center gap-4">
             <div className="flex h-10 w-10 items-center justify-center rounded-lg bg-blue-500/10">
               <Users className="h-5 w-5 text-blue-500" />
             </div>
@@ -41,7 +41,7 @@ export default function Admin() {
           </div>
 
           {/* Average Progress */}
-          <div className="bg-card border border-border rounded-xl p-6 flex items-center gap-4">
+          <div className="bg-card border border-border border-t-2 border-t-green-500 rounded-xl p-5 flex items-center gap-4">
             <div className="flex h-10 w-10 items-center justify-center rounded-lg bg-green-500/10">
               <TrendingUp className="h-5 w-5 text-green-500" />
             </div>
@@ -52,7 +52,7 @@ export default function Admin() {
           </div>
 
           {/* Needs Attention */}
-          <div className="bg-card border border-border rounded-xl p-6 flex items-center gap-4">
+          <div className="bg-card border border-border border-t-2 border-t-destructive rounded-xl p-5 flex items-center gap-4">
             <div className="flex h-10 w-10 items-center justify-center rounded-lg bg-red-500/10">
               <AlertTriangle className="h-5 w-5 text-red-500" />
             </div>

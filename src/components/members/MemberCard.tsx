@@ -16,9 +16,9 @@ function getInitials(name: string): string {
 
 export default function MemberCard({ member }: { member: Member }) {
   return (
-    <div className="bg-card border border-border rounded-xl p-6 flex flex-col items-center text-center hover:border-gold/40 card-hover">
+    <div className="bg-card border border-border rounded-xl p-5 flex flex-col items-center text-center hover:border-primary/40 card-hover">
       <div className="relative mb-3">
-        <div className="w-12 h-12 rounded-full overflow-hidden bg-gold/20 flex items-center justify-center">
+        <div className="w-12 h-12 rounded-full overflow-hidden bg-primary/20 flex items-center justify-center">
           <img
             src={member.avatar}
             alt={member.name}
@@ -31,7 +31,7 @@ export default function MemberCard({ member }: { member: Member }) {
             }}
           />
           <span
-            className="w-12 h-12 rounded-full bg-gold/20 text-gold font-bold text-sm items-center justify-center absolute inset-0 hidden"
+            className="w-12 h-12 rounded-full bg-primary/20 text-primary font-bold text-sm items-center justify-center absolute inset-0 hidden"
           >
             {getInitials(member.name)}
           </span>
@@ -41,7 +41,7 @@ export default function MemberCard({ member }: { member: Member }) {
         )}
       </div>
 
-      <h3 className="font-bold text-white text-base leading-tight">{member.name}</h3>
+      <h3 className="font-bold text-foreground text-base leading-tight">{member.name}</h3>
       <p className="text-sm text-muted-foreground mt-0.5">
         {member.role} &middot; {member.company}
       </p>

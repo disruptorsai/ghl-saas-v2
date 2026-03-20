@@ -10,7 +10,7 @@ export function OverallProgress() {
         Your Setup Progress
       </h2>
       <div className="flex items-center gap-4">
-        <div className="flex-1 h-2 rounded-full bg-secondary overflow-hidden">
+        <div className="flex-1 h-2.5 rounded-full bg-muted overflow-hidden">
           <div
             className="h-full rounded-full bg-primary progress-bar-fill"
             style={{ width: `${percentage}%` }}

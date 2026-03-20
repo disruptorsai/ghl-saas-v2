@@ -22,7 +22,7 @@ export function StepSidebar({ module, currentStepId, onStepClick }: StepSidebarP
           {module.title}
         </h2>
         <div className="space-y-1.5">
-          <div className="h-1 rounded-full bg-secondary overflow-hidden">
+          <div className="h-2 rounded-full bg-muted overflow-hidden">
             <div
               className="h-full rounded-full bg-primary progress-bar-fill"
               style={{ width: `${percentage}%` }}

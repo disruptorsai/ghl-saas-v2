@@ -107,112 +107,19 @@
   }
 }
 
-/* Gold shimmer text effect */
-@keyframes gold-shimmer {
-  0% { background-position: 200% center; }
-  100% { background-position: -200% center; }
-}
-
+/* Static gold accent — no animations */
 .text-gold-shine {
-  background: linear-gradient(110deg,
-    #BF953F 0%,
-    #FCF6BA 20%,
-    #B38728 40%,
-    #FBF5B7 60%,
-    #AA771C 80%,
-    #BF953F 100%
-  );
-  background-size: 200% auto;
-  -webkit-background-clip: text;
-  background-clip: text;
-  -webkit-text-fill-color: transparent;
-  animation: gold-shimmer 10s ease-in-out infinite;
-}
-
-/* Gold shimmer icon effect */
-@keyframes icon-gold-shimmer {
-  0%, 100% { color: #BF953F; filter: drop-shadow(0 0 6px rgba(191, 149, 63, 0.4)); }
-  25%      { color: #FCF6BA; filter: drop-shadow(0 0 12px rgba(252, 246, 186, 0.6)); }
-  50%      { color: #B38728; filter: drop-shadow(0 0 8px rgba(179, 135, 40, 0.4)); }
-  75%      { color: #FBF5B7; filter: drop-shadow(0 0 12px rgba(251, 245, 183, 0.6)); }
+  color: hsl(43 74% 49%);
 }
 
 .icon-gold-shine {
-  animation: icon-gold-shimmer 4s ease-in-out infinite;
-}
-
-/* Gold pulse glow */
-@keyframes goldPulse {
-  0%, 100% {
-    box-shadow: 0 0 20px rgba(255, 215, 0, 0.4), 0 0 40px rgba(255, 215, 0, 0.2);
-  }
-  50% {
-    box-shadow: 0 0 30px rgba(255, 215, 0, 0.6), 0 0 60px rgba(255, 215, 0, 0.3);
-  }
-}
-
-/* Gold gradient for primary backgrounds (buttons, badges, etc.) */
-.bg-primary {
-  background: linear-gradient(110deg,
-    #BF953F 0%,
-    #FCF6BA 20%,
-    #B38728 40%,
-    #FBF5B7 60%,
-    #AA771C 80%,
-    #BF953F 100%
-  ) !important;
-  background-size: 200% auto !important;
-  animation: gold-shimmer 10s ease-in-out infinite;
-}
-
-/* Gold gradient for primary text (links, headings, etc.) */
-.text-primary {
-  background: linear-gradient(110deg,
-    #BF953F 0%,
-    #FCF6BA 20%,
-    #B38728 40%,
-    #FBF5B7 60%,
-    #AA771C 80%,
-    #BF953F 100%
-  ) !important;
-  background-size: 200% auto !important;
-  -webkit-background-clip: text !important;
-  background-clip: text !important;
-  -webkit-text-fill-color: transparent !important;
-  animation: gold-shimmer 10s ease-in-out infinite;
-}
-
-/* Gold gradient ring/outline on focus */
-.ring-primary,
-.outline-ring\/50 {
-  --tw-ring-color: #BF953F !important;
-}
-
-/* Gold border accents */
-.border-primary {
-  border-color: #BF953F !important;
+  color: hsl(43 74% 49%);
 }
 
 /* Gold text selection */
 ::selection {
   background-color: rgba(212, 175, 55, 0.99);
   color: #000000;
-}
-
-/* Skool-specific styles */
-.nav-tab-active {
-  position: relative;
-}
-
-.nav-tab-active::after {
-  content: '';
-  position: absolute;
-  bottom: -1px;
-  left: 8px;
-  right: 8px;
-  height: 2px;
-  background: linear-gradient(110deg, #BF953F 0%, #FCF6BA 50%, #BF953F 100%);
-  border-radius: 1px;
 }
 
 /* Smooth scrollbar styling */

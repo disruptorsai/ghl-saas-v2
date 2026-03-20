@@ -40,12 +40,12 @@ export function ModuleCard({ module }: ModuleCardProps) {
   return (
     <Link
       to={`/classroom/${module.id}`}
-      className="group block rounded-xl bg-card border border-border hover:border-primary/50 cursor-pointer overflow-hidden card-hover"
+      className="group block rounded-xl bg-card border border-border border-l-2 border-l-transparent hover:border-l-primary hover:border-primary/50 cursor-pointer overflow-hidden card-hover"
     >
       {/* Thumbnail */}
-      <div className="relative aspect-video bg-[hsl(222,14%,11%)] flex items-center justify-center">
+      <div className="relative aspect-video bg-card flex items-center justify-center">
         <Icon className="h-12 w-12 icon-gold-shine" />
-        <span className="absolute top-3 left-3 flex h-7 w-7 items-center justify-center rounded-full bg-[#BF953F]/10 border border-[#BF953F]/30 text-xs font-bold text-[#BF953F]">
+        <span className="absolute top-3 left-3 flex h-7 w-7 items-center justify-center rounded-full bg-primary/10 border border-primary/30 text-xs font-bold text-primary">
           {module.order}
         </span>
       </div>
@@ -59,7 +59,7 @@ export function ModuleCard({ module }: ModuleCardProps) {
           {module.description}
         </p>
         <div className="space-y-1.5">
-          <div className="h-1.5 rounded-full bg-secondary overflow-hidden">
+          <div className="h-2.5 rounded-full bg-muted overflow-hidden">
             <div
               className="h-full rounded-full bg-primary progress-bar-fill"
               style={{ width: `${percentage}%` }}

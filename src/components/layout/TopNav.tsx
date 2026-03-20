@@ -27,7 +27,7 @@ export function TopNav() {
             key={item.to}
             to={item.to}
             className={({ isActive }) => cn(
-              'flex items-center gap-2 px-4 py-2 rounded-lg text-sm font-medium transition-colors relative',
+              'flex items-center gap-1.5 px-3 sm:px-4 py-2 rounded-lg text-sm font-medium transition-colors relative',
               isActive
                 ? 'text-primary'
                 : 'text-muted-foreground hover:text-foreground'
@@ -36,7 +36,7 @@ export function TopNav() {
             {({ isActive }) => (
               <>
                 <item.icon className="w-4 h-4" />
-                <span className="hidden md:inline">{item.label}</span>
+                <span className="text-xs sm:text-sm">{item.label}</span>
                 {isActive && (
                   <span className="absolute bottom-0 left-2 right-2 h-0.5 bg-primary rounded-full" />
                 )}

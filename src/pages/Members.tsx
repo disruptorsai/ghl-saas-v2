@@ -20,8 +20,8 @@ export default function Members() {
     <div className="p-6 max-w-7xl mx-auto">
       {/* Header */}
       <div className="flex items-center gap-3 mb-6">
-        <h1 className="text-2xl font-bold text-white">Members</h1>
-        <span className="bg-gold/15 text-gold text-sm font-semibold px-2.5 py-0.5 rounded-full">
+        <h1 className="text-2xl font-bold text-foreground">Members</h1>
+        <span className="bg-primary/15 text-primary text-sm font-semibold px-2.5 py-0.5 rounded-full">
           {members.length}
         </span>
       </div>
@@ -34,13 +34,13 @@ export default function Members() {
           placeholder="Search by name or company..."
           value={search}
           onChange={(e) => setSearch(e.target.value)}
-          className="w-full sm:w-80 bg-card border border-border rounded-lg pl-10 pr-4 py-2 text-sm text-white placeholder:text-muted-foreground focus:outline-none focus:ring-1 focus:ring-gold/50 focus:border-gold/50 transition-colors"
+          className="w-full sm:w-80 bg-card border border-border rounded-lg pl-10 pr-4 py-2 text-sm text-foreground placeholder:text-muted-foreground focus:outline-none focus:ring-1 focus:ring-primary/50 focus:border-primary/50 transition-colors"
         />
       </div>
 
       {/* Grid */}
       {filtered.length > 0 ? (
-        <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 xl:grid-cols-4 gap-4">
+        <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 xl:grid-cols-4 gap-6">
           {filtered.map((member) => (
             <MemberCard key={member.id} member={member} />
           ))}
