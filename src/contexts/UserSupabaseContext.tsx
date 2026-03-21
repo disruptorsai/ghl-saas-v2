@@ -1,6 +1,6 @@
 import { createContext, useContext, useState, useEffect, useMemo } from 'react'
 import type { ReactNode } from 'react'
-import { useParams } from 'react-router-dom'
+import { useActiveClient } from './ClientContext'
 import type { SupabaseClient } from '@supabase/supabase-js'
 import { supabase } from '@/lib/supabase'
 import { createUserSupabase } from '@/lib/user-supabase'
@@ -79,7 +79,7 @@ const ClientSupabaseContext = createContext<ClientSupabaseContextType>({
 })
 
 export function ClientSupabaseProvider({ children }: { children: ReactNode }) {
-  const { clientId } = useParams<{ clientId: string }>()
+  const { activeClientId: clientId } = useActiveClient()
   const [connection, setConnection] = useState<ClientData | null>(null)
   const [loading, setLoading] = useState(true)
 
