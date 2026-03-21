@@ -38,13 +38,12 @@ export function useClassroomProgress() {
 
   const isStepCompleted = (stepId: string) => progress[stepId] || false
 
-  const getModuleProgress = (moduleId: string, steps: { id: string }[]) => {
-    const moduleSteps = steps.filter(s => true) // all steps for this module
-    const completed = moduleSteps.filter(s => progress[s.id]).length
+  const getModuleProgress = (_moduleId: string, steps: { id: string }[]) => {
+    const completed = steps.filter(s => progress[s.id]).length
     return {
       completed,
-      total: moduleSteps.length,
-      percentage: moduleSteps.length > 0 ? Math.round((completed / moduleSteps.length) * 100) : 0,
+      total: steps.length,
+      percentage: steps.length > 0 ? Math.round((completed / steps.length) * 100) : 0,
     }
   }
 
