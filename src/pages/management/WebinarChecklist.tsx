@@ -40,14 +40,14 @@ export default function WebinarChecklist() {
       label: 'Configure Webinar URL',
       description: 'Set up the live webinar URL for attendees',
       completed: !!setup?.webinar_url,
-      link: `/client/${clientId}/webinar-setup/configuration`,
+      link: `/c/${clientId}/management/webinar-setup/configuration`,
       linkLabel: 'Configure',
     },
     {
       label: 'Configure Replay URL',
       description: 'Set up the webinar replay URL for those who missed it',
       completed: !!setup?.replay_url,
-      link: `/client/${clientId}/webinar-setup/configuration`,
+      link: `/c/${clientId}/management/webinar-setup/configuration`,
       linkLabel: 'Configure',
     },
     {
@@ -55,21 +55,21 @@ export default function WebinarChecklist() {
       description: 'Configure inbound, outbound, and follow-up agent credentials',
       completed:
         !!setup?.metrics?.inbound_agent || !!setup?.metrics?.outbound_agent,
-      link: `/client/${clientId}/webinar-setup/credentials`,
+      link: `/c/${clientId}/management/webinar-setup/credentials`,
       linkLabel: 'Set Up',
     },
     {
       label: 'Configure Presentation Agent',
       description: 'Set up the AI presentation agent for your webinar',
       completed: !!setup?.metrics?.presentation_agent_configured,
-      link: `/client/${clientId}/webinar-presentation-agent`,
+      link: `/c/${clientId}/management/webinar-presentation-agent`,
       linkLabel: 'Configure',
     },
     {
       label: 'Test Webinar Flow',
       description: 'Review analytics and verify the entire webinar flow works',
       completed: !!setup?.metrics?.registrations && (setup.metrics.registrations as number) > 0,
-      link: `/client/${clientId}/webinar-setup/analytics`,
+      link: `/c/${clientId}/management/webinar-setup/analytics`,
       linkLabel: 'View Analytics',
     },
   ]
@@ -82,7 +82,7 @@ export default function WebinarChecklist() {
       {/* Header */}
       <div className="flex items-center gap-4">
         <Button variant="ghost" size="sm" asChild>
-          <Link to={`/client/${clientId}/webinar-setup`}>
+          <Link to={`/c/${clientId}/management/webinar-setup`}>
             <ArrowLeft className="mr-2 h-4 w-4" />
             Back
           </Link>

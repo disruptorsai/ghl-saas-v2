@@ -58,7 +58,7 @@ export default function DebugAiReps() {
             </CardHeader>
             <CardContent className="mt-auto">
               <Button asChild className="w-full">
-                <Link to={`/client/${clientId}/debug-ai-reps/${option.path}`}>
+                <Link to={`/c/${clientId}/management/debug-ai-reps/${option.path}`}>
                   Open Debugger
                   <ArrowRight className="ml-2 h-4 w-4" />
                 </Link>

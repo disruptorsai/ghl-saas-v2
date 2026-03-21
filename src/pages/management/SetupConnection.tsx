@@ -30,7 +30,7 @@ export default function SetupConnection() {
 
   useEffect(() => {
     if (isConnected) {
-      navigate(`/client/${clientId}/dashboard`, { replace: true })
+      navigate(`/c/${clientId}/management/dashboard`, { replace: true })
     }
   }, [isConnected, navigate, clientId])
 
@@ -106,7 +106,7 @@ export default function SetupConnection() {
         await updateClientConnection(url, serviceKey, 'completed')
         setStep('success')
         toast.success('Database setup complete!')
-        setTimeout(() => navigate(`/client/${clientId}/dashboard`, { replace: true }), 2000)
+        setTimeout(() => navigate(`/c/${clientId}/management/dashboard`, { replace: true }), 2000)
       } else {
         const errMsg =
           migrationError || 'Migration could not be verified. Run the SQL manually.'
@@ -278,7 +278,7 @@ export default function SetupConnection() {
                 <p className="text-muted-foreground text-sm">Redirecting to dashboard...</p>
               </div>
               <Button
-                onClick={() => navigate(`/client/${clientId}/dashboard`, { replace: true })}
+                onClick={() => navigate(`/c/${clientId}/management/dashboard`, { replace: true })}
               >
                 Go to Dashboard
               </Button>

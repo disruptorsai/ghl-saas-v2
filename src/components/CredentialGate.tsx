@@ -15,7 +15,7 @@ export function CredentialGate({ children }: { children: React.ReactNode }) {
   const { missingForFeature, loading } = useCredentialStatus()
 
   // Extract feature path from URL: /client/:clientId/campaigns -> campaigns
-  const prefix = `/client/${clientId}/`
+  const prefix = `/c/${clientId}/management/`
   const featurePath = location.pathname.startsWith(prefix)
     ? location.pathname.slice(prefix.length).replace(/\/$/, '')
     : ''
@@ -52,7 +52,7 @@ export function CredentialGate({ children }: { children: React.ReactNode }) {
               </div>
             ))}
           </div>
-          <Button onClick={() => navigate(`/client/${clientId}/credentials`)}>
+          <Button onClick={() => navigate(`/c/${clientId}/management/credentials`)}>
             Go to Credentials
             <ArrowRight className="ml-2 h-4 w-4" />
           </Button>

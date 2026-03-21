@@ -254,7 +254,7 @@ export default function WhatToDo() {
                       </Button>
                       <Button
                         size="sm"
-                        onClick={() => navigate(`/client/${clientId}/${step.link}`)}
+                        onClick={() => navigate(`/c/${clientId}/management/${step.link}`)}
                       >
                         Go
                       </Button>

@@ -64,7 +64,7 @@ export default function ModuleDetail() {
 
   function handleComplete() {
     if (nextStep) {
-      navigate(`${nextStep.id}`)
+      navigate(`../${nextStep.id}`)
     }
   }
 
@@ -131,7 +131,7 @@ export default function ModuleDetail() {
             {prevStep ? (
               <Button asChild variant="ghost" size="sm">
                 <Link
-                  to={`../${module.id}/${prevStep.id}`}
+                  to={`../${prevStep.id}`}
                 >
                   <ChevronLeft className="h-4 w-4" />
                   Previous
@@ -143,7 +143,7 @@ export default function ModuleDetail() {
             {nextStep ? (
               <Button asChild variant="ghost" size="sm">
                 <Link
-                  to={`../${module.id}/${nextStep.id}`}
+                  to={`../${nextStep.id}`}
                 >
                   Next
                   <ChevronRight className="h-4 w-4" />

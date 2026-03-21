@@ -60,7 +60,7 @@ export function useCampaigns() {
     if (error) throw error
     if (clientId) {
       logAuditEvent({ clientId, userId: user?.id, userEmail: user?.email ?? undefined, action: 'created', entityType: 'campaign', entityId: newCampaign?.id, entityName: data.campaign_name })
-      createNotification({ clientId, userId: user?.id, title: 'Campaign Created', message: `${data.campaign_name} has been created`, type: 'info', entityType: 'campaign', entityId: newCampaign?.id, link: `/client/${clientId}/campaigns/${newCampaign?.id}` })
+      createNotification({ clientId, userId: user?.id, title: 'Campaign Created', message: `${data.campaign_name} has been created`, type: 'info', entityType: 'campaign', entityId: newCampaign?.id, link: `/c/${clientId}/management/campaigns/${newCampaign?.id}` })
     }
     return newCampaign
   }

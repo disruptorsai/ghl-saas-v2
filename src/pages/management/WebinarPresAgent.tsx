@@ -118,7 +118,7 @@ export default function WebinarPresAgent() {
       {/* Header */}
       <div className="flex items-center gap-4">
         <Button variant="ghost" size="sm" asChild>
-          <Link to={`/client/${clientId}/webinar-setup`}>
+          <Link to={`/c/${clientId}/management/webinar-setup`}>
             <ArrowLeft className="mr-2 h-4 w-4" />
             Back
           </Link>
@@ -139,7 +139,7 @@ export default function WebinarPresAgent() {
           <AlertDescription>
             Please configure the AI Chat Webhook URL in{' '}
             <Link
-              to={`/client/${clientId}/settings`}
+              to={`/c/${clientId}/management/settings`}
               className="font-medium underline"
             >
               Client Settings

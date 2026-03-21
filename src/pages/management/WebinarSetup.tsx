@@ -136,7 +136,7 @@ export default function WebinarSetup() {
         {quickLinks.map((link) => (
           <Link
             key={link.title}
-            to={`/client/${clientId}/webinar-setup/${link.path}`}
+            to={`/c/${clientId}/management/webinar-setup/${link.path}`}
             className="block"
           >
             <Card className="h-full transition-colors hover:bg-accent/50">

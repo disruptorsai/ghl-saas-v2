@@ -96,7 +96,7 @@ export default function WebinarAnalytics() {
       {/* Header */}
       <div className="flex items-center gap-4">
         <Button variant="ghost" size="sm" asChild>
-          <Link to={`/client/${clientId}/webinar-setup`}>
+          <Link to={`/c/${clientId}/management/webinar-setup`}>
             <ArrowLeft className="mr-2 h-4 w-4" />
             Back
           </Link>
@@ -190,7 +190,7 @@ export default function WebinarAnalytics() {
               Analytics will appear here once your webinar starts receiving registrations and attendees.
             </p>
             <Button variant="outline" className="mt-6" asChild>
-              <Link to={`/client/${clientId}/webinar-setup/configuration`}>
+              <Link to={`/c/${clientId}/management/webinar-setup/configuration`}>
                 Configure Webinar
               </Link>
             </Button>

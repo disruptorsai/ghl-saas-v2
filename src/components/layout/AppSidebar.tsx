@@ -205,7 +205,7 @@ export function AppSidebar() {
                 {clients.map((client) => (
                   <DropdownMenuItem
                     key={client.id}
-                    onClick={() => navigate(`/c/${client.id}/classroom`)}
+                    onClick={() => navigate(`/c/${client.id}/management/dashboard`)}
                   >
                     <span className="truncate">{client.name}</span>
                     {client.id === clientId && (

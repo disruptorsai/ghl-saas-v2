@@ -90,7 +90,7 @@ export function CampaignExecutorProvider({ children }: { children: ReactNode }) 
         setActiveCampaignId(campaign.id)
         toast.success('Campaign launched — processing leads in the background')
         logAuditEvent({ clientId, userId: user?.id, userEmail: user?.email ?? undefined, action: 'launched', entityType: 'campaign', entityId: campaign.id, entityName: campaign.campaign_name, details: { leadCount: pendingLeads.length } })
-        createNotification({ clientId, userId: user?.id, title: 'Campaign Launched', message: `${campaign.campaign_name} started with ${pendingLeads.length} leads`, type: 'success', entityType: 'campaign', entityId: campaign.id, link: `/client/${clientId}/campaigns/${campaign.id}` })
+        createNotification({ clientId, userId: user?.id, title: 'Campaign Launched', message: `${campaign.campaign_name} started with ${pendingLeads.length} leads`, type: 'success', entityType: 'campaign', entityId: campaign.id, link: `/c/${clientId}/management/campaigns/${campaign.id}` })
       } catch (err: unknown) {
         const msg = err instanceof Error ? err.message : 'Failed to launch campaign'
         toast.error(`Launch failed: ${msg}`)
@@ -110,7 +110,7 @@ export function CampaignExecutorProvider({ children }: { children: ReactNode }) 
       toast.info('Campaign paused')
       if (clientId) {
         logAuditEvent({ clientId, userId: user?.id, userEmail: user?.email ?? undefined, action: 'paused', entityType: 'campaign', entityId: campaign.id, entityName: campaign.campaign_name })
-        createNotification({ clientId, userId: user?.id, title: 'Campaign Paused', message: `${campaign.campaign_name} has been paused`, type: 'warning', entityType: 'campaign', entityId: campaign.id, link: `/client/${clientId}/campaigns/${campaign.id}` })
+        createNotification({ clientId, userId: user?.id, title: 'Campaign Paused', message: `${campaign.campaign_name} has been paused`, type: 'warning', entityType: 'campaign', entityId: campaign.id, link: `/c/${clientId}/management/campaigns/${campaign.id}` })
       }
     },
     [clientDb]
@@ -164,7 +164,7 @@ export function CampaignExecutorProvider({ children }: { children: ReactNode }) 
         await kickEdgeFunction(campaign.id, webhookUrl)
         setActiveCampaignId(campaign.id)
         toast.success(`${count} failed leads queued for retry`)
-        createNotification({ clientId, userId: user?.id, title: 'Campaign Retry', message: `${count} failed leads in ${campaign.campaign_name} queued for retry`, type: 'info', entityType: 'campaign', entityId: campaign.id, link: `/client/${clientId}/campaigns/${campaign.id}` })
+        createNotification({ clientId, userId: user?.id, title: 'Campaign Retry', message: `${count} failed leads in ${campaign.campaign_name} queued for retry`, type: 'info', entityType: 'campaign', entityId: campaign.id, link: `/c/${clientId}/management/campaigns/${campaign.id}` })
       } catch (err: unknown) {
         const msg = err instanceof Error ? err.message : 'Failed to retry'
         toast.error(`Retry failed: ${msg}`)

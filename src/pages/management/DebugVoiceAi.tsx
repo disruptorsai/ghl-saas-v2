@@ -183,7 +183,7 @@ export default function DebugVoiceAi() {
       {/* Header */}
       <div className="flex items-center gap-4">
         <Button variant="ghost" size="sm" asChild>
-          <Link to={`/client/${clientId}/debug-ai-reps`}>
+          <Link to={`/c/${clientId}/management/debug-ai-reps`}>
             <ArrowLeft className="mr-2 h-4 w-4" />
             Back
           </Link>

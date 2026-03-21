@@ -12,6 +12,7 @@ import { toast } from 'sonner'
 import { supabase } from '@/lib/supabase'
 import { useClientConfig } from '@/hooks/useClientConfig'
 import { CreateClientLogin } from '@/components/management/CreateClientLogin'
+import { useAuth } from '@/contexts/AuthContext'
 
 function ImageUpload({
   label,
@@ -70,6 +71,7 @@ function ImageUpload({
 
 export default function ClientSettings() {
   const { clientId } = useParams<{ clientId: string }>()
+  const { role } = useAuth()
   const { config, loading, updateConfig } = useClientConfig(clientId ?? '')
 
   // Basic Info
@@ -336,7 +338,7 @@ export default function ClientSettings() {
       </Card>
 
       {/* Client Access */}
-      <CreateClientLogin />
+      {role === 'agency' && <CreateClientLogin />}
     </div>
   )
 }

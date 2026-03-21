@@ -782,7 +782,7 @@ export default function Campaigns() {
                     <TableCell>
                       <button
                         className="text-left font-medium text-primary hover:underline"
-                        onClick={() => navigate(`/client/${clientId}/campaigns/${campaign.id}`)}
+                        onClick={() => navigate(`/c/${clientId}/management/campaigns/${campaign.id}`)}
                       >
                         {campaign.campaign_name}
                       </button>
@@ -812,7 +812,7 @@ export default function Campaigns() {
                           </Button>
                         </DropdownMenuTrigger>
                         <DropdownMenuContent align="end">
-                          <DropdownMenuItem onClick={() => navigate(`/client/${clientId}/campaigns/${campaign.id}`)}>
+                          <DropdownMenuItem onClick={() => navigate(`/c/${clientId}/management/campaigns/${campaign.id}`)}>
                             <Eye className="h-4 w-4" />
                             View
                           </DropdownMenuItem>

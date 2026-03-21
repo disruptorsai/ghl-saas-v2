@@ -477,7 +477,7 @@ export default function DemoPageDetail() {
       <div className="space-y-4">
         <h1 className="text-2xl font-bold">Page Not Found</h1>
         <p className="text-muted-foreground">This demo page does not exist.</p>
-        <Button variant="outline" onClick={() => navigate(`/client/${clientId}/demo-pages`)}>
+        <Button variant="outline" onClick={() => navigate(`/c/${clientId}/management/demo-pages`)}>
           <ArrowLeft className="h-4 w-4" />
           Back to Demo Pages
         </Button>
@@ -503,7 +503,7 @@ export default function DemoPageDetail() {
             variant="ghost"
             size="sm"
             className="h-8 w-8 p-0 shrink-0"
-            onClick={() => navigate(`/client/${clientId}/demo-pages`)}
+            onClick={() => navigate(`/c/${clientId}/management/demo-pages`)}
           >
             <ArrowLeft className="h-4 w-4" />
           </Button>

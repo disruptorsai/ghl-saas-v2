@@ -99,7 +99,7 @@ export default function DemoPages() {
       setTitle('')
       setSlug('')
       setSlugManuallyEdited(false)
-      navigate(`/client/${clientId}/demo-pages/${newPage.id}`)
+      navigate(`/c/${clientId}/management/demo-pages/${newPage.id}`)
     } catch (err: unknown) {
       const message = err instanceof Error ? err.message : 'Failed to create page'
       toast.error(message)
@@ -231,7 +231,7 @@ export default function DemoPages() {
                       variant="ghost"
                       size="sm"
                       className="h-8 w-8 p-0"
-                      onClick={() => navigate(`/client/${clientId}/demo-pages/${page.id}`)}
+                      onClick={() => navigate(`/c/${clientId}/management/demo-pages/${page.id}`)}
                     >
                       <Pencil className="h-4 w-4" />
                     </Button>

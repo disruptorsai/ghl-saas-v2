@@ -516,7 +516,7 @@ export default function SetupSOP() {
                       className="text-xs"
                       onClick={(e) => {
                         e.stopPropagation()
-                        navigate(`/client/${clientId}/${section.navLink}`)
+                        navigate(`/c/${clientId}/management/${section.navLink}`)
                       }}
                     >
                       <ExternalLink className="h-3 w-3 mr-1" />

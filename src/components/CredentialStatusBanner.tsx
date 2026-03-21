@@ -46,11 +46,11 @@ export function CredentialStatusBanner() {
             <div key={group.label} className="flex items-center justify-between text-sm">
               <span>{group.label}</span>
               {group.configured ? (
-                <span className="inline-flex items-center gap-1 rounded-full bg-primary/20 px-2.5 py-0.5 text-xs font-medium text-primary">
+                <span className="inline-flex items-center gap-1 rounded-full px-2.5 py-0.5 text-xs font-medium" style={{ backgroundColor: 'rgba(34, 197, 94, 0.15)', color: '#22c55e' }}>
                   Configured
                 </span>
               ) : (
-                <span className="inline-flex items-center gap-1 rounded-full bg-destructive/20 px-2.5 py-0.5 text-xs font-medium text-destructive">
+                <span className="inline-flex items-center gap-1 rounded-full px-2.5 py-0.5 text-xs font-medium" style={{ backgroundColor: 'rgba(239, 68, 68, 0.15)', color: '#ef4444' }}>
                   Missing
                 </span>
               )}
@@ -61,7 +61,7 @@ export function CredentialStatusBanner() {
               size="sm"
               variant="outline"
               className="mt-2 border-current/20 text-current hover:bg-current/10"
-              onClick={() => navigate(`/client/${clientId}/credentials`)}
+              onClick={() => navigate(`/c/${clientId}/management/credentials`)}
             >
               Configure Credentials
             </Button>
