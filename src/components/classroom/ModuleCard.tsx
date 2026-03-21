@@ -10,6 +10,7 @@ import {
   Star,
   Bot,
   Terminal,
+  Lock,
 } from 'lucide-react'
 import type { Module } from '@/data/types'
 import { useProgress } from '@/hooks/useProgress'
@@ -30,18 +31,23 @@ const moduleIcons: Record<string, LucideIcon> = {
 
 interface ModuleCardProps {
   module: Module
+  isLocked?: boolean
 }
 
-export function ModuleCard({ module }: ModuleCardProps) {
+export function ModuleCard({ module, isLocked = false }: ModuleCardProps) {
   const { getModuleProgress } = useProgress()
   const { completed, total, percentage } = getModuleProgress(module.id)
   const Icon = moduleIcons[module.id] || Sparkles
 
-  return (
-    <Link
-      to={`${module.id}`}
-      className="group block rounded-xl bg-card border border-border border-l-2 border-l-transparent hover:border-l-primary hover:border-primary/50 cursor-pointer overflow-hidden card-hover"
+  const card = (
+    <div
+      className={`group block rounded-xl bg-card border border-border cursor-pointer overflow-hidden card-hover relative${isLocked ? ' opacity-50 pointer-events-none' : ''}`}
     >
+      {isLocked && (
+        <div className="absolute inset-0 z-10 flex items-center justify-center bg-background/50 rounded-xl">
+          <Lock className="h-8 w-8 text-muted-foreground" />
+        </div>
+      )}
       {/* Thumbnail */}
       <div className="relative aspect-video bg-card flex items-center justify-center">
         <Icon className="h-12 w-12 icon-gold-shine" />
@@ -70,6 +76,14 @@ export function ModuleCard({ module }: ModuleCardProps) {
           </p>
         </div>
       </div>
+    </div>
+  )
+
+  if (isLocked) return card
+
+  return (
+    <Link to={`${module.id}`}>
+      {card}
     </Link>
   )
 }

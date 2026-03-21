@@ -16,18 +16,14 @@ export function CredentialStatusBanner() {
 
   return (
     <div
-      className={`rounded-lg border px-4 py-3 ${
-        allConfigured
-          ? 'border-green-200 bg-green-50 text-green-800'
-          : 'border-red-200 bg-red-50 text-red-800'
-      }`}
+      className="rounded-lg border border-border bg-card px-4 py-3 text-card-foreground"
     >
       <div className="flex items-center justify-between">
         <div className="flex items-center gap-2">
           {allConfigured ? (
-            <CheckCircle2 className="size-5 text-green-600" />
+            <CheckCircle2 className="size-5 text-primary" />
           ) : (
-            <XCircle className="size-5 text-red-600" />
+            <XCircle className="size-5 text-destructive" />
           )}
           <span className="font-medium text-sm">
             {allConfigured
@@ -50,11 +46,11 @@ export function CredentialStatusBanner() {
             <div key={group.label} className="flex items-center justify-between text-sm">
               <span>{group.label}</span>
               {group.configured ? (
-                <span className="inline-flex items-center gap-1 rounded-full bg-green-600 px-2.5 py-0.5 text-xs font-medium text-white">
+                <span className="inline-flex items-center gap-1 rounded-full bg-primary/20 px-2.5 py-0.5 text-xs font-medium text-primary">
                   Configured
                 </span>
               ) : (
-                <span className="inline-flex items-center gap-1 rounded-full bg-red-600 px-2.5 py-0.5 text-xs font-medium text-white">
+                <span className="inline-flex items-center gap-1 rounded-full bg-destructive/20 px-2.5 py-0.5 text-xs font-medium text-destructive">
                   Missing
                 </span>
               )}

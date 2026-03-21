@@ -21,7 +21,7 @@ export default function Members() {
       {/* Header */}
       <div className="flex items-center gap-3 mb-6">
         <h1 className="text-2xl font-bold text-foreground">Members</h1>
-        <span className="bg-primary/15 text-primary text-sm font-semibold px-2.5 py-0.5 rounded-full">
+        <span className="bg-primary text-primary-foreground text-sm font-semibold px-2.5 py-0.5 rounded-full">
           {members.length}
         </span>
       </div>

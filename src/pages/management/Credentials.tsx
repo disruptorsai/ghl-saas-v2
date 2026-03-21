@@ -26,13 +26,14 @@ function PasswordInput({
 }) {
   const [show, setShow] = useState(false)
   return (
-    <div className="relative">
+    <div className="relative flex-1 w-full">
       <Input
         id={id}
         type={show ? 'text' : 'password'}
         value={value}
         onChange={(e) => onChange(e.target.value)}
         placeholder={placeholder}
+        className="w-full"
       />
       <Button
         type="button"
@@ -417,7 +418,7 @@ export default function Credentials() {
       </div>
 
       {/* Tabs */}
-      <Tabs defaultValue="ai">
+      <Tabs defaultValue={SUPABASE_TAB_ID}>
         <TabsList className="w-full justify-start">
           {TABS.map((tab) => (
             <TabsTrigger key={tab.id} value={tab.id}>
@@ -437,7 +438,7 @@ export default function Credentials() {
                 {tab.fields.map((field) => (
                   <div key={field.key} className="space-y-2">
                     <Label htmlFor={field.key}>{field.label}</Label>
-                    <div className="flex gap-2">
+                    <div className="flex w-full gap-2">
                       {field.type === 'password' ? (
                         <PasswordInput
                           id={field.key}
@@ -451,7 +452,7 @@ export default function Credentials() {
                           value={formData[field.key] ?? ''}
                           onChange={(e) => handleFieldChange(field.key, e.target.value)}
                           placeholder={field.placeholder}
-                          className="flex-1"
+                          className="flex-1 w-full"
                         />
                       )}
                       {tab.id === 'webhooks' && formData[field.key]?.trim() && (

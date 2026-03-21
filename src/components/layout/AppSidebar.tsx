@@ -191,7 +191,7 @@ export function AppSidebar() {
         </Link>
 
         {isAgency ? (
-          <>
+          <div className="mt-3">
             <DropdownMenu>
               <DropdownMenuTrigger asChild>
                 <button className="flex w-full items-center justify-between rounded-md border border-border/60 bg-background/50 px-3 py-2 text-sm hover:bg-accent hover:border-primary/40 transition-colors">
@@ -248,9 +248,9 @@ export function AppSidebar() {
                 </DialogFooter>
               </DialogContent>
             </Dialog>
-          </>
+          </div>
         ) : (
-          <div className="px-3 py-2 text-sm font-medium text-muted-foreground truncate">
+          <div className="mt-3 px-3 py-2 text-sm font-medium text-muted-foreground truncate">
             {currentClient?.name ?? 'My Dashboard'}
           </div>
         )}
