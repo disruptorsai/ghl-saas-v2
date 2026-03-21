@@ -1,4 +1,4 @@
-import { Link } from 'react-router-dom'
+import { Link, useParams } from 'react-router-dom'
 import {
   Sparkles,
   Key,
@@ -35,6 +35,7 @@ interface ModuleCardProps {
 }
 
 export function ModuleCard({ module, isLocked = false }: ModuleCardProps) {
+  const { clientId } = useParams()
   const { getModuleProgress } = useProgress()
   const { completed, total, percentage } = getModuleProgress(module.id)
   const Icon = moduleIcons[module.id] || Sparkles
@@ -82,7 +83,7 @@ export function ModuleCard({ module, isLocked = false }: ModuleCardProps) {
   if (isLocked) return card
 
   return (
-    <Link to={`${module.id}`}>
+    <Link to={`/c/${clientId}/classroom/${module.id}`}>
       {card}
     </Link>
   )

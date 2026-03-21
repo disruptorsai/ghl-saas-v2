@@ -11,12 +11,14 @@ import { Textarea } from '@/components/ui/textarea'
 import { Sheet, SheetContent, SheetTitle } from '@/components/ui/sheet'
 
 export default function ModuleDetail() {
-  const { moduleId, stepId } = useParams<{
+  const { clientId, moduleId, stepId } = useParams<{
+    clientId: string
     moduleId: string
     stepId: string
   }>()
   const navigate = useNavigate()
   const [sidebarOpen, setSidebarOpen] = useState(false)
+  const classroomBase = `/c/${clientId}/classroom`
 
   const module = modules.find((m) => m.id === moduleId)
 
@@ -31,7 +33,7 @@ export default function ModuleDetail() {
           The module you're looking for doesn't exist.
         </p>
         <Button asChild variant="outline">
-          <Link to="..">
+          <Link to={classroomBase}>
             <ArrowLeft className="h-4 w-4" />
             Back to Classroom
           </Link>
@@ -43,7 +45,7 @@ export default function ModuleDetail() {
   // No step specified — redirect to first step
   if (!stepId) {
     return (
-      <Navigate to={`${module.steps[0].id}`} replace />
+      <Navigate to={`${classroomBase}/${module.id}/${module.steps[0].id}`} replace />
     )
   }
 
@@ -58,13 +60,13 @@ export default function ModuleDetail() {
   // Step not found within module — redirect to first
   if (!currentStep) {
     return (
-      <Navigate to={`${module.steps[0].id}`} replace />
+      <Navigate to={`${classroomBase}/${module.id}/${module.steps[0].id}`} replace />
     )
   }
 
   function handleComplete() {
     if (nextStep) {
-      navigate(`../${nextStep.id}`)
+      navigate(`${classroomBase}/${module!.id}/${nextStep.id}`)
     }
   }
 
@@ -131,7 +133,7 @@ export default function ModuleDetail() {
             {prevStep ? (
               <Button asChild variant="ghost" size="sm">
                 <Link
-                  to={`../${prevStep.id}`}
+                  to={`${classroomBase}/${module.id}/${prevStep.id}`}
                 >
                   <ChevronLeft className="h-4 w-4" />
                   Previous
@@ -143,7 +145,7 @@ export default function ModuleDetail() {
             {nextStep ? (
               <Button asChild variant="ghost" size="sm">
                 <Link
-                  to={`../${nextStep.id}`}
+                  to={`${classroomBase}/${module.id}/${nextStep.id}`}
                 >
                   Next
                   <ChevronRight className="h-4 w-4" />

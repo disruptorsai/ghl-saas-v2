@@ -1,4 +1,4 @@
-import { NavLink } from 'react-router-dom'
+import { NavLink, useParams } from 'react-router-dom'
 import { CheckCircle2, Circle } from 'lucide-react'
 import type { Module } from '@/data/types'
 import { useProgress } from '@/hooks/useProgress'
@@ -11,6 +11,8 @@ interface StepSidebarProps {
 }
 
 export function StepSidebar({ module, currentStepId, onStepClick }: StepSidebarProps) {
+  const { clientId } = useParams()
+  const classroomBase = `/c/${clientId}/classroom`
   const { isStepCompleted, getModuleProgress } = useProgress()
   const { completed, total, percentage } = getModuleProgress(module.id)
 
@@ -44,7 +46,7 @@ export function StepSidebar({ module, currentStepId, onStepClick }: StepSidebarP
             return (
               <li key={step.id}>
                 <NavLink
-                  to={`../${step.id}`}
+                  to={`${classroomBase}/${module.id}/${step.id}`}
                   onClick={onStepClick}
                   className={cn(
                     'flex items-center gap-3 px-4 py-2.5 text-sm transition-colors',
