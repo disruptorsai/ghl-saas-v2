@@ -249,6 +249,16 @@ input:focus, textarea:focus, select:focus {
   color: #000000;
 }
 
+/* ── Dropdown / Popover visibility fix ─────────────────────────────── */
+
+[data-slot="dropdown-menu-content"],
+[data-slot="popover-content"],
+[role="listbox"] {
+  background-color: hsl(0 0% 8%) !important;
+  border: 1px solid hsl(0 0% 18%) !important;
+  box-shadow: 0 8px 30px rgba(0, 0, 0, 0.6) !important;
+}
+
 /* ── V2 Skool Utilities ───────────────────────────────────────────── */
 
 /* Hide scrollbar utility */
