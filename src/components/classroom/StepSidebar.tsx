@@ -44,7 +44,7 @@ export function StepSidebar({ module, currentStepId, onStepClick }: StepSidebarP
             return (
               <li key={step.id}>
                 <NavLink
-                  to={`/classroom/${module.id}/${step.id}`}
+                  to={`../${module.id}/${step.id}`}
                   onClick={onStepClick}
                   className={cn(
                     'flex items-center gap-3 px-4 py-2.5 text-sm transition-colors',

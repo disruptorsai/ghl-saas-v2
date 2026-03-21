@@ -39,7 +39,7 @@ export function ModuleCard({ module }: ModuleCardProps) {
 
   return (
     <Link
-      to={`/classroom/${module.id}`}
+      to={`${module.id}`}
       className="group block rounded-xl bg-card border border-border border-l-2 border-l-transparent hover:border-l-primary hover:border-primary/50 cursor-pointer overflow-hidden card-hover"
     >
       {/* Thumbnail */}

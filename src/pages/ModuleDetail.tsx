@@ -31,7 +31,7 @@ export default function ModuleDetail() {
           The module you're looking for doesn't exist.
         </p>
         <Button asChild variant="outline">
-          <Link to="/classroom">
+          <Link to="..">
             <ArrowLeft className="h-4 w-4" />
             Back to Classroom
           </Link>
@@ -43,7 +43,7 @@ export default function ModuleDetail() {
   // No step specified — redirect to first step
   if (!stepId) {
     return (
-      <Navigate to={`/classroom/${module.id}/${module.steps[0].id}`} replace />
+      <Navigate to={`${module.steps[0].id}`} replace />
     )
   }
 
@@ -58,13 +58,13 @@ export default function ModuleDetail() {
   // Step not found within module — redirect to first
   if (!currentStep) {
     return (
-      <Navigate to={`/classroom/${module.id}/${module.steps[0].id}`} replace />
+      <Navigate to={`${module.steps[0].id}`} replace />
     )
   }
 
   function handleComplete() {
     if (nextStep) {
-      navigate(`/classroom/${module!.id}/${nextStep.id}`)
+      navigate(`${nextStep.id}`)
     }
   }
 
@@ -98,7 +98,7 @@ export default function ModuleDetail() {
               <span className="sr-only">Open module menu</span>
             </Button>
             <Link
-              to="/classroom"
+              to=".."
               className="inline-flex items-center gap-1.5 text-sm text-muted-foreground hover:text-foreground transition-colors"
             >
               <ArrowLeft className="h-3.5 w-3.5" />
@@ -131,7 +131,7 @@ export default function ModuleDetail() {
             {prevStep ? (
               <Button asChild variant="ghost" size="sm">
                 <Link
-                  to={`/classroom/${module.id}/${prevStep.id}`}
+                  to={`../${module.id}/${prevStep.id}`}
                 >
                   <ChevronLeft className="h-4 w-4" />
                   Previous
@@ -143,7 +143,7 @@ export default function ModuleDetail() {
             {nextStep ? (
               <Button asChild variant="ghost" size="sm">
                 <Link
-                  to={`/classroom/${module.id}/${nextStep.id}`}
+                  to={`../${module.id}/${nextStep.id}`}
                 >
                   Next
                   <ChevronRight className="h-4 w-4" />
