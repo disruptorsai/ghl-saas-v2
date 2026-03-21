@@ -202,7 +202,7 @@ export function AppSidebar() {
           {logoUrl && (
             <img src={logoUrl} alt="Logo" className="h-12 w-12 rounded-full object-cover" />
           )}
-          <span className="text-gold-shine font-bold text-lg">Disruptors Skool</span>
+          <span className="text-gold-shine font-bold text-lg">Disruptors Infra</span>
         </Link>
 
         <DropdownMenu>
