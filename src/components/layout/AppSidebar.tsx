@@ -153,8 +153,9 @@ export function AppSidebar() {
   const location = useLocation()
   const { clientId } = useParams()
   const navigate = useNavigate()
-  const { user, signOut } = useAuth()
+  const { user, role, signOut } = useAuth()
   const { clients, deleteClient } = useClients()
+  const isAgency = role === 'agency'
   const [deleteDialogOpen, setDeleteDialogOpen] = useState(false)
 
   const basePath = clientId ? `/c/${clientId}/management` : '/management'
@@ -189,62 +190,70 @@ export function AppSidebar() {
           <span className="text-gold-shine font-bold text-lg">Disruptors Infra</span>
         </Link>
 
-        <DropdownMenu>
-          <DropdownMenuTrigger asChild>
-            <button className="flex w-full items-center justify-between rounded-md border border-border/60 bg-background/50 px-3 py-2 text-sm hover:bg-accent hover:border-primary/40 transition-colors">
-              <span className="truncate font-medium">
-                {currentClient?.name ?? 'Select client'}
-              </span>
-              <ChevronsUpDown className="ml-2 size-4 shrink-0 text-muted-foreground" />
-            </button>
-          </DropdownMenuTrigger>
-          <DropdownMenuContent align="start" className="w-[--radix-dropdown-menu-trigger-width]">
-            {clients.map((client) => (
-              <DropdownMenuItem
-                key={client.id}
-                onClick={() => navigate(`/c/${client.id}/classroom`)}
-              >
-                <span className="truncate">{client.name}</span>
-                {client.id === clientId && (
-                  <Check className="ml-auto size-4 text-primary" />
+        {isAgency ? (
+          <>
+            <DropdownMenu>
+              <DropdownMenuTrigger asChild>
+                <button className="flex w-full items-center justify-between rounded-md border border-border/60 bg-background/50 px-3 py-2 text-sm hover:bg-accent hover:border-primary/40 transition-colors">
+                  <span className="truncate font-medium">
+                    {currentClient?.name ?? 'Select client'}
+                  </span>
+                  <ChevronsUpDown className="ml-2 size-4 shrink-0 text-muted-foreground" />
+                </button>
+              </DropdownMenuTrigger>
+              <DropdownMenuContent align="start" className="w-[--radix-dropdown-menu-trigger-width]">
+                {clients.map((client) => (
+                  <DropdownMenuItem
+                    key={client.id}
+                    onClick={() => navigate(`/c/${client.id}/classroom`)}
+                  >
+                    <span className="truncate">{client.name}</span>
+                    {client.id === clientId && (
+                      <Check className="ml-auto size-4 text-primary" />
+                    )}
+                  </DropdownMenuItem>
+                ))}
+                <DropdownMenuSeparator />
+                <DropdownMenuItem onClick={() => navigate('/create')}>
+                  <Plus className="mr-2 size-4" />
+                  Add new client
+                </DropdownMenuItem>
+                {currentClient && (
+                  <DropdownMenuItem
+                    className="text-destructive focus:text-destructive"
+                    onClick={() => setDeleteDialogOpen(true)}
+                  >
+                    <Trash2 className="mr-2 size-4" />
+                    Delete {currentClient.name}
+                  </DropdownMenuItem>
                 )}
-              </DropdownMenuItem>
-            ))}
-            <DropdownMenuSeparator />
-            <DropdownMenuItem onClick={() => navigate('/create')}>
-              <Plus className="mr-2 size-4" />
-              Add new client
-            </DropdownMenuItem>
-            {currentClient && (
-              <DropdownMenuItem
-                className="text-destructive focus:text-destructive"
-                onClick={() => setDeleteDialogOpen(true)}
-              >
-                <Trash2 className="mr-2 size-4" />
-                Delete {currentClient.name}
-              </DropdownMenuItem>
-            )}
-          </DropdownMenuContent>
-        </DropdownMenu>
+              </DropdownMenuContent>
+            </DropdownMenu>
 
-        <Dialog open={deleteDialogOpen} onOpenChange={setDeleteDialogOpen}>
-          <DialogContent>
-            <DialogHeader>
-              <DialogTitle>Delete client</DialogTitle>
-              <DialogDescription>
-                Are you sure you want to delete <strong>{currentClient?.name}</strong>? This will permanently remove all associated data. This action cannot be undone.
-              </DialogDescription>
-            </DialogHeader>
-            <DialogFooter>
-              <Button variant="outline" onClick={() => setDeleteDialogOpen(false)}>
-                Cancel
-              </Button>
-              <Button variant="destructive" onClick={handleDeleteClient}>
-                Delete
-              </Button>
-            </DialogFooter>
-          </DialogContent>
-        </Dialog>
+            <Dialog open={deleteDialogOpen} onOpenChange={setDeleteDialogOpen}>
+              <DialogContent>
+                <DialogHeader>
+                  <DialogTitle>Delete client</DialogTitle>
+                  <DialogDescription>
+                    Are you sure you want to delete <strong>{currentClient?.name}</strong>? This will permanently remove all associated data. This action cannot be undone.
+                  </DialogDescription>
+                </DialogHeader>
+                <DialogFooter>
+                  <Button variant="outline" onClick={() => setDeleteDialogOpen(false)}>
+                    Cancel
+                  </Button>
+                  <Button variant="destructive" onClick={handleDeleteClient}>
+                    Delete
+                  </Button>
+                </DialogFooter>
+              </DialogContent>
+            </Dialog>
+          </>
+        ) : (
+          <div className="px-3 py-2 text-sm font-medium text-muted-foreground truncate">
+            {currentClient?.name ?? 'My Dashboard'}
+          </div>
+        )}
       </SidebarHeader>
 
       <SidebarContent>
