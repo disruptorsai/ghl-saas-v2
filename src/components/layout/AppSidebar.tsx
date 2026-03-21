@@ -1,4 +1,4 @@
-import { useState, useEffect } from 'react'
+import { useState } from 'react'
 import { Link, useLocation, useParams, useNavigate } from 'react-router-dom'
 import {
   LayoutDashboard,
@@ -31,7 +31,6 @@ import {
 } from 'lucide-react'
 import { useAuth } from '@/contexts/AuthContext'
 import { useClients } from '@/hooks/useClients'
-import { supabase } from '@/lib/supabase'
 import {
   Sidebar,
   SidebarContent,
@@ -157,19 +156,7 @@ export function AppSidebar() {
   const { user, signOut } = useAuth()
   const { clients, deleteClient } = useClients()
   const [deleteDialogOpen, setDeleteDialogOpen] = useState(false)
-  const [logoUrl, setLogoUrl] = useState<string | null>(null)
 
-  useEffect(() => {
-    if (!user) return
-    supabase
-      .from('profiles')
-      .select('logo_url')
-      .eq('id', user.id)
-      .single()
-      .then(({ data }) => {
-        if (data?.logo_url) setLogoUrl(data.logo_url)
-      })
-  }, [user])
   const basePath = clientId ? `/c/${clientId}/management` : '/management'
 
   const currentClient = clients.find((c) => c.id === clientId)
@@ -198,16 +185,13 @@ export function AppSidebar() {
   return (
     <Sidebar>
       <SidebarHeader className="border-b px-4 py-3">
-        <Link to="/" className="flex flex-col items-center gap-2">
-          {logoUrl && (
-            <img src={logoUrl} alt="Logo" className="h-12 w-12 rounded-full object-cover" />
-          )}
+        <Link to="/" className="flex items-center justify-center py-1">
           <span className="text-gold-shine font-bold text-lg">Disruptors Infra</span>
         </Link>
 
         <DropdownMenu>
           <DropdownMenuTrigger asChild>
-            <button className="flex w-full items-center justify-between rounded-md border px-3 py-2 text-sm hover:bg-accent transition-colors">
+            <button className="flex w-full items-center justify-between rounded-md border border-border/60 bg-background/50 px-3 py-2 text-sm hover:bg-accent hover:border-primary/40 transition-colors">
               <span className="truncate font-medium">
                 {currentClient?.name ?? 'Select client'}
               </span>
