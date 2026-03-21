@@ -1,23 +1,37 @@
 import { NavLink } from 'react-router-dom'
-import { MessageCircle, GraduationCap, Users, Info, Search, Bell, Zap } from 'lucide-react'
+import { MessageCircle, GraduationCap, Users, Settings, Search, Bell, Zap, LogOut } from 'lucide-react'
 import { cn } from '@/lib/utils'
+import { useAuth } from '@/contexts/AuthContext'
+import {
+  DropdownMenu,
+  DropdownMenuContent,
+  DropdownMenuItem,
+  DropdownMenuTrigger,
+} from '@/components/ui/dropdown-menu'
 
 const navItems = [
-  { to: '/support', label: 'Support', icon: MessageCircle },
-  { to: '/classroom', label: 'Classroom', icon: GraduationCap },
-  { to: '/members', label: 'Members', icon: Users },
-  { to: '/about', label: 'About', icon: Info },
+  { to: 'support', label: 'Support', icon: MessageCircle },
+  { to: 'classroom', label: 'Classroom', icon: GraduationCap },
+  { to: 'members', label: 'Members', icon: Users },
+  { to: 'management', label: 'Management', icon: Settings },
 ]
 
 export function TopNav() {
+  const { user, signOut } = useAuth()
+  const initials = user?.user_metadata?.full_name
+    ?.split(' ')
+    .map((n: string) => n[0])
+    .join('')
+    .toUpperCase() || '??'
+
   return (
     <nav className="sticky top-0 z-50 h-16 border-b border-border bg-card flex items-center px-4 md:px-6">
       {/* Left: Logo + Name */}
-      <NavLink to="/classroom" className="flex items-center gap-3 mr-auto">
+      <NavLink to="classroom" className="flex items-center gap-3 mr-auto">
         <div className="w-8 h-8 rounded-lg bg-primary flex items-center justify-center">
           <Zap className="w-4 h-4 text-primary-foreground" />
         </div>
-        <span className="font-semibold text-foreground hidden sm:block">Disruptors Sales Infra</span>
+        <span className="font-semibold text-foreground hidden sm:block">Disruptors Skool</span>
       </NavLink>
 
       {/* Center: Nav Tabs */}
@@ -55,9 +69,22 @@ export function TopNav() {
           <Bell className="w-5 h-5" />
           <span className="absolute top-1.5 right-1.5 w-2 h-2 bg-primary rounded-full" />
         </button>
-        <div className="w-8 h-8 rounded-full bg-primary flex items-center justify-center text-xs font-bold text-primary-foreground">
-          KP
-        </div>
+        <DropdownMenu>
+          <DropdownMenuTrigger asChild>
+            <button className="w-8 h-8 rounded-full bg-primary flex items-center justify-center text-xs font-bold text-primary-foreground cursor-pointer">
+              {initials}
+            </button>
+          </DropdownMenuTrigger>
+          <DropdownMenuContent align="end">
+            <DropdownMenuItem className="text-muted-foreground text-xs" disabled>
+              {user?.email}
+            </DropdownMenuItem>
+            <DropdownMenuItem onClick={() => signOut()}>
+              <LogOut className="mr-2 size-4" />
+              Sign out
+            </DropdownMenuItem>
+          </DropdownMenuContent>
+        </DropdownMenu>
       </div>
     </nav>
   )

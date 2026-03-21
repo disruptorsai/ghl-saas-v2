@@ -170,7 +170,7 @@ export function AppSidebar() {
         if (data?.logo_url) setLogoUrl(data.logo_url)
       })
   }, [user])
-  const basePath = '/management'
+  const basePath = clientId ? `/c/${clientId}/management` : '/management'
 
   const currentClient = clients.find((c) => c.id === clientId)
 
@@ -218,7 +218,7 @@ export function AppSidebar() {
             {clients.map((client) => (
               <DropdownMenuItem
                 key={client.id}
-                onClick={() => navigate(`/client/${client.id}/dashboard`)}
+                onClick={() => navigate(`/c/${client.id}/classroom`)}
               >
                 <span className="truncate">{client.name}</span>
                 {client.id === clientId && (

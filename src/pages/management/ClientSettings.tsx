@@ -11,6 +11,7 @@ import { Skeleton } from '@/components/ui/skeleton'
 import { toast } from 'sonner'
 import { supabase } from '@/lib/supabase'
 import { useClientConfig } from '@/hooks/useClientConfig'
+import { CreateClientLogin } from '@/components/management/CreateClientLogin'
 
 function ImageUpload({
   label,
@@ -333,6 +334,9 @@ export default function ClientSettings() {
           </Button>
         </CardContent>
       </Card>
+
+      {/* Client Access */}
+      <CreateClientLogin />
     </div>
   )
 }
