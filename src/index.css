@@ -152,12 +152,9 @@
   }
 }
 
-/* Gold gradient for primary backgrounds — buttons and badges */
-button[class*="bg-primary"]:not([class*="bg-primary-foreground"]),
-a[class*="bg-primary"]:not([class*="bg-primary-foreground"]),
-[role="button"][class*="bg-primary"]:not([class*="bg-primary-foreground"]),
-span[class*="bg-primary"]:not([class*="bg-primary-foreground"]),
-div.inline-flex[class*="bg-primary"]:not([class*="bg-primary-foreground"]) {
+/* Gold gradient ONLY for explicit buttons (not badges, not status indicators) */
+button.bg-primary:not([class*="bg-primary/"]),
+a.bg-primary:not([class*="bg-primary/"]) {
   background: linear-gradient(110deg,
     #BF953F 0%,
     #FCF6BA 20%,
@@ -181,24 +178,6 @@ input:focus, textarea:focus, select:focus {
   border-color: #BF953F !important;
   outline: none !important;
   box-shadow: 0 0 0 1px #BF953F !important;
-}
-
-/* Gold gradient for primary text */
-[class*="text-primary"]:not([class*="text-primary-foreground"]) {
-  color: transparent !important;
-  background: linear-gradient(110deg,
-    #BF953F 0%,
-    #FCF6BA 20%,
-    #B38728 40%,
-    #FBF5B7 60%,
-    #AA771C 80%,
-    #BF953F 100%
-  ) !important;
-  background-size: 300% auto !important;
-  -webkit-background-clip: text !important;
-  background-clip: text !important;
-  -webkit-text-fill-color: transparent !important;
-  animation: gold-shimmer 6s ease-in-out infinite !important;
 }
 
 /* Gold gradient ring/outline on focus */
