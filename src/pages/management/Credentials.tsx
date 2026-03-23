@@ -5,7 +5,7 @@ import { Button } from '@/components/ui/button'
 import { Input } from '@/components/ui/input'
 import { Label } from '@/components/ui/label'
 import { Skeleton } from '@/components/ui/skeleton'
-import { Tabs, TabsContent, TabsList, TabsTrigger } from '@/components/ui/tabs'
+// Tabs replaced with custom buttons for reliable rendering
 import { toast } from 'sonner'
 import { useCredentials } from '@/hooks/useCredentials'
 import { useClientSupabase } from '@/contexts/UserSupabaseContext'
@@ -418,21 +418,27 @@ export default function Credentials() {
         </p>
       </div>
 
-      {/* Tabs */}
-      <Tabs value={activeTab} onValueChange={setActiveTab}>
-        <TabsList className="w-full justify-start">
-          {TABS.map((tab) => (
-            <TabsTrigger key={tab.id} value={tab.id}>
-              {tab.label}
-            </TabsTrigger>
-          ))}
-        </TabsList>
+      {/* Tab buttons */}
+      <div className="flex gap-1 border-b border-border pb-1 overflow-x-auto">
+        {TABS.map((tab) => (
+          <button
+            key={tab.id}
+            onClick={() => setActiveTab(tab.id)}
+            className={`px-4 py-2 text-sm font-medium rounded-t-lg transition-colors ${
+              activeTab === tab.id
+                ? 'bg-card text-foreground border border-border border-b-0'
+                : 'text-muted-foreground hover:text-foreground'
+            }`}
+          >
+            {tab.label}
+          </button>
+        ))}
+      </div>
 
-        {TABS.map((tab) => {
-          const isActive = tab.id === activeTab
-          if (!isActive) return null
+      {/* Active tab content */}
+      {TABS.filter(tab => tab.id === activeTab).map((tab) => {
           return (
-            <TabsContent key={tab.id} value={tab.id} forceMount>
+            <div key={tab.id}>
               <Card>
                 <CardHeader>
                   <CardTitle className="text-lg">{tab.label}</CardTitle>
@@ -551,10 +557,9 @@ export default function Credentials() {
                   </Button>
                 </CardContent>
               </Card>
-            </TabsContent>
+            </div>
           )
         })}
-      </Tabs>
     </div>
   )
 }
