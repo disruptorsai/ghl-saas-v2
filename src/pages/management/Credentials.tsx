@@ -139,6 +139,7 @@ export default function Credentials() {
   const { credentials, loading, updateCredentials } = useCredentials()
   const { clientId, refetchConnection } = useClientSupabase()
 
+  const [activeTab, setActiveTab] = useState(SUPABASE_TAB_ID)
   const [formData, setFormData] = useState<Record<string, string>>({})
   const [savingTab, setSavingTab] = useState<string | null>(null)
   const [testingConnection, setTestingConnection] = useState(false)
@@ -418,7 +419,7 @@ export default function Credentials() {
       </div>
 
       {/* Tabs */}
-      <Tabs defaultValue={SUPABASE_TAB_ID}>
+      <Tabs value={activeTab} onValueChange={setActiveTab}>
         <TabsList className="w-full justify-start">
           {TABS.map((tab) => (
             <TabsTrigger key={tab.id} value={tab.id}>
@@ -427,128 +428,132 @@ export default function Credentials() {
           ))}
         </TabsList>
 
-        {TABS.map((tab) => (
-          <TabsContent key={tab.id} value={tab.id}>
-            <Card>
-              <CardHeader>
-                <CardTitle className="text-lg">{tab.label}</CardTitle>
-                <CardDescription>{tab.description}</CardDescription>
-              </CardHeader>
-              <CardContent className="space-y-4">
-                {tab.fields.map((field) => (
-                  <div key={field.key} className="space-y-2">
-                    <Label htmlFor={field.key}>{field.label}</Label>
-                    <div className="flex w-full gap-2">
-                      {field.type === 'password' ? (
-                        <PasswordInput
-                          id={field.key}
-                          value={formData[field.key] ?? ''}
-                          onChange={(v) => handleFieldChange(field.key, v)}
-                          placeholder={field.placeholder}
-                        />
-                      ) : (
-                        <Input
-                          id={field.key}
-                          value={formData[field.key] ?? ''}
-                          onChange={(e) => handleFieldChange(field.key, e.target.value)}
-                          placeholder={field.placeholder}
-                          className="flex-1 w-full"
-                        />
-                      )}
-                      {tab.id === 'webhooks' && formData[field.key]?.trim() && (
-                        <Button
-                          variant="outline"
-                          size="sm"
-                          className="shrink-0 h-9"
-                          onClick={() => handleTestWebhook(field.key)}
-                          disabled={webhookTests[field.key] === 'testing'}
-                        >
-                          {webhookTests[field.key] === 'testing' ? (
-                            <Loader2 className="h-4 w-4 animate-spin" />
-                          ) : webhookTests[field.key] === 'success' ? (
-                            <CheckCircle className="h-4 w-4 text-green-600" />
-                          ) : webhookTests[field.key] === 'error' ? (
-                            <XCircle className="h-4 w-4 text-red-600" />
-                          ) : (
-                            <Wifi className="h-4 w-4" />
-                          )}
-                        </Button>
-                      )}
+        {TABS.map((tab) => {
+          const isActive = tab.id === activeTab
+          if (!isActive) return null
+          return (
+            <TabsContent key={tab.id} value={tab.id} forceMount>
+              <Card>
+                <CardHeader>
+                  <CardTitle className="text-lg">{tab.label}</CardTitle>
+                  <CardDescription>{tab.description}</CardDescription>
+                </CardHeader>
+                <CardContent className="space-y-4">
+                  {tab.fields.map((field) => (
+                    <div key={field.key} className="space-y-2">
+                      <Label htmlFor={field.key}>{field.label}</Label>
+                      <div className="flex w-full gap-2">
+                        {field.type === 'password' ? (
+                          <PasswordInput
+                            id={field.key}
+                            value={formData[field.key] ?? ''}
+                            onChange={(v) => handleFieldChange(field.key, v)}
+                            placeholder={field.placeholder}
+                          />
+                        ) : (
+                          <Input
+                            id={field.key}
+                            value={formData[field.key] ?? ''}
+                            onChange={(e) => handleFieldChange(field.key, e.target.value)}
+                            placeholder={field.placeholder}
+                            className="w-full"
+                          />
+                        )}
+                        {tab.id === 'webhooks' && formData[field.key]?.trim() && (
+                          <Button
+                            variant="outline"
+                            size="sm"
+                            className="shrink-0 h-9"
+                            onClick={() => handleTestWebhook(field.key)}
+                            disabled={webhookTests[field.key] === 'testing'}
+                          >
+                            {webhookTests[field.key] === 'testing' ? (
+                              <Loader2 className="h-4 w-4 animate-spin" />
+                            ) : webhookTests[field.key] === 'success' ? (
+                              <CheckCircle className="h-4 w-4 text-green-600" />
+                            ) : webhookTests[field.key] === 'error' ? (
+                              <XCircle className="h-4 w-4 text-red-600" />
+                            ) : (
+                              <Wifi className="h-4 w-4" />
+                            )}
+                          </Button>
+                        )}
+                      </div>
                     </div>
-                  </div>
-                ))}
-                {tab.id === SUPABASE_TAB_ID && (
-                  <Button
-                    variant="outline"
-                    onClick={handleTestConnection}
-                    disabled={testingConnection || !formData.supabase_url || !formData.supabase_service_key}
-                    className="w-full"
-                  >
-                    {testingConnection ? (
-                      <>
-                        <Loader2 className="mr-2 h-4 w-4 animate-spin" />
-                        Testing...
-                      </>
-                    ) : testPassed ? (
-                      <>
-                        <CheckCircle className="mr-2 h-4 w-4 text-green-600" />
-                        Connection Verified
-                      </>
-                    ) : (
-                      <>
-                        <Database className="mr-2 h-4 w-4" />
-                        Test Connection
-                      </>
-                    )}
-                  </Button>
-                )}
-                {(tab.id === 'ai' || tab.id === 'ghl' || tab.id === 'retell') && (
-                  <Button
-                    variant="outline"
-                    onClick={() => handleTestApi(tab.id)}
-                    disabled={apiTests[tab.id] === 'testing'}
-                    className="w-full"
-                  >
-                    {apiTests[tab.id] === 'testing' ? (
-                      <>
-                        <Loader2 className="mr-2 h-4 w-4 animate-spin" />
-                        Testing...
-                      </>
-                    ) : apiTests[tab.id] === 'success' ? (
-                      <>
-                        <CheckCircle className="mr-2 h-4 w-4 text-green-600" />
-                        Connection Verified
-                      </>
-                    ) : apiTests[tab.id] === 'error' ? (
-                      <>
-                        <XCircle className="mr-2 h-4 w-4 text-red-600" />
-                        Test Failed — Retry
-                      </>
-                    ) : (
-                      <>
-                        <Wifi className="mr-2 h-4 w-4" />
-                        Test Connection
-                      </>
-                    )}
-                  </Button>
-                )}
-                <Button
-                  onClick={() => handleSaveTab(tab)}
-                  disabled={savingTab === tab.id}
-                >
-                  {savingTab === tab.id ? (
-                    <>
-                      <Loader2 className="mr-2 h-4 w-4 animate-spin" />
-                      Saving...
-                    </>
-                  ) : (
-                    `Save ${tab.label}`
+                  ))}
+                  {tab.id === SUPABASE_TAB_ID && (
+                    <Button
+                      variant="outline"
+                      onClick={handleTestConnection}
+                      disabled={testingConnection || !formData.supabase_url || !formData.supabase_service_key}
+                      className="w-full"
+                    >
+                      {testingConnection ? (
+                        <>
+                          <Loader2 className="mr-2 h-4 w-4 animate-spin" />
+                          Testing...
+                        </>
+                      ) : testPassed ? (
+                        <>
+                          <CheckCircle className="mr-2 h-4 w-4 text-green-600" />
+                          Connection Verified
+                        </>
+                      ) : (
+                        <>
+                          <Database className="mr-2 h-4 w-4" />
+                          Test Connection
+                        </>
+                      )}
+                    </Button>
                   )}
-                </Button>
-              </CardContent>
-            </Card>
-          </TabsContent>
-        ))}
+                  {(tab.id === 'ai' || tab.id === 'ghl' || tab.id === 'retell') && (
+                    <Button
+                      variant="outline"
+                      onClick={() => handleTestApi(tab.id)}
+                      disabled={apiTests[tab.id] === 'testing'}
+                      className="w-full"
+                    >
+                      {apiTests[tab.id] === 'testing' ? (
+                        <>
+                          <Loader2 className="mr-2 h-4 w-4 animate-spin" />
+                          Testing...
+                        </>
+                      ) : apiTests[tab.id] === 'success' ? (
+                        <>
+                          <CheckCircle className="mr-2 h-4 w-4 text-green-600" />
+                          Connection Verified
+                        </>
+                      ) : apiTests[tab.id] === 'error' ? (
+                        <>
+                          <XCircle className="mr-2 h-4 w-4 text-red-600" />
+                          Test Failed — Retry
+                        </>
+                      ) : (
+                        <>
+                          <Wifi className="mr-2 h-4 w-4" />
+                          Test Connection
+                        </>
+                      )}
+                    </Button>
+                  )}
+                  <Button
+                    onClick={() => handleSaveTab(tab)}
+                    disabled={savingTab === tab.id}
+                  >
+                    {savingTab === tab.id ? (
+                      <>
+                        <Loader2 className="mr-2 h-4 w-4 animate-spin" />
+                        Saving...
+                      </>
+                    ) : (
+                      `Save ${tab.label}`
+                    )}
+                  </Button>
+                </CardContent>
+              </Card>
+            </TabsContent>
+          )
+        })}
       </Tabs>
     </div>
   )

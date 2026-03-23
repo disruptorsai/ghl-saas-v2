@@ -17,7 +17,7 @@ const navItems = [
 ]
 
 export function TopNav() {
-  const { user, signOut } = useAuth()
+  const { user, signOut, role } = useAuth()
   const initials = user?.user_metadata?.full_name
     ?.split(' ')
     .map((n: string) => n[0])
@@ -27,7 +27,7 @@ export function TopNav() {
   return (
     <nav className="sticky top-0 z-50 h-16 border-b border-border bg-card flex items-center px-4 md:px-6">
       {/* Left: Logo + Name */}
-      <NavLink to="classroom" className="flex items-center mr-auto">
+      <NavLink to={role === 'agency' ? '/' : 'classroom'} className="flex items-center mr-auto">
         <span className="font-bold text-lg text-gold-shine">Disruptors Infra</span>
       </NavLink>
 

@@ -1,24 +1,27 @@
 import { useState, useCallback } from 'react'
+import { useParams } from 'react-router-dom'
 import type { UserProgress } from '@/data/types'
 import { modules } from '@/data/modules'
 
-const STORAGE_KEY = 'disruptors-infra-progress'
+const STORAGE_KEY_PREFIX = 'disruptors-infra-progress'
 
-function loadProgress(): UserProgress {
+function loadProgress(storageKey: string): UserProgress {
   try {
-    const stored = localStorage.getItem(STORAGE_KEY)
+    const stored = localStorage.getItem(storageKey)
     return stored ? JSON.parse(stored) : {}
   } catch {
     return {}
   }
 }
 
-function saveProgress(progress: UserProgress) {
-  localStorage.setItem(STORAGE_KEY, JSON.stringify(progress))
+function saveProgress(storageKey: string, progress: UserProgress) {
+  localStorage.setItem(storageKey, JSON.stringify(progress))
 }
 
 export function useProgress() {
-  const [progress, setProgress] = useState<UserProgress>(loadProgress)
+  const { clientId } = useParams<{ clientId: string }>()
+  const storageKey = clientId ? `${STORAGE_KEY_PREFIX}-${clientId}` : STORAGE_KEY_PREFIX
+  const [progress, setProgress] = useState<UserProgress>(() => loadProgress(storageKey))
 
   const toggleStep = useCallback((stepId: string) => {
     setProgress((prev) => {
@@ -30,10 +33,10 @@ export function useProgress() {
           completedAt: !isCompleted ? new Date().toISOString() : null,
         },
       }
-      saveProgress(next)
+      saveProgress(storageKey, next)
       return next
     })
-  }, [])
+  }, [storageKey])
 
   const isStepCompleted = useCallback(
     (stepId: string) => {
