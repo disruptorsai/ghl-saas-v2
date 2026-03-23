@@ -6,6 +6,7 @@ import { StepSidebar } from '@/components/classroom/StepSidebar'
 import { VideoPlayer } from '@/components/classroom/VideoPlayer'
 import { StepInstructions } from '@/components/classroom/StepInstructions'
 import { MarkComplete } from '@/components/classroom/MarkComplete'
+import { ClassroomCredentials } from '@/components/classroom/ClassroomCredentials'
 import { Button } from '@/components/ui/button'
 import { Textarea } from '@/components/ui/textarea'
 import { Sheet, SheetContent, SheetTitle } from '@/components/ui/sheet'
@@ -124,6 +125,9 @@ export default function ModuleDetail() {
 
           {/* Action area by step type */}
           <StepActionArea step={currentStep} />
+
+          {/* Credential fields for this module */}
+          <ClassroomCredentials moduleId={moduleId!} />
 
           {/* Mark complete */}
           <MarkComplete stepId={currentStep.id} onComplete={handleComplete} />
