@@ -3,6 +3,7 @@ import { Routes, Route, Navigate } from 'react-router-dom'
 import { AuthProvider, useAuth } from '@/contexts/AuthContext'
 import { ClientProvider } from '@/contexts/ClientContext'
 import { ClientSupabaseProvider } from '@/contexts/UserSupabaseContext'
+import { ProgressProvider } from '@/hooks/useProgress'
 import { ProtectedRoute } from '@/components/layout/ProtectedRoute'
 import { CommunityLayout } from '@/components/layout/CommunityLayout'
 import { ManagementLayout } from '@/components/layout/ManagementLayout'
@@ -153,7 +154,7 @@ export default function App() {
           <Route path="/admin" element={<S><Admin /></S>} />
 
           {/* Community shell with client context (agency: clientId in URL) */}
-          <Route path="/c/:clientId" element={<ClientProvider><ClientSupabaseProvider><CommunityLayout /></ClientSupabaseProvider></ClientProvider>}>
+          <Route path="/c/:clientId" element={<ClientProvider><ClientSupabaseProvider><ProgressProvider><CommunityLayout /></ProgressProvider></ClientSupabaseProvider></ClientProvider>}>
             <Route index element={<Navigate to="classroom" replace />} />
             <Route path="support" element={<S><Support /></S>} />
             <Route path="classroom" element={<S><Classroom /></S>} />
