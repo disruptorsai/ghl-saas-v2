@@ -8,7 +8,6 @@ import { StepInstructions } from '@/components/classroom/StepInstructions'
 import { MarkComplete } from '@/components/classroom/MarkComplete'
 import { ClassroomCredentials } from '@/components/classroom/ClassroomCredentials'
 import { Button } from '@/components/ui/button'
-import { Textarea } from '@/components/ui/textarea'
 import { Sheet, SheetContent, SheetTitle } from '@/components/ui/sheet'
 
 export default function ModuleDetail() {
@@ -170,23 +169,29 @@ export default function ModuleDetail() {
 import type { Step } from '@/data/types'
 
 function StepActionArea({ step }: { step: Step }) {
+  const { clientId } = useParams()
+  const isVoice = step.id.includes('voice') || step.moduleId.includes('voice')
+  const promptPath = isVoice
+    ? `/c/${clientId}/management/prompts/voice`
+    : `/c/${clientId}/management/prompts/text`
+
   switch (step.type) {
     case 'setup':
       return <SetupChecklist instructions={step.instructions} />
     case 'config':
       return (
-        <div className="space-y-2">
-          <label className="text-sm font-medium text-foreground">
-            Customization Area
-          </label>
-          <Textarea
-            placeholder="Customize your prompt here..."
-            className="min-h-[120px] bg-muted/50"
-            readOnly
-          />
-          <p className="text-xs text-muted-foreground">
-            Read-only for now — editable once your agent is deployed.
+        <div className="rounded-xl border border-border bg-card p-5 space-y-3">
+          <p className="text-sm font-medium text-foreground">
+            Customize your AI prompts in the Management section
           </p>
+          <p className="text-xs text-muted-foreground">
+            Edit persona, greeting, qualification questions, and knowledge base for your {isVoice ? 'voice' : 'text'} agent.
+          </p>
+          <Button asChild variant="outline" size="sm">
+            <Link to={promptPath}>
+              Go to {isVoice ? 'Voice' : 'Text'} Prompts
+            </Link>
+          </Button>
         </div>
       )
     case 'demo':
