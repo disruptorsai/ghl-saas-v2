@@ -14,48 +14,75 @@ interface FieldConfig {
   isSecret?: boolean
 }
 
-const MODULE_FIELDS: Record<string, FieldConfig[]> = {
-  'api-setup': [
-    { key: 'openrouter_api_key', label: 'OpenRouter API Key', placeholder: 'sk-or-...', isSecret: true },
-    { key: 'openai_api_key', label: 'OpenAI API Key', placeholder: 'sk-...', isSecret: true },
+// Map by STEP ID — each step shows only its relevant credentials
+const STEP_FIELDS: Record<string, FieldConfig[]> = {
+  // Module 2: API Keys & Software Setup
+  'api-setup-2': [ // GoHighLevel Setup
+    { key: 'ghl_api_key', label: 'GoHighLevel API Key', placeholder: 'Enter GHL API key', isSecret: true },
+    { key: 'ghl_location_id', label: 'GHL Location ID', placeholder: 'Enter Location ID' },
+    { key: 'ghl_calendar_id', label: 'GHL Calendar ID', placeholder: 'Enter Calendar ID' },
+    { key: 'ghl_assignee_id', label: 'GHL Assignee ID', placeholder: 'Enter Assignee ID' },
   ],
-  'voice-receptionist': [
+  'api-setup-3': [ // OpenAI API Setup
+    { key: 'openai_api_key', label: 'OpenAI API Key', placeholder: 'sk-...', isSecret: true },
+    { key: 'openrouter_api_key', label: 'OpenRouter API Key', placeholder: 'sk-or-...', isSecret: true },
+  ],
+  'api-setup-4': [ // Retell.ai Voice Setup
+    { key: 'retell_api_key', label: 'Retell AI API Key', placeholder: 'Enter Retell API key', isSecret: true },
+    { key: 'retell_inbound_agent_id', label: 'Retell Inbound Agent ID', placeholder: 'agent_...' },
+    { key: 'retell_outbound_agent_id', label: 'Retell Outbound Agent ID', placeholder: 'agent_...' },
+    { key: 'retell_phone_1', label: 'Retell Phone Number', placeholder: '+1...' },
+  ],
+
+  // Module 3: AI Voice Receptionist
+  'voice-receptionist-1': [
     { key: 'retell_api_key', label: 'Retell AI API Key', placeholder: 'Enter Retell API key', isSecret: true },
     { key: 'retell_inbound_agent_id', label: 'Retell Inbound Agent ID', placeholder: 'agent_...' },
     { key: 'retell_phone_1', label: 'Retell Phone Number', placeholder: '+1...' },
   ],
-  'db-reactivation': [
+
+  // Module 4: Database Reactivation
+  'db-reactivation-1': [
     { key: 'campaign_webhook_url', label: 'Campaign Webhook URL', placeholder: 'https://...' },
     { key: 'database_reactivation_inbound_webhook_url', label: 'DB Reactivation Inbound Webhook', placeholder: 'https://...' },
   ],
-  'lead-followup': [
+
+  // Module 5: Lead Follow-up
+  'lead-followup-1': [
     { key: 'text_engine_webhook', label: 'Text Engine Webhook', placeholder: 'https://...' },
     { key: 'text_engine_followup_webhook', label: 'Text Engine Follow-up Webhook', placeholder: 'https://...' },
   ],
-  'appointment-reminders': [
+
+  // Module 6: Appointment Reminders
+  'appointment-reminders-1': [
     { key: 'ghl_api_key', label: 'GoHighLevel API Key', placeholder: 'Enter GHL API key', isSecret: true },
     { key: 'ghl_calendar_id', label: 'GHL Calendar ID', placeholder: 'Enter Calendar ID' },
-    { key: 'ghl_location_id', label: 'GHL Location ID', placeholder: 'Enter Location ID' },
   ],
-  'quote-followup': [
+
+  // Module 7: Quote Follow-up
+  'quote-followup-1': [
     { key: 'save_reply_webhook_url', label: 'Save Reply Webhook URL', placeholder: 'https://...' },
     { key: 'update_pipeline_webhook_url', label: 'Update Pipeline Webhook URL', placeholder: 'https://...' },
   ],
-  'review-request': [
+
+  // Module 8: Review Request
+  'review-request-1': [
     { key: 'lead_score_webhook_url', label: 'Lead Score Webhook URL', placeholder: 'https://...' },
   ],
-  'website-chatbot': [
+
+  // Module 9: Website Chatbot
+  'website-chatbot-1': [
     { key: 'ai_chat_webhook_url', label: 'AI Chat Webhook URL', placeholder: 'https://...' },
   ],
 }
 
 interface Props {
-  moduleId: string
+  stepId: string
 }
 
-export function ClassroomCredentials({ moduleId }: Props) {
+export function ClassroomCredentials({ stepId }: Props) {
   const { clientId, connection, refetchConnection } = useClientSupabase()
-  const fields = MODULE_FIELDS[moduleId]
+  const fields = STEP_FIELDS[stepId]
   const [values, setValues] = useState<Record<string, string>>({})
   const [visibleFields, setVisibleFields] = useState<Record<string, boolean>>({})
   const [saving, setSaving] = useState(false)
@@ -67,7 +94,7 @@ export function ClassroomCredentials({ moduleId }: Props) {
       initial[f.key] = (connection as unknown as Record<string, unknown>)[f.key] as string || ''
     })
     setValues(initial)
-  }, [connection, moduleId])
+  }, [connection, stepId])
 
   if (!fields || fields.length === 0) return null
   if (!clientId) return null
@@ -105,9 +132,8 @@ export function ClassroomCredentials({ moduleId }: Props) {
   return (
     <div className="rounded-xl border border-border bg-card p-5 space-y-4">
       <h3 className="text-sm font-semibold text-foreground">
-        Required Credentials for this module
+        Required Credentials
       </h3>
-      <p className="text-xs text-muted-foreground">Module: {moduleId}</p>
       <div className="space-y-3">
         {fields.map(field => (
           <div key={field.key} className="space-y-1.5">

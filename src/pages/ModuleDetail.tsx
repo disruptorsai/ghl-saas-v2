@@ -127,7 +127,7 @@ export default function ModuleDetail() {
           <StepActionArea step={currentStep} />
 
           {/* Credential fields for this module */}
-          <ClassroomCredentials moduleId={moduleId!} />
+          <ClassroomCredentials stepId={currentStep.id} />
 
           {/* Mark complete */}
           <MarkComplete stepId={currentStep.id} onComplete={handleComplete} />

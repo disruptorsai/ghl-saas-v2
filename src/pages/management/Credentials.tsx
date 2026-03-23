@@ -412,7 +412,7 @@ export default function Credentials() {
     <div className="space-y-6">
       {/* Header */}
       <div>
-        <h1 className="text-2xl font-bold">Credentials & Integrations v2</h1>
+        <h1 className="text-2xl font-bold">Credentials & Integrations</h1>
         <p className="text-muted-foreground">
           Manage API keys, service credentials, and webhook URLs for all integrations
         </p>
