@@ -69,7 +69,8 @@ export function ClassroomCredentials({ moduleId }: Props) {
     setValues(initial)
   }, [connection, moduleId])
 
-  if (!fields || !clientId) return null
+  if (!fields || fields.length === 0) return null
+  if (!clientId) return null
 
   const toggleVisibility = (key: string) => {
     setVisibleFields(prev => ({ ...prev, [key]: !prev[key] }))
@@ -104,8 +105,9 @@ export function ClassroomCredentials({ moduleId }: Props) {
   return (
     <div className="rounded-xl border border-border bg-card p-5 space-y-4">
       <h3 className="text-sm font-semibold text-foreground">
-        Required Credentials
+        Required Credentials for this module
       </h3>
+      <p className="text-xs text-muted-foreground">Module: {moduleId}</p>
       <div className="space-y-3">
         {fields.map(field => (
           <div key={field.key} className="space-y-1.5">
