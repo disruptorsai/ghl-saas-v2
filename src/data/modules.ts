@@ -275,13 +275,133 @@ Once all items are checked, you're ready to start configuring your AI agents! Th
     ],
   },
 
-  // ─── MODULE 3: AI Voice Receptionist ──────────────────────────────
+  // ─── MODULE 3: Twilio Setup ──────────────────────────────────────
+  {
+    id: 'twilio-setup',
+    title: 'Twilio Setup',
+    description: 'Set up your Twilio account for phone and SMS with your Client Success Manager.',
+    thumbnail: 'from-red-500 to-pink-600',
+    order: 3,
+    steps: [
+      {
+        id: 'twilio-setup-1',
+        moduleId: 'twilio-setup',
+        title: 'Why Twilio & What to Expect',
+        description: 'Understand why Twilio is needed and how the setup works.',
+        videoUrl: null,
+        type: 'info' as const,
+        order: 1,
+        instructions: `## Twilio Setup — Overview
+
+Twilio is the backbone of your phone and SMS infrastructure. It provides the phone numbers your AI agents use to make calls and send texts.
+
+### Why Twilio?
+
+- **Reliable delivery** — 99.95% uptime for calls and SMS
+- **Local phone numbers** — Get a number in your area code for trust
+- **Toll-free options** — For national reach
+- **You own the number** — It lives in YOUR Twilio account
+
+### Important: This Must Be Done Live
+
+Twilio setup requires identity verification and compliance steps that must be completed with your **Client Success Manager (CSM)** on a live call. This ensures:
+
+- Account is verified correctly the first time
+- Phone number is provisioned in the right region
+- A2P 10DLC registration is submitted (required for SMS)
+- Messaging service is configured properly
+
+### Cost
+
+- Phone number: ~$1.15/month
+- SMS: ~$0.0079/message
+- Voice: ~$0.014/minute
+- Most businesses spend **$15-40/month** on Twilio
+
+### Next Step
+
+Review the setup checklist, then schedule a call with your CSM to complete the setup together.`,
+      },
+      {
+        id: 'twilio-setup-2',
+        moduleId: 'twilio-setup',
+        title: 'Twilio Account Setup',
+        description: 'Create your Twilio account and enter credentials.',
+        videoUrl: null,
+        type: 'setup' as const,
+        order: 2,
+        instructions: `## Create Your Twilio Account
+
+Follow these steps to create your Twilio account. Your CSM will walk through the rest on your live call.
+
+### Before the Call
+
+1. Go to [twilio.com](https://www.twilio.com) and click **Sign Up**
+2. Use your business email to create the account
+3. Verify your email and phone number
+4. Navigate to **Account** → **API keys & tokens**
+5. Copy your **Account SID** and **Auth Token** from the dashboard
+
+### On the Call With Your CSM
+
+Your CSM will help you:
+- Upgrade from trial to a paid account
+- Purchase a local or toll-free phone number
+- Set up A2P 10DLC registration (required for business SMS)
+- Create a Messaging Service
+- Configure the phone number for AI voice calls
+- Test the number with a live call
+
+### Enter Your Credentials Below
+
+After creating your account, enter your login and API credentials in the form below.`,
+      },
+      {
+        id: 'twilio-setup-3',
+        moduleId: 'twilio-setup',
+        title: 'Schedule CSM Call',
+        description: 'Book a live session to complete Twilio setup.',
+        videoUrl: null,
+        type: 'demo' as const,
+        order: 3,
+        instructions: `## Schedule Your Twilio Setup Call
+
+This step must be completed with your Client Success Manager on a live call. They'll handle all the technical configuration.
+
+### What to Have Ready
+
+- Your Twilio account login (created in the previous step)
+- A credit card for Twilio billing
+- Your preferred area code for the phone number
+- 30 minutes of uninterrupted time
+
+### What Gets Done on the Call
+
+1. Account upgrade and billing setup
+2. Phone number purchase and configuration
+3. A2P 10DLC registration submission
+4. Messaging Service creation
+5. Voice routing configuration
+6. Live test call to verify everything works
+
+### After the Call
+
+Your CSM will confirm:
+- Phone number is active and receiving calls
+- SMS is configured and test message sent
+- A2P registration is submitted (approval takes 1-5 business days)
+- All credentials are saved in this platform`,
+      },
+    ],
+  },
+
+  // ─── MODULE 4: AI Voice Receptionist ──────────────────────────────
   {
     id: 'voice-receptionist',
     title: 'AI Voice Receptionist',
     description: 'Set up an AI agent that answers every call, qualifies leads, and books appointments 24/7.',
     thumbnail: 'from-violet-500 to-indigo-600',
-    order: 3,
+    order: 4,
     steps: [
       {
         id: 'voice-receptionist-1',
@@ -475,13 +595,13 @@ Use the feedback form below to share anything you'd like changed. Common request
     ],
   },
 
-  // ─── MODULE 4: Database Reactivation ──────────────────────────────
+  // ─── MODULE 5: Database Reactivation ──────────────────────────────
   {
     id: 'db-reactivation',
     title: 'Database Reactivation',
     description: 'Re-engage cold leads in your CRM and turn old contacts into booked appointments.',
     thumbnail: 'from-orange-500 to-red-600',
-    order: 4,
+    order: 5,
     steps: [
       {
         id: 'db-reactivation-1',
@@ -668,13 +788,13 @@ Make sure you've:
     ],
   },
 
-  // ─── MODULE 5: Lead Follow-up ─────────────────────────────────────
+  // ─── MODULE 6: Lead Follow-up ─────────────────────────────────────
   {
     id: 'lead-followup',
     title: 'Lead Follow-up',
     description: 'Automated multi-step follow-up from first contact to booked appointment.',
     thumbnail: 'from-cyan-500 to-blue-600',
-    order: 5,
+    order: 6,
     steps: [
       {
         id: 'lead-followup-1',
@@ -868,13 +988,13 @@ The first week of data is the most valuable. After launch, review the AI convers
     ],
   },
 
-  // ─── MODULE 6: Appointment Reminders ──────────────────────────────
+  // ─── MODULE 7: Appointment Reminders ──────────────────────────────
   {
     id: 'appointment-reminders',
     title: 'Appointment Reminders',
     description: 'Reduce no-shows with automated, perfectly-timed reminders.',
     thumbnail: 'from-yellow-500 to-orange-600',
-    order: 6,
+    order: 7,
     steps: [
       {
         id: 'appointment-reminders-1',
@@ -1058,13 +1178,13 @@ You've reviewed and tested the Appointment Reminder system.
     ],
   },
 
-  // ─── MODULE 7: Quote Follow-up ────────────────────────────────────
+  // ─── MODULE 8: Quote Follow-up ────────────────────────────────────
   {
     id: 'quote-followup',
     title: 'Quote Follow-up',
     description: 'Automatically follow up on sent quotes so nothing falls through the cracks.',
     thumbnail: 'from-emerald-500 to-green-600',
-    order: 7,
+    order: 8,
     steps: [
       {
         id: 'quote-followup-1',
@@ -1247,13 +1367,13 @@ You've reviewed and tested the Quote Follow-up agent.
     ],
   },
 
-  // ─── MODULE 8: Review Request ─────────────────────────────────────
+  // ─── MODULE 9: Review Request ─────────────────────────────────────
   {
     id: 'review-request',
     title: 'Review Request',
     description: 'Automatically collect Google and Yelp reviews after every service.',
     thumbnail: 'from-pink-500 to-rose-600',
-    order: 8,
+    order: 9,
     steps: [
       {
         id: 'review-request-1',
@@ -1435,13 +1555,13 @@ You've reviewed and tested the Review Request agent.
     ],
   },
 
-  // ─── MODULE 9: Website Chatbot ────────────────────────────────────
+  // ─── MODULE 10: Website Chatbot ───────────────────────────────────
   {
     id: 'website-chatbot',
     title: 'Website Chatbot',
     description: '24/7 website engagement — qualify visitors, answer questions, and book appointments.',
     thumbnail: 'from-indigo-500 to-blue-600',
-    order: 9,
+    order: 10,
     steps: [
       {
         id: 'website-chatbot-1',
@@ -1653,13 +1773,13 @@ The chatbot is added to your website with a small code snippet. If you use WordP
     ],
   },
 
-  // ─── MODULE 10: Prompt Playground ─────────────────────────────────
+  // ─── MODULE 11: Prompt Playground ─────────────────────────────────
   {
     id: 'prompt-playground',
     title: 'Prompt Playground',
     description: 'Test and refine AI prompts before deploying them live.',
     thumbnail: 'from-fuchsia-500 to-purple-600',
-    order: 10,
+    order: 11,
     steps: [
       {
         id: 'prompt-playground-1',
