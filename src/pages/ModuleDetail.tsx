@@ -6,6 +6,7 @@ import { StepSidebar } from '@/components/classroom/StepSidebar'
 import { VideoPlayer } from '@/components/classroom/VideoPlayer'
 import { StepInstructions } from '@/components/classroom/StepInstructions'
 import { MarkComplete } from '@/components/classroom/MarkComplete'
+import { StepFeedback } from '@/components/classroom/StepFeedback'
 import { ClassroomCredentials } from '@/components/classroom/ClassroomCredentials'
 import { Button } from '@/components/ui/button'
 import { cn } from '@/lib/utils'
@@ -134,6 +135,9 @@ export default function ModuleDetail() {
 
           {/* Mark complete */}
           <MarkComplete stepId={currentStep.id} onComplete={handleComplete} />
+
+          {/* Step feedback */}
+          <StepFeedback moduleId={module.id} stepId={currentStep.id} />
 
           {/* Step navigation */}
           <div className="flex items-center justify-between pt-4 border-t border-border">

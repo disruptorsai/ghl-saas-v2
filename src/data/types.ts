@@ -42,13 +42,21 @@ export interface ChatMessage {
   timestamp: string
 }
 
+export interface FeedbackAttachment {
+  id: string
+  type: 'image' | 'video' | 'audio' | 'loom'
+  url: string
+  name: string
+}
+
 export interface FeedbackItem {
   id: string
   moduleId: string
   stepId: string
-  type: 'question' | 'bug' | 'change_request' | 'suggestion'
+  type: 'question' | 'bug' | 'change_request' | 'suggestion' | 'comment'
   priority: 'high' | 'medium' | 'low'
   message: string
+  attachments: FeedbackAttachment[]
   createdAt: string
 }
 
