@@ -281,7 +281,7 @@ Before moving forward, let's make sure everything is properly connected. Go thro
 
 ### Next Steps
 
-Once all items are checked, you're ready to start configuring your AI agents! The next module will walk you through your first agent — the AI Voice Receptionist.
+Once all items are checked, you're ready to move on! The next module will walk you through setting up Twilio for phone and SMS, then you'll configure your first AI agent — the Voice Receptionist.
 
 **If you're stuck on any step, use the Support tab to chat with our AI assistant or submit a feedback request.**`,
       },
@@ -576,7 +576,7 @@ Make sure you've:
 - [ ] Reviewed the greeting and persona settings
 - [ ] Provided your qualification questions
 - [ ] Added your knowledge base (services, pricing, hours, FAQs)
-- [ ] Tested the agent by calling the demo number
+- [ ] Tested the agent on a call with your CSM
 - [ ] Submitted any feedback or change requests
 
 ### What Happens Next
