@@ -200,13 +200,27 @@ function StepActionArea({ step }: { step: Step }) {
       )
     case 'demo':
       return (
-        <div className="rounded-xl border border-border bg-muted/30 p-6 text-center space-y-2">
-          <p className="text-sm font-medium text-foreground">
-            Demo Coming Soon
-          </p>
-          <p className="text-xs text-muted-foreground">
-            We'll embed a live test here once your agent is deployed.
-          </p>
+        <div className="rounded-xl border border-border bg-card p-6 space-y-4">
+          <div className="space-y-2">
+            <p className="text-sm font-medium text-foreground">
+              Ready to Test? Contact Your CSM
+            </p>
+            <p className="text-xs text-muted-foreground">
+              Your Client Success Manager will walk you through testing this agent live on a call. They'll make sure everything is working perfectly before deployment.
+            </p>
+          </div>
+          <div className="flex flex-col sm:flex-row gap-3">
+            <Button asChild variant="default" size="sm">
+              <a href="https://calendly.com/disruptorsmedia/csm-call" target="_blank" rel="noopener noreferrer">
+                Schedule a Call
+              </a>
+            </Button>
+            <Button asChild variant="outline" size="sm">
+              <a href="mailto:support@disruptorsmedia.com">
+                Email Your CSM
+              </a>
+            </Button>
+          </div>
         </div>
       )
     case 'info':

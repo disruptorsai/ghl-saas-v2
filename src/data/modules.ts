@@ -530,40 +530,31 @@ Provide the AI with answers to your most common questions:
       {
         id: 'voice-receptionist-4',
         moduleId: 'voice-receptionist',
-        title: 'Test Your Agent',
-        description: 'Call the demo number and test your AI voice receptionist.',
+        title: 'Contact Your CSM',
+        description: 'Schedule a call with your CSM to test your AI voice receptionist live.',
         videoUrl: null,
         type: 'demo',
         order: 4,
-        instructions: `## Test Your Voice Receptionist
+        instructions: `## Test Your Voice Receptionist With Your CSM
 
-Time to hear your AI in action! Follow these steps to test the agent.
+Your Client Success Manager will walk you through testing the voice agent on a live call.
 
-### How to Test
+### What Happens on the Call
 
-1. **Call the demo number** displayed on screen — this is your AI receptionist's line
-2. **Pretend to be a customer** — ask about services, pricing, and try to book an appointment
-3. **Test edge cases:**
-   - Ask a question NOT in the knowledge base
-   - Try to book outside of business hours
-   - Ask to speak to a human
-   - Give incomplete information
+1. **Live call test** — Your CSM will call the AI receptionist with you on the line
+2. **Quality check** — Listen to the greeting, qualification flow, and booking process together
+3. **Real-time adjustments** — Any tweaks to the prompt or knowledge base can be made on the spot
+4. **Deployment confirmation** — Once you're happy, your CSM deploys it to your live number
 
-### What to Listen For
+### Before the Call, Make Sure You've:
 
-- Does the greeting sound natural and on-brand?
-- Are the qualification questions relevant to your business?
-- Does the AI handle unknown questions gracefully?
-- Is the appointment booking flow smooth?
-- Does the confirmation SMS arrive correctly?
+- Completed the "Customize Voice Prompt" step
+- Provided your knowledge base (services, pricing, hours)
+- Entered all required credentials
 
-### After Testing
+### Schedule Your Call
 
-Rate your experience on these areas:
-- **Greeting & Tone** — Does it sound like your brand?
-- **Qualification Flow** — Are the right questions being asked?
-- **Knowledge Accuracy** — Did it answer questions correctly?
-- **Booking Experience** — Was the appointment booking smooth?
+Use the button below to book a time with your CSM. Calls typically take 15-20 minutes.
 
 **If anything needs adjustment,** note it in the feedback form on the next step. Our team will fine-tune the prompt and redeploy.`,
       },
@@ -728,39 +719,31 @@ Choose the tone that matches your brand:
       {
         id: 'db-reactivation-4',
         moduleId: 'db-reactivation',
-        title: 'Test Campaign',
-        description: 'Upload a small test batch and see it in action.',
+        title: 'Contact Your CSM',
+        description: 'Schedule a call with your CSM to test your database reactivation campaign.',
         videoUrl: null,
         type: 'demo',
         order: 4,
-        instructions: `## Test Your Database Reactivation
+        instructions: `## Test Your Database Reactivation With Your CSM
 
-Let's run a small test to make sure everything works before launching a full campaign.
+Your Client Success Manager will walk you through testing the reactivation campaign on a live call.
 
-### Test Steps
+### What Happens on the Call
 
-1. **Prepare a test list** — select 5-10 contacts (use your own team members or test numbers)
-2. **Upload the CSV** with columns: First Name, Last Name, Phone, Email
-3. **Review the outreach message** — confirm it looks right with real data merged in
-4. **Launch the test batch** — the AI will send messages to your test contacts
-5. **Reply to the messages** — pretend to be an interested lead and test the conversation
+1. **Small batch test** — Your CSM will launch a test batch of 5-10 contacts with you watching
+2. **Message review** — See exactly what your past clients receive and how the AI responds
+3. **Real-time adjustments** — Tweak messaging, timing, or follow-up sequences on the spot
+4. **Campaign approval** — Once you're happy with the test, your CSM launches the full campaign
 
-### What to Look For
+### Before the Call, Make Sure You've:
 
-- Are messages being sent at the right times?
-- Does the personalization (name, business) look correct?
-- Is the AI conversation natural when you reply?
-- Does the booking link work correctly?
-- Are opt-out requests handled properly?
+- Completed the "Customize Reactivation Prompts" step
+- Prepared a small test list (5-10 contacts with phone and email)
+- Entered all required credentials
 
-### Test Scenarios to Try
+### Schedule Your Call
 
-- Reply "Yes, I'm interested" — the AI should route to booking
-- Reply "Not interested" — the AI should thank them and stop messaging
-- Reply with a question — the AI should answer from your knowledge base
-- Don't reply at all — the follow-up should trigger on schedule
-
-**Once you're satisfied with the test, let us know and we'll prepare your full campaign.**`,
+Use the button below to book a time with your CSM. Calls typically take 20-30 minutes.`,
       },
       {
         id: 'db-reactivation-5',
@@ -929,42 +912,31 @@ Help us personalize your sequence:
       {
         id: 'lead-followup-4',
         moduleId: 'lead-followup',
-        title: 'Test the Sequence',
-        description: 'Trigger a test lead and watch the follow-up unfold.',
+        title: 'Contact Your CSM',
+        description: 'Schedule a call with your CSM to test your lead follow-up sequence.',
         videoUrl: null,
         type: 'demo',
         order: 4,
-        instructions: `## Test Your Follow-up Sequence
+        instructions: `## Test Your Lead Follow-up With Your CSM
 
-Let's trigger a test lead and see the full sequence in action.
+Your Client Success Manager will walk you through testing the follow-up sequence on a live call.
 
-### How to Test
+### What Happens on the Call
 
-1. **Submit a test lead** — use the form below or add a test contact in GHL
-2. **Watch for the instant response** — you should receive an SMS within 60 seconds
-3. **Don't reply yet** — let the sequence run for a few hours to see the automated touchpoints
-4. **Then reply** — test how the AI handles the conversation when you engage
+1. **Trigger a test lead** — Your CSM will submit a test lead with you watching the sequence fire
+2. **Watch the flow** — See the instant SMS, email, and follow-up touchpoints in real time
+3. **Real-time adjustments** — Tweak timing, messaging, or AI conversation handling on the spot
+4. **Go-live approval** — Once you're happy, your CSM activates the sequence for real leads
 
-### Test Checklist
+### Before the Call, Make Sure You've:
 
-- [ ] Instant SMS received within 60 seconds
-- [ ] Welcome email received
-- [ ] 30-minute video link sent (if you didn't reply)
-- [ ] 4-hour follow-up sent
-- [ ] AI conversation handles your reply naturally
-- [ ] Booking link works and appointment appears in GHL calendar
-- [ ] Confirmation SMS/email sent after booking
+- Completed the "Customize Follow-up Prompts" step
+- Configured your follow-up timing and sequence
+- Entered all required credentials
 
-### Things to Try
+### Schedule Your Call
 
-- Reply with "How much do you charge?" — test pricing knowledge
-- Reply with "I'm not interested" — test graceful exit
-- Reply with "Can you call me?" — test handoff behavior
-- Reply with "What's your availability?" — test booking flow
-
-### Note
-
-The full 14-day sequence is compressed into a shorter timeline for testing. In production, messages will go out according to the schedule you configured.`,
+Use the button below to book a time with your CSM. Calls typically take 20-30 minutes.`,
       },
       {
         id: 'lead-followup-5',
@@ -1124,39 +1096,31 @@ Adjust what happens after the visit:
       {
         id: 'appointment-reminders-4',
         moduleId: 'appointment-reminders',
-        title: 'Test Reminders',
-        description: 'Book a test appointment and see the reminders in action.',
+        title: 'Contact Your CSM',
+        description: 'Schedule a call with your CSM to test your appointment reminders.',
         videoUrl: null,
         type: 'demo',
         order: 4,
-        instructions: `## Test Your Reminder System
+        instructions: `## Test Your Appointment Reminders With Your CSM
 
-Let's create a test appointment and verify the full reminder flow.
+Your Client Success Manager will walk you through testing the reminder flow on a live call.
 
-### How to Test
+### What Happens on the Call
 
-1. **Create a test appointment** in your GHL calendar for a time in the near future
-2. **Use your own phone number** as the contact so you receive the reminders
-3. **Watch for the confirmation** — it should arrive immediately after booking
-4. **Test the response options:**
-   - Reply "C" to confirm — should get a confirmation acknowledgment
-   - Reply "R" to reschedule — should get rebooking options
-   - Reply "Cancel" — should process the cancellation
+1. **Create a test appointment** — Your CSM will book a test appointment and trigger the reminder sequence
+2. **Watch the flow** — See the confirmation, 24-hour reminder, and 1-hour reminder fire in real time
+3. **Test responses** — Try confirming, rescheduling, and cancelling to verify each path works
+4. **Go-live approval** — Once you're happy, your CSM activates reminders for all future appointments
 
-### Verification Checklist
+### Before the Call, Make Sure You've:
 
-- [ ] Booking confirmation received immediately
-- [ ] 24-hour reminder received at the right time
-- [ ] 1-hour reminder received with correct details
-- [ ] Confirm/reschedule responses work correctly
-- [ ] Post-appointment follow-up sent after the appointment time
-- [ ] Review link works and goes to the correct platform
+- Completed the "Customize Reminder Prompts" step
+- Configured your reminder timing and messaging
+- Entered all required credentials
 
-### Compressed Timeline
+### Schedule Your Call
 
-For testing purposes, reminders are compressed so you don't have to wait 24 hours. You'll see all reminders within a few minutes of creating the test appointment.
-
-**Note any issues or adjustments needed for the Review & Complete step.**`,
+Use the button below to book a time with your CSM. Calls typically take 15-20 minutes.`,
       },
       {
         id: 'appointment-reminders-5',
@@ -1312,40 +1276,31 @@ Set any business-specific rules:
       {
         id: 'quote-followup-4',
         moduleId: 'quote-followup',
-        title: 'Test Quote Follow-up',
-        description: 'Send a test quote and watch the follow-up sequence.',
+        title: 'Contact Your CSM',
+        description: 'Schedule a call with your CSM to test your quote follow-up system.',
         videoUrl: null,
         type: 'demo',
         order: 4,
-        instructions: `## Test Your Quote Follow-up
+        instructions: `## Test Your Quote Follow-up With Your CSM
 
-Let's send a test quote and see the follow-up system in action.
+Your Client Success Manager will walk you through testing the quote follow-up system on a live call.
 
-### How to Test
+### What Happens on the Call
 
-1. **Create a test quote** in your GHL account
-2. **Send it to your own email/phone** so you can experience the full flow
-3. **Watch for the confirmation message** — should arrive right after sending
-4. **Let the sequence run** — observe the 24-hour and day-3 follow-ups
-5. **Reply at some point** — test how the AI handles your response
+1. **Send a test quote** — Your CSM will create and send a test quote with you watching
+2. **Watch the sequence** — See the confirmation, 24-hour check-in, and day-3 follow-up fire
+3. **Test objection handling** — Reply with common objections and see how the AI responds
+4. **Go-live approval** — Once you're happy, your CSM activates the follow-up for all future quotes
 
-### Things to Test
+### Before the Call, Make Sure You've:
 
-- Reply "This looks expensive" — see how AI handles price objections
-- Reply "I need to talk to my partner" — see how AI handles delay
-- Reply "Let's move forward" — see how AI routes to closing
-- Don't reply at all — see the full nurture sequence play out
+- Completed the "Customize Quote Follow-up Prompts" step
+- Configured your follow-up timing and objection responses
+- Entered all required credentials
 
-### Verification Checklist
+### Schedule Your Call
 
-- [ ] Quote sent confirmation received
-- [ ] 24-hour check-in message received
-- [ ] Day 3 follow-up with value proposition
-- [ ] AI handles objection replies naturally
-- [ ] Ready-to-close leads get routed properly
-- [ ] Sequence stops when prospect engages
-
-**Note: Timeline is compressed for testing. Full sequence plays out over 14 days in production.**`,
+Use the button below to book a time with your CSM. Calls typically take 20-30 minutes.`,
       },
       {
         id: 'quote-followup-5',
@@ -1501,39 +1456,31 @@ When someone reports a poor experience:
       {
         id: 'review-request-4',
         moduleId: 'review-request',
-        title: 'Test Review Request',
-        description: 'Trigger a test review request and see the flow.',
+        title: 'Contact Your CSM',
+        description: 'Schedule a call with your CSM to test your review request system.',
         videoUrl: null,
         type: 'demo',
         order: 4,
-        instructions: `## Test Your Review Request System
+        instructions: `## Test Your Review Request System With Your CSM
 
-Let's trigger a test review request to make sure everything works.
+Your Client Success Manager will walk you through testing the review request flow on a live call.
 
-### How to Test
+### What Happens on the Call
 
-1. **Create a test appointment** in GHL set to a time in the past (simulates completed service)
-2. **Use your own contact info** so you receive the messages
-3. **Watch for the initial request** — should arrive based on your timing settings
-4. **Test both paths:**
-   - Reply with "5" — you should receive the review link
-   - Reply with "2" — you should see the negative feedback routing
+1. **Trigger a test request** — Your CSM will simulate a completed appointment and fire the review request
+2. **Test both paths** — See what happens with positive ratings (review link) and negative ratings (team alert)
+3. **Real-time adjustments** — Tweak messaging, timing, or review platform links on the spot
+4. **Go-live approval** — Once you're happy, your CSM activates review requests for all completed appointments
 
-### Verification Checklist
+### Before the Call, Make Sure You've:
 
-- [ ] Initial "how was it?" message received at the right time
-- [ ] Positive response triggers review link
-- [ ] Review link goes to the correct platform
-- [ ] Negative response triggers team alert
-- [ ] Negative response gets empathetic AI reply
-- [ ] 3-day follow-up reminder works (if review not posted)
-- [ ] Thank you message works after review
+- Completed the "Customize Review Request Prompts" step
+- Added your review platform links (Google, Yelp, etc.)
+- Entered all required credentials
 
-### Test Both Platforms
+### Schedule Your Call
 
-If you're collecting reviews on multiple platforms, test that each link works correctly and goes to the right page.
-
-**Note any issues for the Review & Complete step.**`,
+Use the button below to book a time with your CSM. Calls typically take 15-20 minutes.`,
       },
       {
         id: 'review-request-5',
@@ -1702,52 +1649,31 @@ What should the chatbot prioritize?
       {
         id: 'website-chatbot-4',
         moduleId: 'website-chatbot',
-        title: 'Test Your Chatbot',
-        description: 'Try the embedded chat widget and test conversations.',
+        title: 'Contact Your CSM',
+        description: 'Schedule a call with your CSM to test your website chatbot.',
         videoUrl: null,
         type: 'demo',
         order: 4,
-        instructions: `## Test Your Website Chatbot
+        instructions: `## Test Your Website Chatbot With Your CSM
 
-Let's test the chatbot and make sure it handles conversations correctly.
+Your Client Success Manager will walk you through testing the chatbot on a live call.
 
-### How to Test
+### What Happens on the Call
 
-1. **Open the test widget** below — it's a live preview of your chatbot
-2. **Start a conversation** — try the greeting and see how it responds
-3. **Ask common questions** — test the knowledge base accuracy
-4. **Try to book** — go through the appointment booking flow
-5. **Test edge cases** — ask something the chatbot doesn't know
+1. **Live chat test** — Your CSM will open the chat widget with you and run through test conversations
+2. **Scenario testing** — Test common questions, booking flow, and edge cases together
+3. **Real-time adjustments** — Tweak the greeting, knowledge base responses, or booking flow on the spot
+4. **Deployment confirmation** — Once you're happy, your CSM deploys the widget to your live website
 
-### Test Scenarios
+### Before the Call, Make Sure You've:
 
-**Scenario 1: Informed Visitor**
-> "Hi, I'm looking for [your service]. How much does it cost?"
-→ Should give pricing info and offer to book
+- Completed the "Customize Chatbot Prompts" step
+- Provided your knowledge base (services, pricing, FAQs)
+- Entered all required credentials
 
-**Scenario 2: Just Browsing**
-> "Just looking around"
-→ Should offer helpful info without being pushy
+### Schedule Your Call
 
-**Scenario 3: Complex Question**
-> "Do you offer [specific service variation]?"
-→ Should answer from knowledge base or offer to connect with team
-
-**Scenario 4: Ready to Book**
-> "I'd like to schedule an appointment"
-→ Should present booking options
-
-**Scenario 5: Frustrated**
-> "I need to talk to a real person"
-→ Should acknowledge and offer human handoff
-
-### Checklist
-
-- [ ] Greeting feels natural and on-brand
-- [ ] Knowledge base answers are accurate
-- [ ] Booking flow works smoothly
-- [ ] Unknown questions handled gracefully
-- [ ] Human handoff works correctly`,
+Use the button below to book a time with your CSM. Calls typically take 15-20 minutes.`,
       },
       {
         id: 'website-chatbot-5',
