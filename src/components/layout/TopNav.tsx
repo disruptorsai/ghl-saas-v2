@@ -1,5 +1,5 @@
 import { NavLink } from 'react-router-dom'
-import { MessageCircle, GraduationCap, Users, Settings, Search, Bell, LogOut } from 'lucide-react'
+import { MessageCircle, GraduationCap, Users, KeyRound, Settings, Search, Bell, LogOut } from 'lucide-react'
 import { cn } from '@/lib/utils'
 import { useAuth } from '@/contexts/AuthContext'
 import {
@@ -13,6 +13,7 @@ const navItems = [
   { to: 'support', label: 'Support', icon: MessageCircle },
   { to: 'classroom', label: 'Classroom', icon: GraduationCap },
   { to: 'members', label: 'Members', icon: Users },
+  { to: 'logins', label: 'Logins', icon: KeyRound },
   { to: 'management', label: 'Management', icon: Settings },
 ]
 

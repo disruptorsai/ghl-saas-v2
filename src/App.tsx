@@ -15,6 +15,7 @@ const Classroom = lazy(() => import('./pages/Classroom'))
 const ModuleDetail = lazy(() => import('./pages/ModuleDetail'))
 const Support = lazy(() => import('./pages/Support'))
 const Members = lazy(() => import('./pages/Members'))
+const SoftwareLogins = lazy(() => import('./pages/SoftwareLogins'))
 const Admin = lazy(() => import('./pages/Admin'))
 
 // Auth
@@ -161,6 +162,7 @@ export default function App() {
             <Route path="classroom/:moduleId" element={<S><ModuleDetail /></S>} />
             <Route path="classroom/:moduleId/:stepId" element={<S><ModuleDetail /></S>} />
             <Route path="members" element={<S><Members /></S>} />
+            <Route path="logins" element={<S><SoftwareLogins /></S>} />
             {ManagementRoutes()}
           </Route>
         </Route>
