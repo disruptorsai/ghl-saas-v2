@@ -141,29 +141,42 @@ We've seen too many businesses get burned by agencies that own the systems. When
         videoUrl: null,
         type: 'setup',
         order: 2,
-        instructions: `## GoHighLevel API Setup
+        instructions: `## GoHighLevel Setup
 
-Follow these steps to get your GoHighLevel API credentials. This is the foundation everything else connects to.
+Choose your GoHighLevel path below, then follow the instructions for your option.
 
-### Step-by-Step
+### Option A: Your Own GHL Account ($297/month)
 
-1. **Log in** to your GoHighLevel account at [app.gohighlevel.com](https://app.gohighlevel.com)
-2. Navigate to **Settings** → **Business Profile** and copy your **Location ID** (it looks like \`abc123XYZ\`)
+You already have (or will create) your own GoHighLevel account. You get full control and direct billing.
+
+**Steps:**
+1. Log in to your GoHighLevel account at [app.gohighlevel.com](https://app.gohighlevel.com)
+2. Navigate to **Settings** → **Business Profile** and copy your **Location ID**
 3. Go to **Settings** → **API Keys** → click **Create API Key**
-4. Name it **"Disruptors Sales Infra"** so you can identify it later
-5. Set permissions to **Full Access** (required for all automations to work)
-6. Click **Create** and **copy the API key immediately** — you won't be able to see it again
+4. Name it **"Disruptors Sales Infra"**
+5. Set permissions to **Full Access**
+6. Click **Create** and copy the API key immediately
+
+### Option B: Disruptors Media Sub-Account (Included)
+
+We provide you a sub-account under our agency. No extra GHL subscription needed — it's included in your plan.
+
+**Steps:**
+1. Your CSM will create your sub-account and send you login credentials
+2. Log in with the credentials provided
+3. Your Location ID and API Key will be pre-configured
+4. You still own all your data — you can export or migrate anytime
 
 ### What We Need From You
 
 - **Location ID** — found in Settings → Business Profile
-- **API Key** — the key you just created
-- **Calendar ID** — go to Calendars → click your main calendar → copy the ID from the URL
+- **API Key** — generated from Settings → API Keys
+- **Calendar ID** — go to Calendars → your main calendar → copy ID from URL
 
-### Troubleshooting
+### Which Path Is Right for You?
 
-- If you don't see API Keys in Settings, make sure you're on a plan that supports API access
-- If you have multiple locations, make sure you're in the correct one before generating the key`,
+- **Choose Option A** if you already have GHL or want direct control of billing
+- **Choose Option B** if you want to keep things simple and save on the $297/month subscription`,
       },
       {
         id: 'api-setup-3',

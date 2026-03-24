@@ -8,6 +8,7 @@ import { StepInstructions } from '@/components/classroom/StepInstructions'
 import { MarkComplete } from '@/components/classroom/MarkComplete'
 import { ClassroomCredentials } from '@/components/classroom/ClassroomCredentials'
 import { Button } from '@/components/ui/button'
+import { cn } from '@/lib/utils'
 import { Sheet, SheetContent, SheetTitle } from '@/components/ui/sheet'
 
 export default function ModuleDetail() {
@@ -124,6 +125,9 @@ export default function ModuleDetail() {
 
           {/* Action area by step type */}
           <StepActionArea step={currentStep} />
+
+          {/* GHL path selector for api-setup-2 */}
+          {currentStep.id === 'api-setup-2' && <GhlPathSelector />}
 
           {/* Credential fields for this module */}
           <ClassroomCredentials stepId={currentStep.id} />
@@ -249,6 +253,54 @@ function SetupChecklist({ instructions }: { instructions: string }) {
           )
         })}
       </div>
+    </div>
+  )
+}
+
+function GhlPathSelector() {
+  const [path, setPath] = useState<'own' | 'sub' | null>(() => {
+    return localStorage.getItem('ghl-path') as 'own' | 'sub' | null
+  })
+
+  const handleSelect = (p: 'own' | 'sub') => {
+    setPath(p)
+    localStorage.setItem('ghl-path', p)
+  }
+
+  return (
+    <div className="rounded-xl border border-border bg-card p-5 space-y-4">
+      <h3 className="text-sm font-semibold text-foreground">Choose Your GHL Path</h3>
+      <div className="grid gap-3 sm:grid-cols-2">
+        <button
+          onClick={() => handleSelect('own')}
+          className={cn(
+            'rounded-lg border p-4 text-left transition-colors',
+            path === 'own'
+              ? 'border-primary bg-primary/5'
+              : 'border-border hover:border-muted-foreground/30'
+          )}
+        >
+          <p className="text-sm font-medium text-foreground">Option A: Own Account</p>
+          <p className="text-xs text-muted-foreground mt-1">$297/month — full control, direct billing</p>
+        </button>
+        <button
+          onClick={() => handleSelect('sub')}
+          className={cn(
+            'rounded-lg border p-4 text-left transition-colors',
+            path === 'sub'
+              ? 'border-primary bg-primary/5'
+              : 'border-border hover:border-muted-foreground/30'
+          )}
+        >
+          <p className="text-sm font-medium text-foreground">Option B: Sub-Account</p>
+          <p className="text-xs text-muted-foreground mt-1">Included — we set it up for you</p>
+        </button>
+      </div>
+      {path === 'sub' && (
+        <p className="text-xs text-muted-foreground">
+          Your CSM will send you login credentials. Enter them below once received.
+        </p>
+      )}
     </div>
   )
 }
