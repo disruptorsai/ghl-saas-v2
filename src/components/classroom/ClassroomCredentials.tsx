@@ -18,6 +18,8 @@ interface FieldConfig {
 const STEP_FIELDS: Record<string, FieldConfig[]> = {
   // Module 2: API Keys & Software Setup
   'api-setup-2': [ // GoHighLevel Setup
+    { key: 'ghl_login_email', label: 'GHL Login Email', placeholder: 'client@example.com' },
+    { key: 'ghl_login_password', label: 'GHL Login Password', placeholder: 'Enter password', isSecret: true },
     { key: 'ghl_api_key', label: 'GoHighLevel API Key', placeholder: 'Enter GHL API key', isSecret: true },
     { key: 'ghl_location_id', label: 'GHL Location ID', placeholder: 'Enter Location ID' },
     { key: 'ghl_calendar_id', label: 'GHL Calendar ID', placeholder: 'Enter Calendar ID' },
@@ -28,6 +30,8 @@ const STEP_FIELDS: Record<string, FieldConfig[]> = {
     { key: 'openrouter_api_key', label: 'OpenRouter API Key', placeholder: 'sk-or-...', isSecret: true },
   ],
   'api-setup-4': [ // Retell.ai Voice Setup
+    { key: 'retell_login_email', label: 'Retell Login Email', placeholder: 'client@example.com' },
+    { key: 'retell_login_password', label: 'Retell Login Password', placeholder: 'Enter password', isSecret: true },
     { key: 'retell_api_key', label: 'Retell AI API Key', placeholder: 'Enter Retell API key', isSecret: true },
     { key: 'retell_inbound_agent_id', label: 'Retell Inbound Agent ID', placeholder: 'agent_...' },
     { key: 'retell_outbound_agent_id', label: 'Retell Outbound Agent ID', placeholder: 'agent_...' },
@@ -73,6 +77,14 @@ const STEP_FIELDS: Record<string, FieldConfig[]> = {
   // Module 9: Website Chatbot
   'website-chatbot-1': [
     { key: 'ai_chat_webhook_url', label: 'AI Chat Webhook URL', placeholder: 'https://...' },
+  ],
+
+  // Twilio Setup
+  'twilio-setup-2': [
+    { key: 'twilio_email', label: 'Twilio Login Email', placeholder: 'client@example.com' },
+    { key: 'twilio_password', label: 'Twilio Login Password', placeholder: 'Enter password', isSecret: true },
+    { key: 'twilio_account_sid', label: 'Account SID', placeholder: 'AC...' },
+    { key: 'twilio_auth_token', label: 'Auth Token', placeholder: 'Enter auth token', isSecret: true },
   ],
 }
 
