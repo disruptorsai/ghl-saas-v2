@@ -11,6 +11,10 @@ import {
   Bot,
   Terminal,
   Lock,
+  ShieldCheck,
+  BookOpen,
+  FlaskConical,
+  Settings2,
 } from 'lucide-react'
 import type { Module } from '@/data/types'
 import { useProgress } from '@/hooks/useProgress'
@@ -19,6 +23,7 @@ import type { LucideIcon } from 'lucide-react'
 const moduleIcons: Record<string, LucideIcon> = {
   welcome: Sparkles,
   'api-setup': Key,
+  'twilio-setup': Phone,
   'voice-receptionist': Phone,
   'db-reactivation': Database,
   'lead-followup': MessageSquare,
@@ -27,6 +32,10 @@ const moduleIcons: Record<string, LucideIcon> = {
   'review-request': Star,
   'website-chatbot': Bot,
   'prompt-playground': Terminal,
+  'a2p-registration': ShieldCheck,
+  'knowledge-base': BookOpen,
+  'testing': FlaskConical,
+  'management': Settings2,
 }
 
 interface ModuleCardProps {

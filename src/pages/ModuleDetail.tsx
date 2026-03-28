@@ -8,8 +8,11 @@ import { StepInstructions } from '@/components/classroom/StepInstructions'
 import { MarkComplete } from '@/components/classroom/MarkComplete'
 import { StepFeedback } from '@/components/classroom/StepFeedback'
 import { ClassroomCredentials } from '@/components/classroom/ClassroomCredentials'
+import { VoiceQuestionnaire } from '@/components/classroom/VoiceQuestionnaire'
+import { ModuleLoginCollection } from '@/components/classroom/ModuleLoginCollection'
 import { Button } from '@/components/ui/button'
 import { cn } from '@/lib/utils'
+import { useGhlPath } from '@/hooks/useGhlPath'
 import { Sheet, SheetContent, SheetTitle } from '@/components/ui/sheet'
 
 export default function ModuleDetail() {
@@ -20,6 +23,7 @@ export default function ModuleDetail() {
   }>()
   const navigate = useNavigate()
   const [sidebarOpen, setSidebarOpen] = useState(false)
+  const { isSub } = useGhlPath()
   const classroomBase = `/c/${clientId}/classroom`
 
   const module = modules.find((m) => m.id === moduleId)
@@ -127,8 +131,24 @@ export default function ModuleDetail() {
           {/* Action area by step type */}
           <StepActionArea step={currentStep} />
 
-          {/* GHL path selector for api-setup-2 */}
-          {currentStep.id === 'api-setup-2' && <GhlPathSelector />}
+          {/* Sub-account CSM banner for technical modules */}
+          {isSub && (module.id === 'api-setup' || module.id === 'twilio-setup') && (
+            <div className="rounded-xl border border-emerald-500/30 bg-emerald-500/5 p-5 space-y-2">
+              <p className="text-sm font-semibold text-emerald-600">Sub-Account — Your CSM Handles This</p>
+              <p className="text-xs text-muted-foreground">
+                Since you're on the sub-account path, our team configures this for you. Review the info here to understand what's being set up, but you don't need to do the technical steps yourself.
+              </p>
+            </div>
+          )}
+
+          {/* GHL path info for api-setup-2 (own account) */}
+          {currentStep.id === 'api-setup-2' && !isSub && <GhlPathSelector />}
+
+          {/* Voice/agent questionnaire */}
+          <VoiceQuestionnaire moduleId={module.id} />
+
+          {/* Per-module login collection */}
+          <ModuleLoginCollection moduleId={module.id} stepId={currentStep.id} />
 
           {/* Credential fields for this module */}
           <ClassroomCredentials stepId={currentStep.id} />

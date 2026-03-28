@@ -1712,13 +1712,690 @@ The chatbot is added to your website with a small code snippet. If you use WordP
     ],
   },
 
-  // ─── MODULE 11: Prompt Playground ─────────────────────────────────
+  // ─── MODULE 11: A2P Registration ──────────────────────────────────
+  {
+    id: 'a2p-registration',
+    title: 'A2P Registration',
+    description: 'Register your business for A2P 10DLC compliance so your SMS messages actually get delivered.',
+    thumbnail: 'from-emerald-500 to-green-600',
+    order: 11,
+    steps: [
+      {
+        id: 'a2p-1',
+        moduleId: 'a2p-registration',
+        title: 'What Is A2P & Why It Matters',
+        description: 'Understand A2P 10DLC compliance and why it is required.',
+        videoUrl: null,
+        type: 'info' as const,
+        order: 1,
+        instructions: `## A2P 10DLC Registration — Overview
+
+**A2P (Application-to-Person)** messaging is the industry standard for businesses sending SMS via software. Without registration, your messages get filtered or blocked by carriers.
+
+### Why You Need This
+
+- **Carrier compliance** — T-Mobile, AT&T, and Verizon require A2P registration for all business texting
+- **Deliverability** — Unregistered numbers get 60-80% of messages filtered. Registered numbers get 95%+
+- **Trust Score** — Registration gives your business a trust score that improves over time
+- **Legal protection** — Compliance with TCPA and carrier regulations
+
+### What Gets Registered
+
+1. **Your Brand** — Business name, EIN, website, industry
+2. **Your Campaign** — What you're texting about (appointment reminders, follow-ups, etc.)
+3. **Your Number** — The Twilio number linked to your messaging service
+
+### Timeline
+
+- Brand registration: **Instant to 24 hours**
+- Campaign registration: **1-5 business days** (carrier review)
+- Full approval: **Usually within 1 week**
+
+### Cost
+
+- One-time brand registration: **$4**
+- Campaign vetting fee: **$15**
+- No recurring fees for A2P itself`,
+      },
+      {
+        id: 'a2p-2',
+        moduleId: 'a2p-registration',
+        title: 'Business Information',
+        description: 'Provide your business details for brand registration.',
+        videoUrl: null,
+        type: 'setup' as const,
+        order: 2,
+        instructions: `## Business Information for A2P Registration
+
+We need the following details to register your brand with The Campaign Registry (TCR).
+
+### Required Information
+
+- **Legal Business Name** — exactly as registered with the IRS
+- **EIN (Tax ID)** — 9-digit Employer Identification Number
+- **Business Address** — physical address (no P.O. boxes)
+- **Business Website** — must be a live, working website
+- **Industry/Vertical** — e.g., Home Services, Healthcare, Real Estate
+- **Business Type** — LLC, Corporation, Sole Proprietor, etc.
+- **Contact Email** — for registration correspondence
+- **Contact Phone** — for verification
+
+### Important Notes
+
+- Business name must **exactly match** your IRS registration
+- EIN is required — SSN-based registrations have lower trust scores
+- Website must be live and show your business name
+- P.O. boxes will be rejected — use your physical business address
+
+### Enter Your Details Below
+
+Fill in the credential fields below with your business information. Your CSM will use these to submit your registration.`,
+      },
+      {
+        id: 'a2p-3',
+        moduleId: 'a2p-registration',
+        title: 'Campaign Details',
+        description: 'Define your messaging campaign for carrier approval.',
+        videoUrl: null,
+        type: 'setup' as const,
+        order: 3,
+        instructions: `## Campaign Registration
+
+Your campaign tells carriers what kind of messages you'll be sending. This is reviewed by T-Mobile, AT&T, and Verizon.
+
+### Campaign Use Cases We Register
+
+1. **Appointment Reminders** — Confirming and reminding about scheduled appointments
+2. **Customer Follow-up** — Following up on inquiries, quotes, and service requests
+3. **Database Reactivation** — Re-engaging past customers with special offers
+4. **Review Requests** — Asking satisfied customers for reviews
+
+### Sample Messages Required
+
+For each use case, carriers require a sample message. We pre-write these for you:
+
+**Appointment Reminder:**
+> "Hi {name}, this is {business}. Just a reminder about your appointment tomorrow at {time}. Reply YES to confirm or call us to reschedule."
+
+**Follow-up:**
+> "Hi {name}, thanks for reaching out to {business}! I wanted to follow up on your inquiry. Is there a good time to chat? Reply STOP to opt out."
+
+### Opt-Out Compliance
+
+All messages must include opt-out language. Our system automatically appends opt-out instructions to every message.
+
+### Your CSM Handles This
+
+You don't need to fill out carrier forms — your CSM submits everything using the business information you provided in the previous step.`,
+      },
+      {
+        id: 'a2p-4',
+        moduleId: 'a2p-registration',
+        title: 'Registration Status & Approval',
+        description: 'Track your registration and understand approval timelines.',
+        videoUrl: null,
+        type: 'demo' as const,
+        order: 4,
+        instructions: `## Registration Status
+
+After your CSM submits the registration, here's what to expect.
+
+### Approval Timeline
+
+| Step | Timeline | Status |
+|------|----------|--------|
+| Brand Registration | Instant - 24 hrs | Submitted by CSM |
+| Campaign Vetting | 1-5 business days | Under carrier review |
+| Number Assignment | Same day after approval | Automatic |
+| Full Go-Live | After campaign approval | Ready to send |
+
+### Common Rejection Reasons
+
+- **Name mismatch** — Business name doesn't match EIN records
+- **Website issues** — Site is down, under construction, or doesn't match business name
+- **Restricted content** — Cannabis, gambling, or other restricted industries need special approval
+- **Missing opt-out** — Campaign must include opt-out mechanism
+
+### What Happens While Waiting
+
+While your A2P registration is processing:
+- Voice calls work immediately (A2P only affects SMS)
+- You can still set up and configure all your AI agents
+- Test messages can be sent in limited volumes
+- We'll notify you the moment approval comes through
+
+### Need to Check Status?
+
+Contact your CSM or check the Support tab. We monitor registrations daily and will proactively reach out if there are any issues.`,
+      },
+    ],
+  },
+
+  // ─── MODULE 12: Knowledge Base ───────────────────────────────────
+  {
+    id: 'knowledge-base',
+    title: 'Knowledge Base Setup',
+    description: 'Teach your AI agents everything about your business — services, pricing, FAQs, and policies.',
+    thumbnail: 'from-amber-500 to-orange-600',
+    order: 12,
+    steps: [
+      {
+        id: 'kb-1',
+        moduleId: 'knowledge-base',
+        title: 'Why Knowledge Base Matters',
+        description: 'How your AI agents use business knowledge to give accurate answers.',
+        videoUrl: null,
+        type: 'info' as const,
+        order: 1,
+        instructions: `## Knowledge Base — The Brain of Your AI
+
+Your AI agents are only as good as the information they have. The Knowledge Base is where you teach them everything about your business.
+
+### What It Powers
+
+- **Voice Receptionist** — answers caller questions about services, pricing, and availability
+- **Website Chatbot** — handles website visitor inquiries accurately
+- **Lead Follow-up** — references your services when following up with leads
+- **All agents** — uses your business context for natural, accurate responses
+
+### What We Need From You
+
+1. **Services & Pricing** — what you offer and what it costs
+2. **Business Hours** — when you're open, holidays, after-hours policy
+3. **Service Areas** — where you operate geographically
+4. **FAQs** — common questions your customers ask
+5. **Policies** — cancellation, refund, warranty, etc.
+6. **Team Info** — who to route calls to for specific issues
+7. **Unique Selling Points** — what makes you different from competitors
+
+### The More You Provide, The Better
+
+AI agents with detailed knowledge bases outperform generic ones by 3-5x in customer satisfaction. Take your time with this module.`,
+      },
+      {
+        id: 'kb-2',
+        moduleId: 'knowledge-base',
+        title: 'Services & Pricing',
+        description: 'Document your services, packages, and pricing for your AI agents.',
+        videoUrl: null,
+        type: 'setup' as const,
+        order: 2,
+        instructions: `## Services & Pricing Questionnaire
+
+Fill out the details below so your AI agents can accurately discuss your offerings.
+
+### Your Services
+
+- **List each service** you offer with a brief description
+- **Include pricing** — exact numbers, ranges, or "call for quote"
+- **Note any packages or bundles**
+- **Seasonal or promotional pricing** if applicable
+
+### Pricing Examples
+
+Help your AI handle pricing questions naturally:
+
+| Question Type | Example Answer |
+|--------------|---------------|
+| Direct price ask | "Our standard service starts at $X" |
+| Range pricing | "Typically between $X and $Y depending on..." |
+| Quote required | "That depends on a few factors. Let me get some details and have someone call you with an exact quote" |
+
+### Instructions
+
+Enter your services and pricing details in the text area below. Be as detailed as possible — this directly affects how well your AI handles inquiries.`,
+      },
+      {
+        id: 'kb-3',
+        moduleId: 'knowledge-base',
+        title: 'FAQs & Business Details',
+        description: 'Add frequently asked questions and key business information.',
+        videoUrl: null,
+        type: 'setup' as const,
+        order: 3,
+        instructions: `## FAQs & Business Details
+
+### Business Basics
+
+- **Business hours** — Mon-Fri 8am-5pm, weekends, holidays?
+- **Service area** — city, state, radius, zip codes?
+- **Address** — for customers who need to visit you
+- **Emergency/after-hours** — do you handle urgent calls?
+
+### Common FAQs
+
+Think about what your customers ask most. Write out ideal answers:
+
+1. **"How much does it cost?"**
+2. **"How soon can you come out?"**
+3. **"Do you offer free estimates?"**
+4. **"Are you licensed and insured?"**
+5. **"What areas do you serve?"**
+6. **"Do you offer financing?"**
+7. **"What's your warranty/guarantee?"**
+8. **"What brands do you work with?"**
+
+### Objection Handling
+
+How should the AI handle these?
+
+- **"That's too expensive"** — your preferred response
+- **"I need to think about it"** — how to follow up
+- **"I'm getting other quotes"** — your differentiator
+- **"I found someone cheaper"** — your value proposition
+
+### Enter Below
+
+Type or paste your FAQs and business details in the form below. Don't worry about perfect formatting — we'll organize it for you.`,
+      },
+      {
+        id: 'kb-4',
+        moduleId: 'knowledge-base',
+        title: 'Review & Finalize',
+        description: 'Review your knowledge base and submit for AI training.',
+        videoUrl: null,
+        type: 'demo' as const,
+        order: 4,
+        instructions: `## Review & Finalize Your Knowledge Base
+
+### What Happens Next
+
+1. **Your CSM reviews** the information you've provided
+2. **We format and optimize** it for AI consumption
+3. **We inject it** into each relevant agent's prompt
+4. **You test it** in the Prompt Playground
+5. **We fine-tune** based on your feedback
+
+### Checklist
+
+- [ ] Services and pricing documented
+- [ ] Business hours and location provided
+- [ ] Top FAQs written out
+- [ ] Objection handling preferences noted
+- [ ] Service area defined
+- [ ] Any special policies or notes included
+
+### Pro Tips
+
+- **Update quarterly** — as your business evolves, your AI should too
+- **Listen to calls** — real customer questions reveal gaps in your knowledge base
+- **Be specific** — "We offer 24/7 emergency service" beats "We're always available"
+
+### Ready to Submit?
+
+Click "Mark Complete" and your CSM will be notified to review your knowledge base entries. They'll reach out if anything needs clarification.`,
+      },
+    ],
+  },
+
+  // ─── MODULE 13: Testing Your Agents ──────────────────────────────
+  {
+    id: 'testing',
+    title: 'Testing Your Agents',
+    description: 'Test each AI agent live before deployment — unlocks dynamically as agents are configured.',
+    thumbnail: 'from-cyan-500 to-blue-600',
+    order: 13,
+    steps: [
+      {
+        id: 'testing-1',
+        moduleId: 'testing',
+        title: 'Testing Overview',
+        description: 'How the testing process works and what to expect.',
+        videoUrl: null,
+        type: 'info' as const,
+        order: 1,
+        instructions: `## Testing Your AI Agents
+
+Before any agent goes live with real customers, you'll test it thoroughly. This module unlocks test scenarios dynamically as you complete each agent's setup.
+
+### How It Works
+
+1. **Complete an agent module** (e.g., Voice Receptionist)
+2. **A test scenario appears here** for that specific agent
+3. **Run the test** — call the number, send a text, or chat with the bot
+4. **Provide feedback** — rate the interaction and note any issues
+5. **We fine-tune** — your CSM adjusts based on your feedback
+6. **Re-test** — repeat until you're satisfied
+7. **Approve for deployment** — give the green light to go live
+
+### What Gets Tested
+
+| Agent | Test Method |
+|-------|-------------|
+| Voice Receptionist | Call your AI number |
+| Database Reactivation | Receive a test text sequence |
+| Lead Follow-up | Receive a test follow-up message |
+| Appointment Reminders | Get a test reminder |
+| Quote Follow-up | Receive a test quote follow-up |
+| Review Request | Get a test review request |
+| Website Chatbot | Chat on your test page |
+
+### Important
+
+- **Test with real scenarios** — pretend to be an actual customer
+- **Try edge cases** — ask unusual questions, give vague answers
+- **Test on mobile** — most customers interact on their phones
+- **Take notes** — specific feedback = faster improvements`,
+      },
+      {
+        id: 'testing-2',
+        moduleId: 'testing',
+        title: 'Voice Receptionist Test',
+        description: 'Call your AI receptionist and evaluate the conversation.',
+        videoUrl: null,
+        type: 'demo' as const,
+        order: 2,
+        instructions: `## Test: Voice Receptionist
+
+**Status:** Unlocks after completing the Voice Receptionist module
+
+### Test Scenarios
+
+**Scenario 1: New Customer Inquiry**
+- Call your AI number
+- Say: "Hi, I'm interested in your services. What do you offer?"
+- Evaluate: Does the AI accurately describe your services?
+
+**Scenario 2: Appointment Booking**
+- Call and say: "I'd like to schedule an appointment for next week"
+- Evaluate: Does the AI check availability and offer times?
+
+**Scenario 3: After-Hours Call**
+- Call outside business hours
+- Evaluate: Does the AI handle it correctly? (Take message, offer next-day callback)
+
+**Scenario 4: Difficult Caller**
+- Be vague or evasive: "I'm just looking around" / "How much?" / "I'll think about it"
+- Evaluate: Does the AI stay professional and try to qualify?
+
+### Rate Your Experience
+
+After each test, use the feedback form below to rate:
+- **Accuracy** — Did the AI give correct information?
+- **Tone** — Was it professional and friendly?
+- **Flow** — Did the conversation feel natural?
+- **Outcome** — Did it achieve the goal (book appointment, qualify lead)?`,
+      },
+      {
+        id: 'testing-3',
+        moduleId: 'testing',
+        title: 'Text Agent Tests',
+        description: 'Test your SMS-based agents (DB reactivation, lead follow-up, etc.).',
+        videoUrl: null,
+        type: 'demo' as const,
+        order: 3,
+        instructions: `## Test: Text-Based Agents
+
+**Status:** Unlocks after completing the respective agent modules
+
+### Database Reactivation Test
+
+- Your CSM sends a test reactivation sequence to your phone
+- Evaluate the message flow over 24-48 hours
+- Reply as if you were a past customer
+- Does the AI re-engage you naturally?
+
+### Lead Follow-up Test
+
+- Submit a test lead form on your website or CRM
+- Watch the automated follow-up sequence
+- Reply to the messages — does the AI handle your responses?
+- Does it attempt to book an appointment?
+
+### Appointment Reminder Test
+
+- Create a test appointment in GHL
+- Receive the reminder sequence
+- Reply with "confirm" or "reschedule"
+- Does the system handle both correctly?
+
+### Quote Follow-up Test
+
+- Create a test quote/estimate in GHL
+- Watch the follow-up sequence
+- Reply with objections — "too expensive", "still thinking"
+- Does the AI handle objections well?
+
+### Review Request Test
+
+- Trigger a test review request
+- Click the link — does it go to the right Google/Yelp page?
+- Reply with "not now" — does it follow up appropriately?`,
+      },
+      {
+        id: 'testing-4',
+        moduleId: 'testing',
+        title: 'Approve for Deployment',
+        description: 'Give final approval and go live.',
+        videoUrl: null,
+        type: 'demo' as const,
+        order: 4,
+        instructions: `## Approve for Deployment
+
+### Pre-Deployment Checklist
+
+- [ ] Voice Receptionist tested and approved
+- [ ] Database Reactivation tested and approved
+- [ ] Lead Follow-up tested and approved
+- [ ] Appointment Reminders tested and approved
+- [ ] Quote Follow-up tested and approved
+- [ ] Review Request tested and approved
+- [ ] Website Chatbot tested and approved
+- [ ] Knowledge Base reviewed and complete
+- [ ] A2P registration approved (SMS ready)
+
+### What Deployment Looks Like
+
+1. **Your CSM activates** each approved agent
+2. **Live monitoring** for the first 48 hours
+3. **Daily check-ins** during the first week
+4. **Weekly reports** starting week 2
+5. **Ongoing optimization** based on real data
+
+### Going Live
+
+Once you approve, your CSM will:
+- Flip the switch on each agent
+- Route your phone number to the AI receptionist
+- Activate text automation workflows
+- Deploy the website chatbot widget
+- Start monitoring for quality assurance
+
+### Mark this complete when you're ready to go live!`,
+      },
+    ],
+  },
+
+  // ─── MODULE 14: Management & Handoff ─────────────────────────────
+  {
+    id: 'management',
+    title: 'Management & Handoff',
+    description: 'Your final module — learn to manage your AI systems and transition from setup to growth.',
+    thumbnail: 'from-slate-500 to-zinc-600',
+    order: 14,
+    steps: [
+      {
+        id: 'management-1',
+        moduleId: 'management',
+        title: 'Your Management Dashboard',
+        description: 'Navigate the management tools available to you.',
+        videoUrl: null,
+        type: 'info' as const,
+        order: 1,
+        instructions: `## Your Management Dashboard
+
+Now that your AI agents are deployed, you have access to a full management dashboard to monitor and control everything.
+
+### What You Can Do
+
+- **View call history** — see every call your AI handled, with recordings
+- **Check analytics** — lead volume, appointment rates, response times
+- **Review conversations** — read text message threads
+- **Adjust prompts** — fine-tune AI behavior in the Prompt Playground
+- **Manage contacts** — view and organize your CRM data
+- **Track campaigns** — monitor reactivation and follow-up performance
+
+### How to Access
+
+Click the **Management** tab in the top navigation to explore all tools.
+
+### Key Sections
+
+| Section | What It Does |
+|---------|-------------|
+| Dashboard | Overview of all agent activity |
+| Call History | Voice call logs and recordings |
+| Analytics | Performance metrics and trends |
+| Prompts | Edit AI agent instructions |
+| Knowledge Base | Update business information |
+| Campaigns | Manage text campaigns |`,
+      },
+      {
+        id: 'management-2',
+        moduleId: 'management',
+        title: 'Demo to Live Transition',
+        description: 'Understand the transition from demo/testing to live production.',
+        videoUrl: null,
+        type: 'info' as const,
+        order: 2,
+        instructions: `## Demo to Live — Transition Guide
+
+You've been working in a demo/testing environment. Here's what changes when you go live.
+
+### What Changes
+
+| Item | Demo Mode | Live Mode |
+|------|-----------|-----------|
+| Phone calls | Test number only | Real customer calls |
+| SMS | Limited volume | Full A2P approved volume |
+| Chatbot | Test page | Your live website |
+| Data | Test contacts | Real leads and customers |
+| Monitoring | Self-testing | CSM + automated monitoring |
+
+### Transition Checklist
+
+- [ ] All agents tested and approved
+- [ ] Knowledge base complete and reviewed
+- [ ] Phone number ported or forwarded to AI receptionist
+- [ ] Website chatbot widget installed
+- [ ] A2P registration fully approved
+- [ ] Team notified about new AI systems
+- [ ] Emergency override procedures understood
+
+### Emergency Override
+
+If something goes wrong after launch:
+- **Voice:** Forward your number back to your regular phone in GHL
+- **SMS:** Pause campaigns in the Management dashboard
+- **Chatbot:** Remove the widget code from your website
+- **Call your CSM:** They can pause everything remotely in minutes
+
+### Your CSM is On Call
+
+For the first 2 weeks after go-live, your CSM monitors everything closely and will proactively reach out if they see any issues.`,
+      },
+      {
+        id: 'management-3',
+        moduleId: 'management',
+        title: 'Ongoing Optimization',
+        description: 'How your AI systems improve over time.',
+        videoUrl: null,
+        type: 'info' as const,
+        order: 3,
+        instructions: `## Ongoing Optimization
+
+Your AI agents get better over time. Here's how.
+
+### Weekly Reports
+
+Every week, you'll receive:
+- **Call summary** — total calls, average duration, outcomes
+- **Text summary** — messages sent, response rates, appointments booked
+- **Chatbot summary** — conversations, leads captured, questions asked
+- **Recommendations** — suggested improvements based on data
+
+### Monthly Optimization
+
+Each month, your CSM will:
+1. Review all agent performance data
+2. Identify underperforming scenarios
+3. Update prompts and knowledge base
+4. A/B test new approaches
+5. Report results and next steps
+
+### When to Update Your Knowledge Base
+
+- New services or pricing changes
+- Seasonal promotions or offers
+- Staff changes (new team members to route calls to)
+- Policy updates (hours, service area, warranties)
+- Customer feedback reveals knowledge gaps
+
+### Growth Phase
+
+After 90 days of optimization:
+- Marketing retainer kicks in for lead generation
+- New automations added as opportunities arise
+- Advanced analytics and reporting unlocked
+- Scaling conversations as your volume grows`,
+      },
+      {
+        id: 'management-4',
+        moduleId: 'management',
+        title: 'Congratulations!',
+        description: 'You have completed the full onboarding journey.',
+        videoUrl: null,
+        type: 'info' as const,
+        order: 4,
+        instructions: `## Congratulations — You're Fully Onboarded!
+
+You've completed the entire Disruptors Sales Infra setup. Here's a summary of everything that's been done.
+
+### What You've Accomplished
+
+- **Connected** all your software and API keys
+- **Set up** Twilio for phone and SMS
+- **Registered** for A2P compliance
+- **Built** a comprehensive knowledge base
+- **Configured** your AI Voice Receptionist
+- **Set up** Database Reactivation campaigns
+- **Configured** Lead Follow-up automation
+- **Set up** Appointment Reminders
+- **Configured** Quote Follow-up sequences
+- **Set up** Review Request automation
+- **Deployed** a Website Chatbot
+- **Tested** all agents and approved for deployment
+- **Learned** to manage and optimize your systems
+
+### What Happens Now
+
+1. **Your AI agents are live** — handling calls, texts, and chats 24/7
+2. **Your CSM monitors** everything for the first 2 weeks
+3. **Weekly reports** keep you informed on performance
+4. **Monthly optimization** ensures continuous improvement
+5. **Growth phase** — marketing and lead generation kicks in
+
+### Need Help?
+
+- **Support tab** — AI assistant for quick questions
+- **Your CSM** — for strategy and optimization
+- **Feedback forms** — in every module for specific issues
+- **Email** — support@disruptorsmedia.com
+
+### Thank You
+
+Thank you for choosing Disruptors Media. We're committed to making your business the most responsive, professional, and automated operation in your market. Let's grow! 🚀`,
+      },
+    ],
+  },
+
+  // ─── MODULE 15: Prompt Playground ─────────────────────────────────
   {
     id: 'prompt-playground',
     title: 'Prompt Playground',
     description: 'Test and refine AI prompts before deploying them live.',
     thumbnail: 'from-fuchsia-500 to-purple-600',
-    order: 11,
+    order: 15,
     steps: [
       {
         id: 'prompt-playground-1',
