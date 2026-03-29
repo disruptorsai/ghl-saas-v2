@@ -157,7 +157,8 @@ const workflowFiles = [
 export default function DeployAiReps() {
   const { clientDb } = useClientSupabase()
   const { credentials, loading } = useCredentials()
-  const [promptCategories, setPromptCategories] = useState<string[]>([])
+  const [textPromptCategories, setTextPromptCategories] = useState<string[]>([])
+  const [voicePromptCategories, setVoicePromptCategories] = useState<string[]>([])
   const [loadingPrompts, setLoadingPrompts] = useState(true)
   const [textDeployStatus, setTextDeployStatus] = useState<DeployStatus>('idle')
   const [voiceDeployStatus, setVoiceDeployStatus] = useState<DeployStatus>('idle')
@@ -166,12 +167,20 @@ export default function DeployAiReps() {
     if (!clientDb) return
     const fetchPrompts = async () => {
       setLoadingPrompts(true)
+      // Fetch prompts that actually have content (empty slots don't count)
       const { data } = await clientDb
         .from('prompts')
-        .select('category')
+        .select('category, prompt_type')
+        .not('content', 'is', null)
       if (data) {
-        const categories = [...new Set(data.map(p => p.category as string))]
-        setPromptCategories(categories)
+        const textCats = [...new Set(
+          data.filter(p => p.prompt_type === 'text').map(p => p.category as string)
+        )]
+        const voiceCats = [...new Set(
+          data.filter(p => p.prompt_type === 'voice').map(p => p.category as string)
+        )]
+        setTextPromptCategories(textCats)
+        setVoicePromptCategories(voiceCats)
       }
       setLoadingPrompts(false)
     }
@@ -200,14 +209,12 @@ export default function DeployAiReps() {
     const val = credentials?.[key]
     return typeof val === 'string' && val.trim().length > 0
   }
-  const hasCategory = (cat: string) => promptCategories.includes(cat)
-
   const textChecks: CheckItem[] = [
     { label: 'OpenRouter API Key configured', passed: hasCred('openrouter_api_key') },
     { label: 'Text Engine Webhook configured', passed: hasCred('text_engine_webhook') },
-    { label: 'Bot Persona prompt created', passed: hasCategory('bot_persona') },
-    { label: 'Text Agent prompts created', passed: hasCategory('text_agent') },
-    { label: 'Booking Agent configured', passed: hasCategory('booking_agent') },
+    { label: 'Bot Persona prompt created', passed: textPromptCategories.includes('persona') },
+    { label: 'Text Agent prompts created', passed: textPromptCategories.includes('main_agent') },
+    { label: 'Booking Agent configured', passed: textPromptCategories.includes('booking') },
   ]
 
   const voiceChecks: CheckItem[] = [
@@ -219,7 +226,7 @@ export default function DeployAiReps() {
       label: 'GHL Integration configured',
       passed: hasCred('ghl_api_key') && hasCred('ghl_location_id'),
     },
-    { label: 'Voice Persona prompt created', passed: hasCategory('voice_persona') },
+    { label: 'Voice Persona prompt created', passed: voicePromptCategories.includes('persona') },
   ]
 
   const handleDeploy = async (type: 'Text AI' | 'Voice AI') => {
