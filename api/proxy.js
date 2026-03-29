@@ -1,10 +1,8 @@
-import type { VercelRequest, VercelResponse } from '@vercel/node'
-
 /**
  * Generic webhook proxy to avoid CORS issues.
  * Frontend POSTs { url, body } here, and this function forwards the request server-side.
  */
-export default async function handler(req: VercelRequest, res: VercelResponse) {
+export default async function handler(req, res) {
   if (req.method !== 'POST') {
     return res.status(405).json({ error: 'Method not allowed' })
   }
@@ -39,7 +37,7 @@ export default async function handler(req: VercelRequest, res: VercelResponse) {
     clearTimeout(timeout)
 
     const contentType = response.headers.get('content-type') ?? ''
-    let data: unknown
+    let data
     if (contentType.includes('application/json')) {
       data = await response.json()
     } else {
