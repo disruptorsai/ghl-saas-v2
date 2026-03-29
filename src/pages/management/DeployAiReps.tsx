@@ -244,32 +244,36 @@ export default function DeployAiReps() {
     }
 
     try {
-      const controller = new AbortController()
-      const timeout = setTimeout(() => controller.abort(), 15000)
-      const res = await fetch(webhookUrl, {
+      const res = await fetch('/api/proxy', {
         method: 'POST',
         headers: { 'Content-Type': 'application/json' },
         body: JSON.stringify({
-          action: 'health_check',
-          client_id: clientDb ? 'connected' : undefined,
-          timestamp: new Date().toISOString(),
+          url: webhookUrl,
+          body: {
+            action: 'health_check',
+            client_id: clientDb ? 'connected' : undefined,
+            timestamp: new Date().toISOString(),
+          },
         }),
-        signal: controller.signal,
       })
-      clearTimeout(timeout)
 
-      if (res.ok || res.status === 200 || res.status === 201 || res.status === 204) {
-        setStatus('deployed')
-        toast.success(`${type} deployment verified — webhook is responsive`)
+      if (res.ok) {
+        const json = await res.json()
+        if (json.status >= 200 && json.status < 300) {
+          setStatus('deployed')
+          toast.success(`${type} deployment verified — webhook is responsive`)
+        } else {
+          setStatus('failed')
+          toast.error(`${type} deployment failed — webhook returned ${json.status}`)
+        }
       } else {
         setStatus('failed')
-        toast.error(`${type} deployment failed — webhook returned ${res.status}`)
+        const err = await res.json().catch(() => null)
+        toast.error(`${type} deployment failed: ${err?.error ?? res.statusText}`)
       }
     } catch (err) {
       setStatus('failed')
-      const msg = err instanceof Error && err.name === 'AbortError'
-        ? 'Webhook timed out'
-        : (err instanceof Error ? err.message : 'Network error')
+      const msg = err instanceof Error ? err.message : 'Network error'
       toast.error(`${type} deployment failed: ${msg}`)
     }
   }

@@ -123,24 +123,27 @@ export default function DebugVoiceAi() {
     setCallStatus('ringing')
 
     try {
-      const response = await fetch(webhookUrl!, {
+      const response = await fetch('/api/proxy', {
         method: 'POST',
         headers: { 'Content-Type': 'application/json' },
         body: JSON.stringify({
-          phone_number: phoneNumber.trim(),
-          client_id: clientId,
-          test_call: true,
+          url: webhookUrl!,
+          body: {
+            phone_number: phoneNumber.trim(),
+            client_id: clientId,
+            test_call: true,
+          },
         }),
       })
 
       if (response.ok) {
         setCallStatus('connected')
         toast.success('Test call initiated — monitoring status...')
-        // Poll for real call status from execution_logs
         pollCallStatus(Date.now())
       } else {
         setCallStatus('ended')
-        toast.error(`Call failed: ${response.status} ${response.statusText}`)
+        const err = await response.json().catch(() => null)
+        toast.error(`Call failed: ${err?.error ?? `${response.status} ${response.statusText}`}`)
       }
     } catch (err) {
       setCallStatus('ended')

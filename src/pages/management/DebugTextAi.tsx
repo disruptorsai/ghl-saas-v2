@@ -53,25 +53,34 @@ export default function DebugTextAi() {
     setSending(true)
 
     try {
-      const response = await fetch(webhookUrl!, {
+      const response = await fetch('/api/proxy', {
         method: 'POST',
         headers: { 'Content-Type': 'application/json' },
         body: JSON.stringify({
-          message: text,
-          client_id: clientId,
-          conversation_history: messages.map(m => ({
-            role: m.role,
-            content: m.content,
-          })),
+          url: webhookUrl!,
+          body: {
+            message: text,
+            client_id: clientId,
+            conversation_history: messages.map(m => ({
+              role: m.role,
+              content: m.content,
+            })),
+          },
         }),
       })
 
       let aiContent = 'No response received'
       if (response.ok) {
-        const data = await response.json()
-        aiContent = data.reply ?? data.message ?? data.response ?? JSON.stringify(data)
+        const json = await response.json()
+        const data = json.data
+        if (typeof data === 'string') {
+          aiContent = data
+        } else if (data) {
+          aiContent = data.reply ?? data.message ?? data.response ?? JSON.stringify(data)
+        }
       } else {
-        aiContent = `Error: ${response.status} ${response.statusText}`
+        const err = await response.json().catch(() => null)
+        aiContent = `Error: ${err?.error ?? `${response.status} ${response.statusText}`}`
       }
 
       const aiMessage: ChatMessage = {
