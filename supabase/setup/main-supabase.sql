@@ -87,6 +87,10 @@ create table if not exists clients (
   analytics_webhook_url text,
   ai_chat_webhook_url text,
 
+  -- Module access
+  tier text not null default 'full_suite',
+  module_overrides jsonb not null default '{}',
+
   created_at timestamptz default now(),
   updated_at timestamptz default now()
 );

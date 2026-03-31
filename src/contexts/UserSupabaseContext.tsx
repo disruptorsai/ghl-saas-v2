@@ -52,6 +52,9 @@ export interface ClientData {
   campaign_orchestrator_webhook_url: string | null
   analytics_webhook_url: string | null
   ai_chat_webhook_url: string | null
+  // Module access
+  tier: string
+  module_overrides: Record<string, boolean>
   // Meta
   created_at: string
   updated_at: string
