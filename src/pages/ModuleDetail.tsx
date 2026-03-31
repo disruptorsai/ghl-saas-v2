@@ -1,6 +1,7 @@
 import { useState } from 'react'
 import { useParams, Navigate, Link, useNavigate } from 'react-router-dom'
 import { ArrowLeft, ChevronLeft, ChevronRight, Menu } from 'lucide-react'
+import { toast } from 'sonner'
 import { modules } from '@/data/modules'
 import { StepSidebar } from '@/components/classroom/StepSidebar'
 import { VideoPlayer } from '@/components/classroom/VideoPlayer'
@@ -11,8 +12,11 @@ import { ClassroomCredentials } from '@/components/classroom/ClassroomCredential
 import { VoiceQuestionnaire } from '@/components/classroom/VoiceQuestionnaire'
 import { ModuleLoginCollection } from '@/components/classroom/ModuleLoginCollection'
 import { Button } from '@/components/ui/button'
+import { Skeleton } from '@/components/ui/skeleton'
 import { cn } from '@/lib/utils'
 import { useGhlPath } from '@/hooks/useGhlPath'
+import { useModuleAccess } from '@/hooks/useModuleAccess'
+import { useModuleContent } from '@/hooks/useModuleContent'
 import { Sheet, SheetContent, SheetTitle } from '@/components/ui/sheet'
 
 export default function ModuleDetail() {
@@ -24,9 +28,17 @@ export default function ModuleDetail() {
   const navigate = useNavigate()
   const [sidebarOpen, setSidebarOpen] = useState(false)
   const { isSub } = useGhlPath()
+  const { isModuleUnlocked } = useModuleAccess()
+  const { getStepContent, loading: contentLoading } = useModuleContent(moduleId)
   const classroomBase = `/c/${clientId}/classroom`
 
   const module = modules.find((m) => m.id === moduleId)
+
+  // Module locked — redirect to classroom
+  if (module && !isModuleUnlocked(module.id)) {
+    toast.error('This module is locked')
+    return <Navigate to={classroomBase} replace />
+  }
 
   // Module not found
   if (!module) {
@@ -120,13 +132,31 @@ export default function ModuleDetail() {
           </h1>
 
           {/* Video player */}
-          <VideoPlayer
-            videoUrl={currentStep.videoUrl}
-            title={currentStep.title}
-          />
+          {(() => {
+            const stepContent = getStepContent(currentStep.id)
+            const videoUrl = stepContent?.video_url ?? currentStep.videoUrl ?? null
+            const instructions = stepContent?.instructions ?? currentStep.instructions ?? ''
+            return (
+              <>
+                <VideoPlayer
+                  videoUrl={videoUrl}
+                  title={currentStep.title}
+                />
 
-          {/* Instructions */}
-          <StepInstructions instructions={currentStep.instructions} />
+                {/* Instructions */}
+                {contentLoading ? (
+                  <div className="space-y-3">
+                    <Skeleton className="h-4 w-3/4" />
+                    <Skeleton className="h-4 w-full" />
+                    <Skeleton className="h-4 w-5/6" />
+                    <Skeleton className="h-4 w-2/3" />
+                  </div>
+                ) : (
+                  <StepInstructions instructions={instructions} />
+                )}
+              </>
+            )
+          })()}
 
           {/* Action area by step type */}
           <StepActionArea step={currentStep} />
