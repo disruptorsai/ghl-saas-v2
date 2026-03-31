@@ -1,6 +1,6 @@
 import { useState, useEffect } from 'react'
 import { useNavigate } from 'react-router-dom'
-import { Plus, MoreVertical, Trash2, Edit, Building, LogOut, Settings } from 'lucide-react'
+import { Plus, MoreVertical, Trash2, Edit, Building, LogOut, Settings, ShieldCheck } from 'lucide-react'
 import { Card, CardContent, CardHeader } from '@/components/ui/card'
 import { Button } from '@/components/ui/button'
 import {
@@ -23,6 +23,7 @@ import { Avatar, AvatarFallback, AvatarImage } from '@/components/ui/avatar'
 import { Skeleton } from '@/components/ui/skeleton'
 import { useClients } from '@/hooks/useClients'
 import { useAuth } from '@/contexts/AuthContext'
+import { ModuleAccessManager } from '@/components/ModuleAccessManager'
 import { supabase } from '@/lib/supabase'
 import { toast } from 'sonner'
 
@@ -66,12 +67,16 @@ function ClientCardSkeleton() {
 
 export default function ClientList() {
   const navigate = useNavigate()
-  const { clients, loading, deleteClient } = useClients()
+  const { clients, loading, deleteClient, refetch } = useClients()
   const { user, signOut } = useAuth()
   const [logoUrl, setLogoUrl] = useState<string | null>(null)
   const [deleteDialogOpen, setDeleteDialogOpen] = useState(false)
   const [clientToDelete, setClientToDelete] = useState<{ id: string; name: string } | null>(null)
   const [deleting, setDeleting] = useState(false)
+  const [moduleAccessOpen, setModuleAccessOpen] = useState(false)
+  const [moduleAccessClient, setModuleAccessClient] = useState<{
+    id: string; name: string; tier: string; module_overrides: Record<string, boolean>
+  } | null>(null)
 
   useEffect(() => {
     if (!user) return
@@ -118,6 +123,15 @@ export default function ClientList() {
   const handleEditClick = (e: React.MouseEvent, clientId: string) => {
     e.stopPropagation()
     navigate(`/c/${clientId}/settings`)
+  }
+
+  const handleModuleAccessClick = (
+    e: React.MouseEvent,
+    client: { id: string; name: string; tier: string; module_overrides: Record<string, boolean> }
+  ) => {
+    e.stopPropagation()
+    setModuleAccessClient(client)
+    setModuleAccessOpen(true)
   }
 
   return (
@@ -237,6 +251,19 @@ export default function ClientList() {
                       Edit
                     </DropdownMenuItem>
                     <DropdownMenuItem
+                      onClick={(e) =>
+                        handleModuleAccessClick(e, {
+                          id: client.id,
+                          name: client.name,
+                          tier: client.tier ?? 'full_suite',
+                          module_overrides: (client.module_overrides ?? {}) as Record<string, boolean>,
+                        })
+                      }
+                    >
+                      <ShieldCheck className="mr-2 h-4 w-4" />
+                      Module Access
+                    </DropdownMenuItem>
+                    <DropdownMenuItem
                       className="text-destructive focus:text-destructive"
                       onClick={(e) => handleDeleteClick(e, { id: client.id, name: client.name })}
                     >
@@ -259,6 +286,19 @@ export default function ClientList() {
             </Card>
           ))}
         </div>
+      )}
+
+      {/* Module Access Dialog */}
+      {moduleAccessClient && (
+        <ModuleAccessManager
+          clientId={moduleAccessClient.id}
+          clientName={moduleAccessClient.name}
+          currentTier={moduleAccessClient.tier}
+          currentOverrides={moduleAccessClient.module_overrides}
+          onSaved={refetch}
+          open={moduleAccessOpen}
+          onOpenChange={setModuleAccessOpen}
+        />
       )}
 
       {/* Delete Confirmation Dialog */}

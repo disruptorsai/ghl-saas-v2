@@ -10,6 +10,8 @@ export interface Client {
   image_url: string | null
   logo_url: string | null
   sort_order: number
+  tier: string
+  module_overrides: Record<string, boolean>
   created_at: string
   updated_at: string
 }
@@ -24,7 +26,7 @@ export function useClients() {
     setLoading(true)
     const { data, error } = await supabase
       .from('clients')
-      .select('id, name, email, description, image_url, logo_url, sort_order, created_at, updated_at')
+      .select('id, name, email, description, image_url, logo_url, sort_order, tier, module_overrides, created_at, updated_at')
       .order('sort_order', { ascending: true })
     if (!error && data) setClients(data)
     setLoading(false)
