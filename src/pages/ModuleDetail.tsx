@@ -253,7 +253,8 @@ function StepActionArea({ step }: { step: Step }) {
   }
 }
 
-function SetupChecklist({ instructions }: { instructions: string }) {
+function SetupChecklist({ instructions }: { instructions?: string }) {
+  if (!instructions) return null
   const lines = instructions.split('\n')
   const checkItems = lines.filter((l) => {
     const t = l.trim()

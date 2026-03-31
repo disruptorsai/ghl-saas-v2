@@ -12,8 +12,8 @@ export interface Step {
   moduleId: string
   title: string
   description: string
-  videoUrl: string | null
-  instructions: string
+  videoUrl?: string | null
+  instructions?: string
   type: 'info' | 'setup' | 'config' | 'demo'
   order: number
 }

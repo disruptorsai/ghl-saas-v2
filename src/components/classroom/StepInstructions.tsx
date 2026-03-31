@@ -1,8 +1,9 @@
 interface StepInstructionsProps {
-  instructions: string
+  instructions?: string
 }
 
 export function StepInstructions({ instructions }: StepInstructionsProps) {
+  if (!instructions) return null
   const lines = instructions.split('\n')
   const elements: React.ReactNode[] = []
   let listItems: React.ReactNode[] = []

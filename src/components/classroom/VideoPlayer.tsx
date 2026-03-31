@@ -1,7 +1,7 @@
 import { PlayCircle } from 'lucide-react'
 
 interface VideoPlayerProps {
-  videoUrl: string | null
+  videoUrl?: string | null
   title: string
 }
 
