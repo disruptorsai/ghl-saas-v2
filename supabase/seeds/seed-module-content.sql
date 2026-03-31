@@ -1401,137 +1401,177 @@ Type or paste your FAQs and business details in the form below. Don't worry abou
 ### Ready to Submit?
 
 Click "Mark Complete" and your CSM will be notified to review your knowledge base entries. They'll reach out if anything needs clarification.$md0$, NULL),
-  ('testing', 'testing-1', $md0$## Testing Your AI Agents
+  ('testing', 'testing-1', $md0$## Test Your Engagement Agent
 
-Before any agent goes live with real customers, you'll test it thoroughly. This module unlocks test scenarios dynamically as you complete each agent's setup.
+Your Fractional Chief AI Officer will guide you through testing this agent. They will activate it in the testing module when your build is complete.
+
+Your Engagement Agent is built and ready to test. Here is what to look for.
+
+### How to Test
+
+When you open a conversation with the test chatbot, pretend you are a brand-new lead reaching out to your business for the first time.
+
+Type something like "Hey, I am interested in your services" and see how it responds. Watch for three things:
+
+1. **Does the greeting sound like you?** Does it match the tone you set up?
+2. **Does it ask the right qualifying questions?** The ones you specified in the customization step?
+3. **Does it route correctly?** If you give answers that indicate a high-priority lead, it should try to book you. If you give vague or low-priority answers, it should move you to nurturing.
+
+### Try Multiple Scenarios
+
+Try a few different conversations. Be a difficult lead. Be an easy lead. Ask a weird question. See how it handles it.
+
+Once you are done testing, scroll down to the feedback section. Tell us what worked, what did not, and what you want changed. Hit Submit, and our team will make the adjustments.$md0$, NULL),
+  ('testing', 'testing-2', $md0$## Test Your Lead Qualification Agent
+
+Your Fractional Chief AI Officer will guide you through testing this agent. They will activate it in the testing module when your build is complete.
+
+Let us test your Lead Qualification Agent and make sure it is scoring leads correctly.
+
+### How to Test
+
+When you open the test chat and simulate a lead inquiry, answer the qualifying questions the way a real lead would. What you want to watch is the scoring.
+
+**Test as a high-priority lead:** You have a big budget, you need help soon, you are ready to move. The agent should score you high and route you toward booking.
+
+**Test as a low-priority lead:** You are just browsing, no timeline, not sure what you need. The agent should score you lower and route you to the nurture sequence.
+
+### Edge Cases
+
+Now test the edge cases:
+- What happens when someone says something urgent like "I need this fixed today"?
+- What about "I am already working with someone else"?
+- These are the moments where the AI needs to handle things well.
+
+Check the scoring, check the routing, and submit your feedback. Let us know if any leads are getting scored too high or too low.$md0$, NULL),
+  ('testing', 'testing-3', $md0$## Test Your Appointment Setter Agent
+
+Your Fractional Chief AI Officer will guide you through testing this agent. They will activate it in the testing module when your build is complete.
+
+Your Appointment Setter is ready. Let us make sure it books correctly.
+
+### Test the Booking Flow
+
+Start a conversation as a lead who wants to book. Tell the agent you are interested and ready to schedule.
+
+Watch the booking flow:
+- Does it offer the right appointment types?
+- Does it show your real availability?
+- Go ahead and book a test appointment.
+
+### Verify the Details
+
+Now check your calendar. Did the appointment show up? Check the confirmation message you received. Does it sound right? Does it have all the details your clients need?
+
+Test the reminder system too — you should receive reminders based on the schedule you set up.
+
+### Test Rescheduling
+
+Try rescheduling. Message the agent and say you need to move your appointment. Make sure the rescheduling flow works smoothly.
+
+Submit your feedback when you are done. We will fine-tune anything that needs adjusting.$md0$, NULL),
+  ('testing', 'testing-4', $md0$## Test Your Follow-Up Agent
+
+Your Fractional Chief AI Officer will guide you through testing this agent. They will activate it in the testing module when your build is complete.
+
+Let us test your Follow-Up Agent and make sure the sequence feels right.
+
+### Review the Sequence
+
+First, take a look at the sequence that has been set up. You can see each message in the series, the timing between them, and which channels they go out on.
+
+Your Chief AI Officer will send a test message to your phone number as the test contact. You will receive the first message in the sequence.
+
+### Evaluate the Messages
+
+Read it. Does it sound like you? Is the tone right? Does the personalization look good?
+
+**Test exit criteria:** Reply "not interested" and see what happens. The sequence should stop.
+
+**Test persistence:** Start a new test and do not respond at all. Watch how the messages evolve over time. They should get more creative and persistent without being pushy.
+
+Submit your feedback — especially if the tone, timing, or messaging needs adjustment.$md0$, NULL),
+  ('testing', 'testing-5', $md0$## Test Your Lead Nurture Agent
+
+Your Fractional Chief AI Officer will guide you through testing this agent. They will activate it in the testing module when your build is complete.
+
+Time to test your Lead Nurture Agent. This one is about building trust over time, so let us make sure the content lands.
+
+### Preview the Content
+
+Your Chief AI Officer will trigger the nurture sequence on a test contact so you can review the output together.
+
+Preview the email and text content in the sequence. You should see your testimonials, your case studies, your educational content — all the material you provided during customization.
+
+### Check the Details
+
+- Are the testimonials accurate?
+- Are the before-and-after stories compelling?
+- Does the educational content actually teach something useful?
+- Is the timing between messages right? Not too aggressive, not too spaced out.
+
+Submit your feedback. If you want different testimonials featured or you have new content to add, let us know in the feedback form.$md0$, NULL),
+  ('testing', 'testing-6', $md0$## Test Your Database Reactivation Agent
+
+Your Fractional Chief AI Officer will guide you through testing this agent. They will activate it in the testing module when your build is complete.
+
+Let us test your Database Reactivation Agent before we turn it loose on your real list.
+
+### Small Test Batch
+
+We are going to start small with a test batch of 5 to 10 contacts. You can use your own number, team members, or friends who are willing to help you test. **Do not use real leads for testing.**
+
+Once you upload the batch, watch the outreach go out. Check the messages. Are they personalized correctly? Do they reference the right service or timeframe?
+
+### Test the Re-qualification Flow
+
+Respond to one of the messages as if you are an interested old lead. Watch the re-qualification flow:
+- Does the agent ask the right follow-up questions?
+- Does it try to assess your current needs and timeline?
+- After re-qualification, does the lead get routed correctly? (Hot → booking, Not ready → nurturing)
+
+Submit your feedback and let us know if the messaging or targeting needs tweaking before we go live with your real database.$md0$, NULL),
+  ('testing', 'testing-7', $md0$## Test Your AI Voice Receptionist
+
+Your AI Voice Receptionist is ready to test. For this one, you will need to coordinate with your Fractional Chief AI Officer.
 
 ### How It Works
 
-1. **Complete an agent module** (e.g., Voice Receptionist)
-2. **A test scenario appears here** for that specific agent
-3. **Run the test** — call the number, send a text, or chat with the bot
-4. **Provide feedback** — rate the interaction and note any issues
-5. **We fine-tune** — your CSM adjusts based on your feedback
-6. **Re-test** — repeat until you're satisfied
-7. **Approve for deployment** — give the green light to go live
+Once your Voice Receptionist has been built and configured based on your questionnaire, your Chief AI Officer will set up a dedicated test phone number for you.
 
-### What Gets Tested
+They will reach out to schedule a live test session where you can call the number together, listen to how it handles different scenarios, and give real-time feedback.
 
-| Agent | Test Method |
-|-------|-------------|
-| Voice Receptionist | Call your AI number |
-| Database Reactivation | Receive a test text sequence |
-| Lead Follow-up | Receive a test follow-up message |
-| Appointment Reminders | Get a test reminder |
-| Quote Follow-up | Receive a test quote follow-up |
-| Review Request | Get a test review request |
-| Website Chatbot | Chat on your test page |
+### What to Listen For
 
-### Important
+- Does the greeting sound right? Is it using your business name and the tone you selected?
+- Is it asking your qualification questions in the right order?
+- When you give it a booking scenario, does it correctly offer to schedule?
+- When you trigger an escalation phrase, does it properly hand off?
 
-- **Test with real scenarios** — pretend to be an actual customer
-- **Try edge cases** — ask unusual questions, give vague answers
-- **Test on mobile** — most customers interact on their phones
-- **Take notes** — specific feedback = faster improvements$md0$, NULL),
-  ('testing', 'testing-2', $md0$## Test: Voice Receptionist
+### Leave Feedback
 
-**Status:** Unlocks after completing the Voice Receptionist module
+After your test session, come back here and leave your feedback. Tell us what sounded great and what needs adjustment. Your Chief AI Officer will make the changes and schedule a follow-up test until everything is dialed in.$md0$, NULL),
+  ('testing', 'testing-8', $md0$## Test Your Customer Support Agent
 
-### Test Scenarios
+Your Fractional Chief AI Officer will guide you through testing this agent. They will activate it in the testing module when your build is complete.
 
-**Scenario 1: New Customer Inquiry**
-- Call your AI number
-- Say: "Hi, I'm interested in your services. What do you offer?"
-- Evaluate: Does the AI accurately describe your services?
+Last test. Your Customer Support Agent. Let us make sure it can handle your customers' questions.
 
-**Scenario 2: Appointment Booking**
-- Call and say: "I'd like to schedule an appointment for next week"
-- Evaluate: Does the AI check availability and offer times?
+### Test Basic Questions
 
-**Scenario 3: After-Hours Call**
-- Call outside business hours
-- Evaluate: Does the AI handle it correctly? (Take message, offer next-day callback)
+Pretend you are an existing customer with a question. Start simple. Ask about your business hours, your return policy, or how a service works. These are the kinds of questions your knowledge base should cover.
 
-**Scenario 4: Difficult Caller**
-- Be vague or evasive: "I'm just looking around" / "How much?" / "I'll think about it"
-- Evaluate: Does the AI stay professional and try to qualify?
+Watch the response. Is the information accurate? Does it pull the right details from your knowledge base?
 
-### Rate Your Experience
+### Test Escalation
 
-After each test, use the feedback form below to rate:
-- **Accuracy** — Did the AI give correct information?
-- **Tone** — Was it professional and friendly?
-- **Flow** — Did the conversation feel natural?
-- **Outcome** — Did it achieve the goal (book appointment, qualify lead)?$md0$, NULL),
-  ('testing', 'testing-3', $md0$## Test: Text-Based Agents
+Say something like "I want a refund" or "I need to speak to a manager." The agent should recognize this as an escalation trigger and handle it according to the rules you set up.
 
-**Status:** Unlocks after completing the respective agent modules
+### Test Upsell Detection
 
-### Database Reactivation Test
+Mention something related to another service you offer. For example, if you are a landscaper and the customer asks about lawn maintenance, does the agent suggest your seasonal cleanup package?
 
-- Your CSM sends a test reactivation sequence to your phone
-- Evaluate the message flow over 24-48 hours
-- Reply as if you were a past customer
-- Does the AI re-engage you naturally?
-
-### Lead Follow-up Test
-
-- Submit a test lead form on your website or CRM
-- Watch the automated follow-up sequence
-- Reply to the messages — does the AI handle your responses?
-- Does it attempt to book an appointment?
-
-### Appointment Reminder Test
-
-- Create a test appointment in GHL
-- Receive the reminder sequence
-- Reply with "confirm" or "reschedule"
-- Does the system handle both correctly?
-
-### Quote Follow-up Test
-
-- Create a test quote/estimate in GHL
-- Watch the follow-up sequence
-- Reply with objections — "too expensive", "still thinking"
-- Does the AI handle objections well?
-
-### Review Request Test
-
-- Trigger a test review request
-- Click the link — does it go to the right Google/Yelp page?
-- Reply with "not now" — does it follow up appropriately?$md0$, NULL),
-  ('testing', 'testing-4', $md0$## Approve for Deployment
-
-### Pre-Deployment Checklist
-
-- [ ] Voice Receptionist tested and approved
-- [ ] Database Reactivation tested and approved
-- [ ] Lead Follow-up tested and approved
-- [ ] Appointment Reminders tested and approved
-- [ ] Quote Follow-up tested and approved
-- [ ] Review Request tested and approved
-- [ ] Website Chatbot tested and approved
-- [ ] Knowledge Base reviewed and complete
-- [ ] A2P registration approved (SMS ready)
-
-### What Deployment Looks Like
-
-1. **Your CSM activates** each approved agent
-2. **Live monitoring** for the first 48 hours
-3. **Daily check-ins** during the first week
-4. **Weekly reports** starting week 2
-5. **Ongoing optimization** based on real data
-
-### Going Live
-
-Once you approve, your CSM will:
-- Flip the switch on each agent
-- Route your phone number to the AI receptionist
-- Activate text automation workflows
-- Deploy the website chatbot widget
-- Start monitoring for quality assurance
-
-### Mark this complete when you're ready to go live!$md0$, NULL),
+Submit your feedback. Let us know what is working and what needs adjusting. Our team will fine-tune it and let you know when it is ready for production.$md0$, NULL),
   ('management', 'management-1', $md0$## Your Management Dashboard
 
 Now that your AI agents are deployed, you have access to a full management dashboard to monitor and control everything.

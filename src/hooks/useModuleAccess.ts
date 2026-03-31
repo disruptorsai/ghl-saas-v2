@@ -44,6 +44,8 @@ export function useModuleAccess() {
   const tier = connection?.tier ?? 'full_suite'
   const overrides = (connection?.module_overrides ?? {}) as Record<string, boolean>
 
+
+
   const isModuleUnlocked = useMemo(() => {
     return (moduleId: string): boolean => {
       // Agency users always see everything
