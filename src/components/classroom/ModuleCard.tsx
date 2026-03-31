@@ -41,19 +41,21 @@ const moduleIcons: Record<string, LucideIcon> = {
 interface ModuleCardProps {
   module: Module
   isLocked?: boolean
+  isAccessLocked?: boolean
 }
 
-export function ModuleCard({ module, isLocked = false }: ModuleCardProps) {
+export function ModuleCard({ module, isLocked = false, isAccessLocked = false }: ModuleCardProps) {
   const { clientId } = useParams()
   const { getModuleProgress } = useProgress()
   const { completed, total, percentage } = getModuleProgress(module.id)
   const Icon = moduleIcons[module.id] || Sparkles
+  const effectivelyLocked = isAccessLocked || isLocked
 
   const card = (
     <div
-      className={`group block rounded-xl bg-card border border-border cursor-pointer overflow-hidden card-hover relative${isLocked ? ' opacity-50 pointer-events-none' : ''}`}
+      className={`group block rounded-xl bg-card border border-border cursor-pointer overflow-hidden card-hover relative${effectivelyLocked ? ' opacity-50 pointer-events-none' : ''}`}
     >
-      {isLocked && (
+      {effectivelyLocked && (
         <div className="absolute inset-0 z-10 flex items-center justify-center bg-background/50 rounded-xl">
           <Lock className="h-8 w-8 text-muted-foreground" />
         </div>
@@ -74,6 +76,11 @@ export function ModuleCard({ module, isLocked = false }: ModuleCardProps) {
         <p className="text-sm text-muted-foreground line-clamp-2">
           {module.description}
         </p>
+        {isAccessLocked && (
+          <p className="text-xs text-muted-foreground/70 italic">
+            Your CSM will unlock this when you're ready
+          </p>
+        )}
         <div className="space-y-1.5">
           <div className="h-2.5 rounded-full bg-muted overflow-hidden">
             <div
@@ -89,7 +96,7 @@ export function ModuleCard({ module, isLocked = false }: ModuleCardProps) {
     </div>
   )
 
-  if (isLocked) return card
+  if (effectivelyLocked) return card
 
   return (
     <Link to={`/c/${clientId}/classroom/${module.id}`}>

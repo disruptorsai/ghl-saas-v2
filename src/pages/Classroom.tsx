@@ -3,6 +3,7 @@ import { OverallProgress } from '@/components/classroom/OverallProgress'
 import { ModuleCard } from '@/components/classroom/ModuleCard'
 import { useProgress } from '@/hooks/useProgress'
 import { useGhlPath } from '@/hooks/useGhlPath'
+import { useModuleAccess } from '@/hooks/useModuleAccess'
 import { GhlPathSelection } from '@/components/classroom/GhlPathSelection'
 import { Building2, Users, Settings2 } from 'lucide-react'
 import { Button } from '@/components/ui/button'
@@ -13,6 +14,7 @@ const SUB_ACCOUNT_SKIP = new Set(['api-setup', 'twilio-setup'])
 export default function Classroom() {
   const { getModuleProgress } = useProgress()
   const { path, setPath, isSub } = useGhlPath()
+  const { isModuleUnlocked } = useModuleAccess()
 
   // Show path selection if not yet chosen
   if (!path) {
@@ -54,8 +56,9 @@ export default function Classroom() {
           const isLocked =
             index > 0 &&
             getModuleProgress(visibleModules[index - 1].id).percentage < 100
+          const accessLocked = !isModuleUnlocked(module.id)
           return (
-            <ModuleCard key={module.id} module={module} isLocked={isLocked} />
+            <ModuleCard key={module.id} module={module} isLocked={isLocked} isAccessLocked={accessLocked} />
           )
         })}
       </div>
