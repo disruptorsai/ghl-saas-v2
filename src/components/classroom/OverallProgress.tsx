@@ -1,8 +1,15 @@
 import { useProgress } from '@/hooks/useProgress'
+import { useModuleAccess } from '@/hooks/useModuleAccess'
+import { modules } from '@/data/modules'
 
 export function OverallProgress() {
-  const { getOverallProgress } = useProgress()
-  const { completed, total, percentage } = getOverallProgress()
+  const { getModuleProgress } = useProgress()
+  const { isModuleUnlocked } = useModuleAccess()
+
+  const unlockedModules = modules.filter(m => isModuleUnlocked(m.id))
+  const total = unlockedModules.reduce((sum, m) => sum + m.steps.length, 0)
+  const completed = unlockedModules.reduce((sum, m) => sum + getModuleProgress(m.id).completed, 0)
+  const percentage = total > 0 ? Math.round((completed / total) * 100) : 0
 
   return (
     <div className="space-y-3">
