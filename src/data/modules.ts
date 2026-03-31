@@ -487,45 +487,48 @@ In the next step, you'll adjust the AI's greeting, qualification questions, and 
       {
         id: 'voice-receptionist-3',
         moduleId: 'voice-receptionist',
-        title: 'Customize Voice Prompt',
-        description: 'Adjust the voice agent persona, greeting, and knowledge base.',
+        title: 'Customize Your AI Voice Receptionist',
+        description: 'Configure greeting, qualification questions, voice tone, and call flow.',
         videoUrl: null,
         type: 'config',
         order: 3,
-        instructions: `## Customize Your Voice Receptionist
+        instructions: `## Customize Your AI Voice Receptionist
 
-This is where you make the AI sound like your business. We'll adjust three key areas.
+This is the agent that answers your phone calls, so getting this one right is critical for your business.
+
+**Tip:** If you'd rather talk than type, you can use your computer's built-in voice-to-text. On Windows, press **Windows + H**. On Mac, press **F5**. Just speak naturally and it will type for you.
 
 ### 1. Greeting & Persona
 
-Your AI needs a clear identity. Fill in:
-
-- **Business name** — How should the AI introduce your company?
-- **Greeting style** — Formal ("Thank you for calling...") or casual ("Hey! Thanks for calling...")?
-- **Agent name** — Give your AI a name (e.g., "Sarah", "Alex") or keep it anonymous
+What should the receptionist say when it picks up the phone? Include your business name, what you want to call the agent, and the style of greeting. For example, "Thank you for calling [Your Business], this is Sarah, how can I help you today?"
 
 ### 2. Qualification Questions
 
-These are the questions your AI asks every caller. Default set:
+What does the receptionist need to ask every caller? Their name, the service they need, their location, their timeline. List out the questions in the order you want them asked.
 
-- "What service are you looking for today?"
-- "Is this for a residential or commercial property?"
-- "What's your preferred date and time?"
-- "What's the best number to reach you at?"
+### 3. Voice Tone
 
-**Customize these** to match your business. A dental office might ask about insurance. A plumber might ask about the urgency level.
+What should the voice sound like? Professional or casual? Male or female? We have several options and you'll preview them before going live.
 
-### 3. Knowledge Base
+### 4. Booking vs. Transfer Rules
 
-Provide the AI with answers to your most common questions:
+When should the agent book a caller onto your calendar? And when should it transfer to a real person? Think about upset callers, complex questions, existing customers with issues. Define those rules here.
 
-- **Services offered** — List your main services and brief descriptions
-- **Pricing** — General ranges or "We provide free estimates"
-- **Hours** — Business hours and emergency availability
-- **Service area** — Cities/zip codes you serve
-- **FAQs** — Any other common questions callers ask
+### 5. Service Descriptions
 
-**Tip:** The more context you give the AI, the better it handles calls. Don't worry about perfection — you can always update this later.`,
+How do you describe your services when someone calls and asks "what do you do?" Write it the way you would say it on the phone.
+
+### 6. Common Phone Questions (Top 5-10)
+
+What are the top questions people ask when they call your business? Write them out with the answers you want the receptionist to give.
+
+### 7. Call Flow
+
+Walk us through your ideal call from start to finish. What happens at each step? When does the call end? What should trigger the agent to escalate?
+
+### Fill Out the Questionnaire Below
+
+Once you've filled everything out, hit Save. For this one, just pretend you're training a brand new receptionist. Tell them exactly how you want calls handled.`,
       },
       {
         id: 'voice-receptionist-4',
@@ -602,8 +605,8 @@ Use the feedback form below to share anything you'd like changed. Common request
   // ─── MODULE 5: Database Reactivation ──────────────────────────────
   {
     id: 'db-reactivation',
-    title: 'Database Reactivation',
-    description: 'Re-engage cold leads in your CRM and turn old contacts into booked appointments.',
+    title: 'Database Reactivation Agent',
+    description: 'Revive dormant leads from your CRM through personalized, batched outreach at scale.',
     thumbnail: 'from-orange-500 to-red-600',
     order: 5,
     steps: [
@@ -679,42 +682,40 @@ Here's the complete flow from uploading contacts to booking appointments.
       {
         id: 'db-reactivation-3',
         moduleId: 'db-reactivation',
-        title: 'Customize Text Templates',
-        description: 'Adjust outreach messages, follow-up sequences, and tone.',
+        title: 'Customize Your Database Reactivation Agent',
+        description: 'Configure target leads, batch size, personalization, and offers.',
         videoUrl: null,
         type: 'config',
         order: 3,
-        instructions: `## Customize Your Reactivation Messages
+        instructions: `## Customize Your Database Reactivation Agent
 
-The default templates work great out of the box, but customizing them for your business will boost response rates.
+This agent goes after leads you've already collected but never closed — or past customers who might be ready for another round.
 
-### Initial Outreach Template
+### 1. Which Leads to Target
 
-Adjust the first message contacts receive. Key principles:
-- **Keep it short** — under 160 characters for SMS
-- **Be personal** — use their first name
-- **Create curiosity** — don't sell, just open a conversation
-- **Include a question** — questions get 40% more responses
+Who do you want to reach back out to? Old leads from the last 6 months? Past customers from a specific service line? People who got a quote but never booked? Be specific about the segment.
 
-### Follow-Up Sequence
+### 2. Batch Size & Send Timing
 
-- **Day 0:** Initial outreach message
-- **Day 3:** Gentle follow-up ("Just wanted to make sure you saw my message...")
-- **Day 7:** Value-add message (share a tip, offer, or update)
-- **Day 14:** Final check-in ("No worries if now isn't the right time...")
+We don't blast your entire list at once — that would overwhelm you. Tell us how many leads per day you can handle (10? 25? 50?) and what time of day messages should go out.
 
-### Tone & Voice
+### 3. Message Personalization
 
-Choose the tone that matches your brand:
-- **Professional** — Best for medical, legal, financial services
-- **Friendly & Casual** — Best for home services, fitness, salons
-- **Urgent & Direct** — Best for limited-time offers or seasonal campaigns
+The best reactivation messages reference something specific — their name, the service they asked about, how long ago they inquired. Tell us what data you have on these leads so we can personalize effectively.
 
-### Pro Tips
+### 4. Re-qualification Questions
 
-- Mention something specific: "We just upgraded our [service]" performs better than generic messages
-- Avoid ALL CAPS, excessive punctuation, or anything that feels spammy
-- The AI will adapt its conversation style to match your templates`,
+When someone responds, what should the agent ask to see if they're still a good fit? Their timeline, budget, and whether their needs have changed.
+
+### 5. Seasonal or Promotional Offer
+
+Do you have any current promotions, seasonal offers, or limited-time deals you want to lead with? A strong offer dramatically improves reactivation rates.
+
+### Fill Out the Questionnaire Below
+
+Use the form below to configure your Database Reactivation Agent. If you'd rather talk than type, use voice-to-text — on Windows press **Windows + H**, on Mac press **F5**.
+
+Once everything is filled out, hit Save and our team will build it out for you.`,
       },
       {
         id: 'db-reactivation-4',
@@ -787,8 +788,8 @@ Make sure you've:
   // ─── MODULE 6: Lead Follow-up ─────────────────────────────────────
   {
     id: 'lead-followup',
-    title: 'Lead Follow-up',
-    description: 'Automated multi-step follow-up from first contact to booked appointment.',
+    title: 'Follow-Up Agent',
+    description: 'Persistent, multi-touch follow-up sequence to re-engage unresponsive leads.',
     thumbnail: 'from-cyan-500 to-blue-600',
     order: 6,
     steps: [
@@ -870,44 +871,44 @@ If the lead replies, the AI picks up the conversation naturally and works toward
       {
         id: 'lead-followup-3',
         moduleId: 'lead-followup',
-        title: 'Customize Follow-up Sequence',
-        description: 'Adjust timing, messaging, and templates at each step.',
+        title: 'Customize Your Follow-Up Agent',
+        description: 'Configure touchpoints, timing, channels, tone, and exit criteria.',
         videoUrl: null,
         type: 'config',
         order: 3,
-        instructions: `## Customize Your Follow-up Sequence
+        instructions: `## Customize Your Follow-Up Agent
 
-Every business is different. Adjust the sequence timing and messaging to match your sales cycle.
+This is the agent that keeps following up with leads who haven't responded yet. It's persistent, but we want to make sure it's persistent in the right way.
 
-### Timing Adjustments
+### 1. Number of Touchpoints
 
-For **high-urgency services** (plumbing, HVAC, emergency dental):
-- Compress the sequence: Day 1-3 should be more aggressive
-- Add a "same-day availability" message
-- Follow up 3x in the first 24 hours
+The default is 10 messages over 21 days. That's a solid starting point, but you can adjust it. Some businesses want more aggressive follow-up, some want less. Tell us what feels right.
 
-For **considered purchases** (legal, real estate, financial):
-- Space out follow-ups more
-- Focus on education and trust-building
-- Extend the sequence to 21-30 days
+### 2. Timing Between Messages
 
-### Message Customization
+How long should the agent wait between each follow-up? Every day? Every other day? You can set different gaps for different stages of the sequence.
 
-For each touchpoint, you can customize:
-- **The message copy** — what you say
-- **The channel** — SMS, email, or both
-- **The timing** — when it goes out relative to the trigger
-- **The condition** — only send if no reply yet / always send
+### 3. Channel Preferences
 
-### Templates to Provide
+Do you want follow-ups sent via SMS only, email only, or a mix of both? Multi-channel usually gets better response rates, but it depends on your audience.
 
-Help us personalize your sequence:
-- **Your unique selling proposition** — what makes you different?
-- **Common objections** — what do leads usually hesitate about?
-- **Social proof** — any impressive stats, reviews, or case studies?
-- **Current offers** — any promotions or incentives to mention?
+### 4. Tone & Brand Voice
 
-**The more specific you are, the better your AI will convert.**`,
+Should these messages be casual and friendly? Professional and direct? Somewhere in between? Give us a feel for how you talk to your customers.
+
+### 5. Exit Criteria
+
+What should stop the follow-up sequence? Obviously if someone replies "not interested" — but what else? If they book an appointment? If they unsubscribe? List the scenarios.
+
+### 6. Message Personalization
+
+What personal details should the agent reference? Their name, the service they asked about, something specific from their initial conversation? The more personalized, the better the response rate.
+
+### Fill Out the Questionnaire Below
+
+Use the form below to configure your Follow-Up Agent. If you'd rather talk than type, use voice-to-text — on Windows press **Windows + H**, on Mac press **F5**.
+
+Once everything is filled out, hit Save and our team will build it out for you.`,
       },
       {
         id: 'lead-followup-4',
@@ -976,8 +977,8 @@ The first week of data is the most valuable. After launch, review the AI convers
   // ─── MODULE 7: Appointment Reminders ──────────────────────────────
   {
     id: 'appointment-reminders',
-    title: 'Appointment Reminders',
-    description: 'Reduce no-shows with automated, perfectly-timed reminders.',
+    title: 'Appointment Setter Agent',
+    description: 'Books meetings, confirms details, sends reminders, and manages your calendar.',
     thumbnail: 'from-yellow-500 to-orange-600',
     order: 7,
     steps: [
@@ -1053,45 +1054,44 @@ All reminders sync with your GoHighLevel calendar. Any changes to the appointmen
       {
         id: 'appointment-reminders-3',
         moduleId: 'appointment-reminders',
-        title: 'Customize Reminders',
+        title: 'Customize Your Appointment Setter',
         description: 'Adjust reminder timing, messaging, and channels.',
         videoUrl: null,
         type: 'config',
         order: 3,
-        instructions: `## Customize Your Reminders
+        instructions: `## Customize Your Appointment Setter Agent
 
-Adjust the reminder system to match your appointment workflow.
+This is the agent that actually books meetings on your calendar — so let's make sure it does it right.
 
-### Timing Configuration
+### 1. Appointment Types
 
-Choose when reminders go out:
-- **48 hours before** — good for appointments that require preparation
-- **24 hours before** — standard, works for most businesses
-- **2 hours before** — good for same-day or next-day bookings
-- **1 hour before** — final reminder with directions
+What kind of appointments do you offer? Discovery calls, demos, consultations, on-site visits, estimates? List them all out. If you have different types for different services, include those too.
 
-### Message Customization
+### 2. Available Time Slots & Buffer Times
 
-For each reminder, customize:
-- **Tone** — professional, friendly, or casual
-- **Content** — what details to include (address, prep instructions, what to bring)
-- **Channel** — SMS only, email only, or both
-- **Confirmation request** — require reply to confirm, or just inform
+When can people book? What days and hours? And how much buffer do you want between appointments? If you need 15 minutes between calls to reset, tell us here.
 
-### Special Instructions
+### 3. Calendar Integration
 
-Add business-specific details to your reminders:
-- "Please arrive 10 minutes early to fill out paperwork"
-- "Bring your insurance card and photo ID"
-- "Park in the rear lot, entrance is on Main Street"
-- "Wear comfortable clothing for your session"
+Which calendar are you using — Google Calendar, the built-in GHL calendar, or something else? We need to connect it so your agent can see real-time availability and avoid double-booking.
 
-### Post-Appointment Customization
+### 4. Confirmation Message Wording
 
-Adjust what happens after the visit:
-- Thank you message timing (immediate, 1 hour, 2 hours after)
-- Review platform preference (Google, Yelp, Facebook, or custom)
-- Rebooking prompt for recurring services`,
+When someone books, what should the confirmation text say? Give us the wording you want, including your business name and any details the client should know before the appointment.
+
+### 5. Reminder Schedule
+
+We recommend sending a reminder 24 hours before and 1 hour before the appointment. If you want a different schedule, just tell us.
+
+### 6. Rescheduling Rules
+
+Can leads reschedule on their own? How many times? How close to the appointment can they reschedule? Set your rules here.
+
+### Fill Out the Questionnaire Below
+
+Use the form below to configure your Appointment Setter Agent. If you'd rather talk than type, use voice-to-text — on Windows press **Windows + H**, on Mac press **F5**.
+
+Once everything is filled out, hit Save and our team will build it out for you.`,
       },
       {
         id: 'appointment-reminders-4',
@@ -1518,8 +1518,8 @@ You've reviewed and tested the Review Request agent.
   // ─── MODULE 10: Website Chatbot ───────────────────────────────────
   {
     id: 'website-chatbot',
-    title: 'Website Chatbot',
-    description: '24/7 website engagement — qualify visitors, answer questions, and book appointments.',
+    title: 'Engagement Agent',
+    description: 'Always-on website chatbot and SMS — engages visitors, qualifies leads, and books appointments.',
     thumbnail: 'from-indigo-500 to-blue-600',
     order: 10,
     steps: [
@@ -1600,51 +1600,40 @@ The chatbot knows which page the visitor is on and tailors the conversation:
       {
         id: 'website-chatbot-3',
         moduleId: 'website-chatbot',
-        title: 'Customize Chatbot Prompt',
-        description: 'Adjust persona, greeting, knowledge base, and goals.',
+        title: 'Customize Your Engagement Agent',
+        description: 'Configure greeting, qualifying questions, business hours, and escalation triggers.',
         videoUrl: null,
         type: 'config',
         order: 3,
-        instructions: `## Customize Your Website Chatbot
+        instructions: `## Customize Your Engagement Agent
 
-Make the chatbot sound and behave exactly like your brand.
+This is the agent that talks to new leads when they first reach out — so we want to make sure it sounds like you and asks the right questions.
 
-### 1. Persona & Identity
+### 1. Greeting Message & Tone
 
-- **Name** — give your chatbot a name (e.g., "Alex from [Business]")
-- **Tone** — professional, friendly, casual, or a mix
-- **Avatar** — we'll set up a branded chat icon
+Do you want your agent to be casual and friendly, or more professional and buttoned-up? Type out the greeting you want your leads to see when they first reach out. Something like "Hey there! Thanks for reaching out to [your business]. How can I help?" — or whatever feels right for your brand.
 
-### 2. Greeting Message
+### 2. Qualifying Questions
 
-The first thing visitors see. Examples:
-- "Hey! Welcome to [Business]. How can I help you today?"
-- "Hi there! Looking for [service]? I can answer any questions or help you book."
-- "Welcome! I'm [Name], your virtual assistant. What brings you here today?"
+These are the questions your agent asks to figure out what the lead needs. For a roofer, it might be "What type of roof do you have?" For a med spa, it might be "What treatment are you interested in?" Fill in the questions that make sense for your business.
 
-### 3. Knowledge Base Content
+### 3. Business Hours
 
-Provide comprehensive answers for:
-- **Services** — what you offer, brief descriptions of each
-- **Pricing** — ranges, packages, or "free consultation" messaging
-- **Process** — how you work, what to expect
-- **Location & Hours** — where you are, when you're open
-- **Differentiators** — what makes you different from competitors
-- **FAQs** — the top 10-15 questions visitors ask
+When is your team available? This tells the agent when to try booking appointments versus when to say "We will follow up with you during business hours."
 
-### 4. Conversation Goals
+### 4. Escalation Triggers
 
-What should the chatbot prioritize?
-- **Book an appointment** (primary for most businesses)
-- **Capture contact info** (name, email, phone)
-- **Answer questions** (education-focused businesses)
-- **Route to team member** (complex sales processes)
+When should the AI stop and hand off to a real person? Maybe when someone says "I need to talk to a manager" or when a lead is ready to buy right now. List those scenarios in the questionnaire below.
 
-### 5. Widget Appearance
+### 5. Knowledge Base Content
 
-- Position: bottom-right (standard) or bottom-left
-- Color scheme: match your brand colors
-- Auto-open vs. click-to-open`,
+If you haven't completed the Knowledge Base module yet, go do that first. That content feeds directly into this agent. The chatbot pulls from your knowledge base for services, pricing, FAQs, process, and location info.
+
+### Fill Out the Questionnaire Below
+
+Use the form below to configure your Engagement Agent. If you'd rather talk than type, you can use your computer's built-in voice-to-text — on Windows press **Windows + H**, on Mac press **F5**.
+
+Once everything is filled out, hit Save and our team will build it out for you.`,
       },
       {
         id: 'website-chatbot-4',
