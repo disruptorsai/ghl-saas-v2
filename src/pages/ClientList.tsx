@@ -251,6 +251,7 @@ export default function ClientList() {
                       Edit
                     </DropdownMenuItem>
                     <DropdownMenuItem
+                      onSelect={(e) => e.preventDefault()}
                       onClick={(e) =>
                         handleModuleAccessClick(e, {
                           id: client.id,
