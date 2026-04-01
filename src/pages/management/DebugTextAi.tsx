@@ -435,7 +435,7 @@ export default function DebugTextAi() {
         </div>
 
         {/* Chat area */}
-        <Card className="flex flex-1 flex-col min-w-0">
+        <Card className="flex flex-1 flex-col min-w-0 overflow-hidden">
           {/* Active agent banner */}
           {selectedAgent && (
             <div className="flex items-center gap-2 px-4 py-2 border-b border-border text-xs text-muted-foreground">
@@ -470,7 +470,7 @@ export default function DebugTextAi() {
                         : 'bg-muted'
                     }`}
                   >
-                    <p className="whitespace-pre-wrap">{msg.content || (streaming ? '...' : '')}</p>
+                    <p className="whitespace-pre-wrap break-words overflow-hidden">{msg.content || (streaming ? '...' : '')}</p>
                     <p
                       className={`mt-1 text-xs ${
                         msg.role === 'user'
