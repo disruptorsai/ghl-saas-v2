@@ -340,100 +340,6 @@ export default function DebugTextAi() {
         </div>
       </div>
 
-      {/* Config bar */}
-      <Card>
-        <CardContent className="py-4">
-          <div className="flex flex-wrap items-end gap-4">
-            {/* Agent selector */}
-            <div className="space-y-1.5 min-w-[200px]">
-              <Label className="text-xs text-muted-foreground">Agent</Label>
-              <Select value={selectedAgentId} onValueChange={(v) => { setSelectedAgentId(v); clearChat() }}>
-                <SelectTrigger className="h-9">
-                  <SelectValue placeholder="Select an agent" />
-                </SelectTrigger>
-                <SelectContent>
-                  {availableAgents.map(agent => (
-                    <SelectItem key={agent.id} value={`${agent.id}`}>
-                      <div className="flex items-center gap-2">
-                        <Bot className="h-3.5 w-3.5 text-muted-foreground" />
-                        {agent.prompt_name}
-                      </div>
-                    </SelectItem>
-                  ))}
-                </SelectContent>
-              </Select>
-            </div>
-
-            {/* Provider toggle */}
-            {hasOpenRouter && hasOpenAI && (
-              <div className="space-y-1.5">
-                <Label className="text-xs text-muted-foreground">Provider</Label>
-                <div className="flex items-center gap-2 h-9">
-                  <span className={`text-xs ${provider === 'openai' ? 'text-foreground font-medium' : 'text-muted-foreground'}`}>
-                    OpenAI
-                  </span>
-                  <Switch
-                    checked={provider === 'openrouter'}
-                    onCheckedChange={(checked) => setProvider(checked ? 'openrouter' : 'openai')}
-                  />
-                  <span className={`text-xs ${provider === 'openrouter' ? 'text-foreground font-medium' : 'text-muted-foreground'}`}>
-                    OpenRouter
-                  </span>
-                </div>
-              </div>
-            )}
-
-            {!(hasOpenRouter && hasOpenAI) && (
-              <div className="space-y-1.5">
-                <Label className="text-xs text-muted-foreground">Provider</Label>
-                <div className="flex items-center h-9">
-                  <span className="text-sm font-medium">{hasOpenRouter ? 'OpenRouter' : 'OpenAI'}</span>
-                </div>
-              </div>
-            )}
-
-            {/* Model selector */}
-            <div className="space-y-1.5 min-w-[200px] flex-1">
-              <Label className="text-xs text-muted-foreground">Model</Label>
-              <div className="flex items-center gap-2">
-                <Select
-                  value={selectedModel}
-                  onValueChange={handleModelChange}
-                  disabled={modelsLoading || models.length === 0}
-                >
-                  <SelectTrigger className="h-9 flex-1">
-                    <SelectValue placeholder={modelsLoading ? 'Loading models...' : 'Select a model'} />
-                  </SelectTrigger>
-                  <SelectContent className="max-h-60">
-                    {models.map(m => (
-                      <SelectItem key={m.id} value={m.id} className="text-sm">
-                        {m.name}
-                      </SelectItem>
-                    ))}
-                  </SelectContent>
-                </Select>
-                {!isDefaultModel && (
-                  <Button variant="ghost" size="sm" onClick={resetModel} title="Reset to default model" className="h-9 px-2">
-                    <RotateCcw className="h-3.5 w-3.5" />
-                  </Button>
-                )}
-              </div>
-            </div>
-          </div>
-
-          {/* Active agent info */}
-          {selectedAgent && (
-            <div className="mt-3 flex items-center gap-2 text-xs text-muted-foreground">
-              <Bot className="h-3.5 w-3.5" />
-              <span>
-                Testing as <span className="font-medium text-foreground">{selectedAgent.prompt_name}</span>
-                {personaPrompt?.content?.trim() && ' with Bot Persona'}
-              </span>
-            </div>
-          )}
-        </CardContent>
-      </Card>
-
       {/* No agents warning */}
       {availableAgents.length === 0 && (
         <Alert>
@@ -445,80 +351,175 @@ export default function DebugTextAi() {
         </Alert>
       )}
 
-      {/* Chat interface */}
-      <Card className="flex h-[550px] flex-col">
-        <ScrollArea className="flex-1 p-4">
-          <div className="space-y-4">
-            {messages.length === 0 && (
-              <div className="flex h-full items-center justify-center py-20">
-                <p className="text-sm text-muted-foreground text-center">
-                  {selectedAgent
-                    ? `Send a message to test your ${selectedAgent.prompt_name}`
-                    : 'Select an agent above to start testing'}
-                </p>
-              </div>
-            )}
-            {messages.map(msg => (
-              <div
-                key={msg.id}
-                className={`flex ${msg.role === 'user' ? 'justify-end' : 'justify-start'}`}
-              >
-                <div
-                  className={`max-w-[75%] rounded-lg px-4 py-2 text-sm ${
-                    msg.role === 'user'
-                      ? 'bg-primary text-primary-foreground'
-                      : 'bg-muted'
+      {/* Main layout: sidebar + chat */}
+      <div className="flex gap-3 h-[calc(100vh-200px)] min-h-[450px]">
+        {/* Agent sidebar */}
+        <div className="w-56 shrink-0 rounded-xl border border-border bg-card flex flex-col overflow-hidden">
+          <div className="px-3 py-2 border-b border-border">
+            <p className="text-xs font-medium text-muted-foreground">Agents</p>
+          </div>
+          <ScrollArea className="flex-1">
+            <div className="p-1.5 space-y-0.5">
+              {availableAgents.map(agent => (
+                <button
+                  key={agent.id}
+                  onClick={() => { setSelectedAgentId(`${agent.id}`); clearChat() }}
+                  className={`w-full flex items-center gap-2 rounded-md px-2.5 py-2 text-left text-xs transition-colors ${
+                    `${agent.id}` === selectedAgentId
+                      ? 'bg-primary/10 text-primary font-medium'
+                      : 'text-muted-foreground hover:bg-muted hover:text-foreground'
                   }`}
                 >
-                  <p className="whitespace-pre-wrap">{msg.content || (streaming ? '...' : '')}</p>
-                  <p
-                    className={`mt-1 text-xs ${
-                      msg.role === 'user'
-                        ? 'text-primary-foreground/70'
-                        : 'text-muted-foreground'
-                    }`}
-                  >
-                    {msg.timestamp.toLocaleTimeString()}
-                  </p>
+                  <Bot className="h-3.5 w-3.5 shrink-0" />
+                  <span className="leading-tight">{agent.prompt_name}</span>
+                </button>
+              ))}
+            </div>
+          </ScrollArea>
+
+          {/* Provider & Model config at bottom of sidebar */}
+          <div className="border-t border-border p-2.5 space-y-2">
+            {/* Provider */}
+            {hasOpenRouter && hasOpenAI ? (
+              <div className="flex items-center justify-between">
+                <Label className="text-[10px] text-muted-foreground">Provider</Label>
+                <div className="flex items-center gap-1.5">
+                  <span className={`text-[10px] ${provider === 'openai' ? 'text-foreground font-medium' : 'text-muted-foreground'}`}>
+                    OAI
+                  </span>
+                  <Switch
+                    className="scale-75"
+                    checked={provider === 'openrouter'}
+                    onCheckedChange={(checked) => setProvider(checked ? 'openrouter' : 'openai')}
+                  />
+                  <span className={`text-[10px] ${provider === 'openrouter' ? 'text-foreground font-medium' : 'text-muted-foreground'}`}>
+                    OR
+                  </span>
                 </div>
               </div>
-            ))}
-            <div ref={messagesEndRef} />
-          </div>
-        </ScrollArea>
+            ) : (
+              <div className="flex items-center justify-between">
+                <Label className="text-[10px] text-muted-foreground">Provider</Label>
+                <span className="text-[10px] font-medium">{hasOpenRouter ? 'OpenRouter' : 'OpenAI'}</span>
+              </div>
+            )}
 
-        {/* Input area */}
-        <CardContent className="border-t p-4">
-          <div className="flex gap-2">
-            <Input
-              value={input}
-              onChange={e => setInput(e.target.value)}
-              onKeyDown={handleKeyDown}
-              placeholder="Type a message..."
-              disabled={!selectedAgentId || streaming || !selectedModel}
-            />
-            <Button
-              onClick={handleSend}
-              disabled={!selectedAgentId || !input.trim() || streaming || !selectedModel}
-            >
-              {streaming ? (
-                <Loader2 className="h-4 w-4 animate-spin" />
-              ) : (
-                <Send className="h-4 w-4" />
-              )}
-            </Button>
-            <Button
-              variant="ghost"
-              size="icon"
-              onClick={clearChat}
-              disabled={messages.length === 0 && !streaming}
-              title="Clear chat"
-            >
-              <Trash2 className="h-4 w-4" />
-            </Button>
+            {/* Model */}
+            <div className="space-y-1">
+              <div className="flex items-center justify-between">
+                <Label className="text-[10px] text-muted-foreground">Model</Label>
+                {!isDefaultModel && (
+                  <button onClick={resetModel} title="Reset to default" className="text-muted-foreground hover:text-foreground">
+                    <RotateCcw className="h-2.5 w-2.5" />
+                  </button>
+                )}
+              </div>
+              <Select
+                value={selectedModel}
+                onValueChange={handleModelChange}
+                disabled={modelsLoading || models.length === 0}
+              >
+                <SelectTrigger className="h-7 text-[11px]">
+                  <SelectValue placeholder={modelsLoading ? 'Loading...' : 'Select model'} />
+                </SelectTrigger>
+                <SelectContent className="max-h-60">
+                  {models.map(m => (
+                    <SelectItem key={m.id} value={m.id} className="text-xs">
+                      {m.name}
+                    </SelectItem>
+                  ))}
+                </SelectContent>
+              </Select>
+            </div>
           </div>
-        </CardContent>
-      </Card>
+        </div>
+
+        {/* Chat area */}
+        <Card className="flex flex-1 flex-col min-w-0">
+          {/* Active agent banner */}
+          {selectedAgent && (
+            <div className="flex items-center gap-2 px-4 py-2 border-b border-border text-xs text-muted-foreground">
+              <Bot className="h-3.5 w-3.5" />
+              <span>
+                Testing as <span className="font-medium text-foreground">{selectedAgent.prompt_name}</span>
+                {personaPrompt?.content?.trim() && ' with Bot Persona'}
+              </span>
+            </div>
+          )}
+
+          <ScrollArea className="flex-1 p-4">
+            <div className="space-y-4">
+              {messages.length === 0 && (
+                <div className="flex h-full items-center justify-center py-20">
+                  <p className="text-sm text-muted-foreground text-center">
+                    {selectedAgent
+                      ? `Send a message to test your ${selectedAgent.prompt_name}`
+                      : 'Select an agent to start testing'}
+                  </p>
+                </div>
+              )}
+              {messages.map(msg => (
+                <div
+                  key={msg.id}
+                  className={`flex ${msg.role === 'user' ? 'justify-end' : 'justify-start'}`}
+                >
+                  <div
+                    className={`max-w-[75%] rounded-lg px-4 py-2 text-sm ${
+                      msg.role === 'user'
+                        ? 'bg-primary text-primary-foreground'
+                        : 'bg-muted'
+                    }`}
+                  >
+                    <p className="whitespace-pre-wrap">{msg.content || (streaming ? '...' : '')}</p>
+                    <p
+                      className={`mt-1 text-xs ${
+                        msg.role === 'user'
+                          ? 'text-primary-foreground/70'
+                          : 'text-muted-foreground'
+                      }`}
+                    >
+                      {msg.timestamp.toLocaleTimeString()}
+                    </p>
+                  </div>
+                </div>
+              ))}
+              <div ref={messagesEndRef} />
+            </div>
+          </ScrollArea>
+
+          {/* Input area */}
+          <CardContent className="border-t p-4">
+            <div className="flex gap-2">
+              <Input
+                value={input}
+                onChange={e => setInput(e.target.value)}
+                onKeyDown={handleKeyDown}
+                placeholder="Type a message..."
+                disabled={!selectedAgentId || streaming || !selectedModel}
+              />
+              <Button
+                onClick={handleSend}
+                disabled={!selectedAgentId || !input.trim() || streaming || !selectedModel}
+              >
+                {streaming ? (
+                  <Loader2 className="h-4 w-4 animate-spin" />
+                ) : (
+                  <Send className="h-4 w-4" />
+                )}
+              </Button>
+              <Button
+                variant="ghost"
+                size="icon"
+                onClick={clearChat}
+                disabled={messages.length === 0 && !streaming}
+                title="Clear chat"
+              >
+                <Trash2 className="h-4 w-4" />
+              </Button>
+            </div>
+          </CardContent>
+        </Card>
+      </div>
     </div>
   )
 }
