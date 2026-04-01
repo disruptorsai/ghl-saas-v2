@@ -447,7 +447,7 @@ export default function DebugTextAi() {
             </div>
           )}
 
-          <ScrollArea className="flex-1 p-4">
+          <div className="flex-1 overflow-y-auto p-4 min-h-0">
             <div className="space-y-4">
               {messages.length === 0 && (
                 <div className="flex h-full items-center justify-center py-20">
@@ -485,7 +485,7 @@ export default function DebugTextAi() {
               ))}
               <div ref={messagesEndRef} />
             </div>
-          </ScrollArea>
+          </div>
 
           {/* Input area */}
           <CardContent className="border-t p-4">
