@@ -26,7 +26,7 @@ import {
 } from '@/components/ui/select'
 import { useCredentials } from '@/hooks/useCredentials'
 import { useClientSupabase } from '@/contexts/UserSupabaseContext'
-import { usePrompts, type Prompt } from '@/hooks/usePrompts'
+import { usePrompts } from '@/hooks/usePrompts'
 import { useModelList, type Provider } from '@/hooks/useModelList'
 
 interface ChatMessage {
