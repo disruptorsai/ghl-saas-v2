@@ -49,13 +49,11 @@ export function ModuleCard({ module, isLocked = false, isAccessLocked = false }:
   const { getModuleProgress } = useProgress()
   const { completed, total, percentage } = getModuleProgress(module.id)
   const Icon = moduleIcons[module.id] || Sparkles
-  const effectivelyLocked = isAccessLocked || isLocked
-
   const card = (
     <div
-      className={`group block rounded-xl bg-card border border-border cursor-pointer overflow-hidden card-hover relative${effectivelyLocked ? ' opacity-50 pointer-events-none' : ''}`}
+      className={`group block rounded-xl bg-card border border-border cursor-pointer overflow-hidden card-hover relative${isAccessLocked ? ' opacity-50 pointer-events-none' : ''}${isLocked && !isAccessLocked ? ' opacity-60' : ''}`}
     >
-      {effectivelyLocked && (
+      {isAccessLocked && (
         <div className="absolute inset-0 z-10 flex items-center justify-center bg-background/50 rounded-xl">
           <Lock className="h-8 w-8 text-muted-foreground" />
         </div>
@@ -96,7 +94,7 @@ export function ModuleCard({ module, isLocked = false, isAccessLocked = false }:
     </div>
   )
 
-  if (effectivelyLocked) return card
+  if (isAccessLocked || isLocked) return card
 
   return (
     <Link to={`/c/${clientId}/classroom/${module.id}`}>
