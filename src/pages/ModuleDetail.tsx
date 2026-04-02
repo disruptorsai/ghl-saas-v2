@@ -135,7 +135,7 @@ export default function ModuleDetail() {
           {(() => {
             const stepContent = getStepContent(currentStep.id)
             const videoUrl = stepContent?.video_url ?? currentStep.videoUrl ?? null
-            const instructions = stepContent?.instructions ?? currentStep.instructions ?? ''
+            const instructions = currentStep.instructions ?? stepContent?.instructions ?? ''
             return (
               <>
                 <VideoPlayer
