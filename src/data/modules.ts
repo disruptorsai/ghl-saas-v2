@@ -14,7 +14,7 @@ export const modules: Module[] = [
         moduleId: 'welcome',
         title: 'Welcome Video',
         description: 'A personal welcome from the team and what to expect.',
-        videoUrl: 'https://www.youtube.com/embed/P_tIJYXVK6Q',
+        videoUrl: 'https://www.youtube.com/embed/P_tIJYXVK6Q?rel=0&modestbranding=1&iv_load_policy=3',
         type: 'info',
         order: 1,
         instructions: `## Welcome to Disruptors Sales Infra
@@ -109,7 +109,7 @@ Your experience is broken into 4 clear phases. Here's what to expect at each sta
         moduleId: 'api-setup',
         title: 'Why You Own Everything',
         description: 'Understand why your systems are built in your own software.',
-        videoUrl: 'https://www.youtube.com/embed/kr1JS5JrQQI',
+        videoUrl: 'https://www.youtube.com/embed/kr1JS5JrQQI?rel=0&modestbranding=1&iv_load_policy=3',
         type: 'info',
         order: 1,
         instructions: `## You Own Everything We Build
@@ -136,7 +136,7 @@ We've seen too many businesses get burned by agencies that own the systems. When
         moduleId: 'api-setup',
         title: 'GoHighLevel Setup',
         description: 'Get your GHL API key, location ID, and account details.',
-        videoUrl: 'https://www.youtube.com/embed/83gpqDALY_0',
+        videoUrl: 'https://www.youtube.com/embed/83gpqDALY_0?rel=0&modestbranding=1&iv_load_policy=3',
         type: 'setup',
         order: 2,
         instructions: `## GoHighLevel Setup
@@ -296,7 +296,7 @@ Once all items are checked, you're ready to move on! The next module will walk y
         moduleId: 'twilio-setup',
         title: 'Why Twilio & What to Expect',
         description: 'Understand why Twilio is needed and how the setup works.',
-        videoUrl: 'https://www.youtube.com/embed/klQnLZoT6C4',
+        videoUrl: 'https://www.youtube.com/embed/klQnLZoT6C4?rel=0&modestbranding=1&iv_load_policy=3',
         type: 'info' as const,
         order: 1,
         instructions: `## Twilio Setup — Overview
@@ -414,7 +414,7 @@ Your CSM will confirm:
         moduleId: 'voice-receptionist',
         title: 'What It Does & ROI',
         description: 'Understand the voice receptionist and its impact on your business.',
-        videoUrl: 'https://www.youtube.com/embed/XEvCsspYqxw',
+        videoUrl: 'https://www.youtube.com/embed/XEvCsspYqxw?rel=0&modestbranding=1&iv_load_policy=3',
         type: 'info',
         order: 1,
         instructions: `## AI Voice Receptionist — Overview & ROI
@@ -604,7 +604,7 @@ Use the feedback form below to share anything you'd like changed. Common request
         moduleId: 'db-reactivation',
         title: 'What It Does & ROI',
         description: 'Understand database reactivation and its revenue potential.',
-        videoUrl: 'https://www.youtube.com/embed/7ucpUsm63pk',
+        videoUrl: 'https://www.youtube.com/embed/7ucpUsm63pk?rel=0&modestbranding=1&iv_load_policy=3',
         type: 'info',
         order: 1,
         instructions: `## Database Reactivation — Overview & ROI
@@ -783,7 +783,7 @@ Make sure you've:
         moduleId: 'lead-followup',
         title: 'What It Does & ROI',
         description: 'How automated follow-up transforms your lead conversion.',
-        videoUrl: 'https://www.youtube.com/embed/XvX1qYGoKa8',
+        videoUrl: 'https://www.youtube.com/embed/XvX1qYGoKa8?rel=0&modestbranding=1&iv_load_policy=3',
         type: 'info',
         order: 1,
         instructions: `## Lead Follow-up — Overview & ROI
@@ -968,7 +968,7 @@ The first week of data is the most valuable. After launch, review the AI convers
         moduleId: 'appointment-reminders',
         title: 'What It Does & ROI',
         description: 'How automated reminders dramatically reduce no-shows.',
-        videoUrl: 'https://www.youtube.com/embed/JfaKuyQE7JE',
+        videoUrl: 'https://www.youtube.com/embed/JfaKuyQE7JE?rel=0&modestbranding=1&iv_load_policy=3',
         type: 'info',
         order: 1,
         instructions: `## Appointment Reminders — Overview & ROI
@@ -1495,7 +1495,7 @@ You've reviewed and tested the Review Request agent.
         moduleId: 'website-chatbot',
         title: 'What It Does & ROI',
         description: 'How a website chatbot captures leads you are currently losing.',
-        videoUrl: 'https://www.youtube.com/embed/KNMjRgaFq1w',
+        videoUrl: 'https://www.youtube.com/embed/KNMjRgaFq1w?rel=0&modestbranding=1&iv_load_policy=3',
         type: 'info',
         order: 1,
         instructions: `## Website Chatbot — Overview & ROI
