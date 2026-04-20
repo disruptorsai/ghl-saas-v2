@@ -136,7 +136,7 @@ We've seen too many businesses get burned by agencies that own the systems. When
         moduleId: 'api-setup',
         title: 'GoHighLevel Setup',
         description: 'Get your GHL API key, location ID, and account details.',
-        videoUrl: 'https://www.youtube.com/embed/83gpqDALY_0?rel=0&modestbranding=1&iv_load_policy=3',
+        videoUrl: 'https://www.youtube.com/embed/iY54uvo1R1s?rel=0&modestbranding=1&iv_load_policy=3',
         type: 'setup',
         order: 2,
         instructions: `## GoHighLevel Setup
@@ -481,6 +481,7 @@ In the next step, you'll adjust the AI's greeting, qualification questions, and 
         moduleId: 'voice-receptionist',
         title: 'Customize Your AI Voice Receptionist',
         description: 'Configure greeting, qualification questions, voice tone, and call flow.',
+        videoUrl: 'https://www.youtube.com/embed/WbVRzgAXPms?rel=0&modestbranding=1&iv_load_policy=3',
         type: 'config',
         order: 3,
         instructions: `## Customize Your AI Voice Receptionist
@@ -672,6 +673,7 @@ Here's the complete flow from uploading contacts to booking appointments.
         moduleId: 'db-reactivation',
         title: 'Customize Your Database Reactivation Agent',
         description: 'Configure target leads, batch size, personalization, and offers.',
+        videoUrl: 'https://www.youtube.com/embed/VL_m8QD1H7Y?rel=0&modestbranding=1&iv_load_policy=3',
         type: 'config',
         order: 3,
         instructions: `## Customize Your Database Reactivation Agent
@@ -857,6 +859,7 @@ If the lead replies, the AI picks up the conversation naturally and works toward
         moduleId: 'lead-followup',
         title: 'Customize Your Follow-Up Agent',
         description: 'Configure touchpoints, timing, channels, tone, and exit criteria.',
+        videoUrl: 'https://www.youtube.com/embed/BVBx0lI-WiA?rel=0&modestbranding=1&iv_load_policy=3',
         type: 'config',
         order: 3,
         instructions: `## Customize Your Follow-Up Agent
@@ -1036,6 +1039,7 @@ All reminders sync with your GoHighLevel calendar. Any changes to the appointmen
         moduleId: 'appointment-reminders',
         title: 'Customize Your Appointment Setter',
         description: 'Adjust reminder timing, messaging, and channels.',
+        videoUrl: 'https://www.youtube.com/embed/nsRh1uZ1tD4?rel=0&modestbranding=1&iv_load_policy=3',
         type: 'config',
         order: 3,
         instructions: `## Customize Your Appointment Setter Agent
@@ -1568,6 +1572,7 @@ The chatbot knows which page the visitor is on and tailors the conversation:
         moduleId: 'website-chatbot',
         title: 'Customize Your Engagement Agent',
         description: 'Configure greeting, qualifying questions, business hours, and escalation triggers.',
+        videoUrl: 'https://www.youtube.com/embed/tS8zXwrwlPY?rel=0&modestbranding=1&iv_load_policy=3',
         type: 'config',
         order: 3,
         instructions: `## Customize Your Engagement Agent
@@ -1677,6 +1682,7 @@ The chatbot is added to your website with a small code snippet. If you use WordP
         moduleId: 'a2p-registration',
         title: 'What Is A2P & Why It Matters',
         description: 'Understand A2P 10DLC compliance and why it is required.',
+        videoUrl: 'https://www.youtube.com/embed/qOr5vNasZhA?rel=0&modestbranding=1&iv_load_policy=3',
         type: 'info' as const,
         order: 1,
         instructions: `## A2P 10DLC Registration — Overview
@@ -1832,6 +1838,7 @@ Contact your CSM or check the Support tab. We monitor registrations daily and wi
         moduleId: 'knowledge-base',
         title: 'Why Knowledge Base Matters',
         description: 'How your AI agents use business knowledge to give accurate answers.',
+        videoUrl: 'https://www.youtube.com/embed/sW5iWTHNyWk?rel=0&modestbranding=1&iv_load_policy=3',
         type: 'info' as const,
         order: 1,
         instructions: `## Knowledge Base — The Brain of Your AI
@@ -2040,6 +2047,7 @@ Click "Mark Complete" and your CSM will be notified to review your knowledge bas
         moduleId: 'testing',
         title: 'Test Your Engagement Agent',
         description: 'Test the chatbot greeting, qualifying questions, and lead routing.',
+        videoUrl: 'https://www.youtube.com/embed/-iTvU5jnzwg?rel=0&modestbranding=1&iv_load_policy=3',
         type: 'demo' as const,
         order: 1,
         instructions: `## Test Your Engagement Agent
@@ -2099,6 +2107,7 @@ Check the scoring, check the routing, and submit your feedback. Let us know if a
         moduleId: 'testing',
         title: 'Test Your Appointment Setter Agent',
         description: 'Test booking flow, calendar sync, confirmations, and rescheduling.',
+        videoUrl: 'https://www.youtube.com/embed/FA_CSMj3-Y0?rel=0&modestbranding=1&iv_load_policy=3',
         type: 'demo' as const,
         order: 3,
         instructions: `## Test Your Appointment Setter Agent
@@ -2133,6 +2142,7 @@ Submit your feedback when you are done. We will fine-tune anything that needs ad
         moduleId: 'testing',
         title: 'Test Your Follow-Up Agent',
         description: 'Review the follow-up sequence, tone, timing, and exit criteria.',
+        videoUrl: 'https://www.youtube.com/embed/cujYmhWd5qk?rel=0&modestbranding=1&iv_load_policy=3',
         type: 'demo' as const,
         order: 4,
         instructions: `## Test Your Follow-Up Agent
@@ -2190,6 +2200,7 @@ Submit your feedback. If you want different testimonials featured or you have ne
         moduleId: 'testing',
         title: 'Test Your Database Reactivation Agent',
         description: 'Run a small test batch and verify personalization and re-qualification.',
+        videoUrl: 'https://www.youtube.com/embed/fTtB3GV9nhE?rel=0&modestbranding=1&iv_load_policy=3',
         type: 'demo' as const,
         order: 6,
         instructions: `## Test Your Database Reactivation Agent
@@ -2218,6 +2229,7 @@ Submit your feedback and let us know if the messaging or targeting needs tweakin
         moduleId: 'testing',
         title: 'Test Your AI Voice Receptionist',
         description: 'Call the test number and evaluate greeting, questions, booking, and escalation.',
+        videoUrl: 'https://www.youtube.com/embed/xMJL_VYqiwA?rel=0&modestbranding=1&iv_load_policy=3',
         type: 'demo' as const,
         order: 7,
         instructions: `## Test Your AI Voice Receptionist
@@ -2408,6 +2420,7 @@ After 90 days of optimization:
         moduleId: 'management',
         title: 'Congratulations!',
         description: 'You have completed the full onboarding journey.',
+        videoUrl: 'https://www.youtube.com/embed/OSQgY2fYojw?rel=0&modestbranding=1&iv_load_policy=3',
         type: 'info' as const,
         order: 4,
         instructions: `## Congratulations — You're Fully Onboarded!
