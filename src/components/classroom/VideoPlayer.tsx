@@ -1,11 +1,13 @@
+import type { ReactNode } from 'react'
 import { PlayCircle } from 'lucide-react'
 
 interface VideoPlayerProps {
   videoUrl?: string | null
   title: string
+  diagram?: ReactNode
 }
 
-export function VideoPlayer({ videoUrl, title }: VideoPlayerProps) {
+export function VideoPlayer({ videoUrl, title, diagram }: VideoPlayerProps) {
   if (videoUrl) {
     return (
       <div className="aspect-video rounded-xl overflow-hidden bg-muted">
@@ -18,6 +20,10 @@ export function VideoPlayer({ videoUrl, title }: VideoPlayerProps) {
         />
       </div>
     )
+  }
+
+  if (diagram) {
+    return <>{diagram}</>
   }
 
   return (

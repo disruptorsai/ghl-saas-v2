@@ -5,6 +5,7 @@ import { toast } from 'sonner'
 import { modules } from '@/data/modules'
 import { StepSidebar } from '@/components/classroom/StepSidebar'
 import { VideoPlayer } from '@/components/classroom/VideoPlayer'
+import { StepDiagram, hasStepDiagram } from '@/components/classroom/StepDiagram'
 import { StepInstructions } from '@/components/classroom/StepInstructions'
 import { MarkComplete } from '@/components/classroom/MarkComplete'
 import { StepFeedback } from '@/components/classroom/StepFeedback'
@@ -141,6 +142,11 @@ export default function ModuleDetail() {
                 <VideoPlayer
                   videoUrl={videoUrl}
                   title={currentStep.title}
+                  diagram={
+                    !videoUrl && hasStepDiagram(currentStep.id) ? (
+                      <StepDiagram stepId={currentStep.id} title={currentStep.title} />
+                    ) : undefined
+                  }
                 />
 
                 {/* Instructions */}
