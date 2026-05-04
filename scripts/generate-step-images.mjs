@@ -97,6 +97,26 @@ const STEPS = [
     id: 'quote-followup-1',
     prompt: 'A deep black canvas with a centered hero composition. A glassmorphic chart panel showing two simple cream rectangle bars rising at different heights, the taller right-hand bar capped with a glowing gold currency emblem surrounded by a warm gold halo. In the foreground, a glassmorphic document card with a small gold price tag clipped to its corner. Premium dark editorial style suggesting revenue uplift.',
   },
+  {
+    id: 'quote-followup-2',
+    prompt: 'Wide thumbnail composition on a deep black canvas. Far left: a glassmorphic quote document card with a small gold dollar emblem clipped to its corner. Next: a cream clock face indicating wait time. Center: a cream AI bot avatar with a soft gold halo. Right: a glassmorphic chat bubble holding a gold checkmark glyph (objection handled). Far right: a glowing gold "won" badge with a warm halo. Premium dark editorial — automated quote follow-up.',
+  },
+  {
+    id: 'quote-followup-3',
+    prompt: 'Hero composition on a deep black canvas. A central glassmorphic document template card with cream-line placeholder rows representing editable text fields, each row marked with a small gold edit-pencil icon. Floating at the corners: small cream tool glyphs — a paintbrush, a dropdown selector, a toggle switch. A faint gold halo behind the template. Premium dark editorial — template customization moment.',
+  },
+  {
+    id: 'quote-followup-4',
+    prompt: 'A deep black canvas. On the left, a cream-line silhouette of a customer with a soft glassmorphic chat bubble (gold-tinted border). On the right, a cream-line silhouette of a customer-success agent wearing a headset, with a soft glassmorphic chat bubble (cream-tinted border). Two thin connecting arcs between the bubbles. In the bottom corner, a small price-tag glyph rendered as a faint gold glow watermark. Warm, supportive, premium dark editorial.',
+  },
+  {
+    id: 'quote-followup-5',
+    prompt: 'Composition on a deep black canvas. A glassmorphic clipboard card with five gold checkmarks on the left. On the right (the hero): a glowing gold ribbon medal with a warm halo and a few tiny gold confetti particles. A subtle price-tag glyph as a soft watermark in the corner. Premium celebratory dark editorial.',
+  },
+  {
+    id: 'review-request-1',
+    prompt: 'Hero thumbnail composition on a deep black canvas. A glassmorphic storefront card in the foreground with a clean awning silhouette. Above the storefront, five glowing gold five-point stars rising in a graceful arc, with a thin upward arrow tracing the climb from a partial-star rating up to a full glowing 5-star halo. Behind the stars, faint cream silhouettes of public review platform badges suggested as soft glow shapes. Premium dark editorial — reputation and ROI uplift.',
+  },
 ]
 
 const OUT_DIR = resolve(ROOT, 'src/assets/steps')
